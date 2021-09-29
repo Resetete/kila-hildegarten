@@ -6,14 +6,16 @@
   <li><a href="#!">Eingewöhnung</a></li>
 </ul>
 <nav>
-  <div class="nav-wrapper">
+  <div class="nav-wrapper container">
     <a href="#!" class="brand-logo">Logo</a>
     <ul class="right hide-on-med-and-down">
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Kinderladen<i class="material-icons right">arrow_drop_down</i></a></li>
-      <li><a href="badges.html">Team</a></li>
-      <li><a href="badges.html">Eltern</a></li>
-      <li><a href="badges.html">Bilder</a></li>
-      <li><a href="badges.html">Kontakt</a></li>
+      <li> <%= link_to 'Team', root_path %> </li>
+      <li> <%= link_to 'Eltern', root_path %> </li>
+      <li> <%= link_to 'Bilder', root_path %> </li>
+      <li> <%= link_to 'Kontakt', root_path %> </li>
+      <li> <span class="horizontal-space"></span></li>
+      <li> <%= link_to 'Admin', root_path %> </li>
     </ul>
   </div>
 </nav>

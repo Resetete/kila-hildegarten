@@ -1,5 +1,20 @@
 @import 'materialize-css/dist/css/materialize';
 
-.test {
-  background-color: red;
+html {
+  background-color: rgba(190,190,248,1); /* #bebef8 */
+}
+
+.main-content {
+  margin-top: 2em;
+}
+
+/* NavBar */
+
+nav {
+  background-color: rgba(200,190,250,1) !important;
+  color: black !important;
+}
+
+.horizontal-space {
+  margin-left: 5em;
 }
