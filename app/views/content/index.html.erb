@@ -1,0 +1,6 @@
+<h1>List all page contents</h1>
+
+<% @page_contents.each do |content| %>
+  <p> Content: <%= content.content %> </p>
+  <p> Page: <%= content.page %></p>
+<% end %>
