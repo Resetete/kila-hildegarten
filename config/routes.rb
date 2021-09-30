@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  resources :content
+  resources :contents
 end

@@ -1,0 +1,15 @@
+<h1>Create new content</h1>
+
+Create new content for the different pages
+
+Has a form for the new content
+
+<%= form_for @content  do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.label :page %>
+  <%= f.text_field :page %>
+
+  <%= f.submit %>
+<% end %>
