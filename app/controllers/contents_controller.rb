@@ -1,4 +1,6 @@
 class ContentsController < ApplicationController
+  before_action :set_content, only: [:edit, :update]
+
   def index
     @page_contents = Content.all
   end
@@ -13,12 +15,9 @@ class ContentsController < ApplicationController
     redirect_to root_path
   end
 
-  def edit
-    @content = Content.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @content = Content.find(params[:id])
     if @content.update(content_params)
       redirect_to root_path
     else
@@ -30,5 +29,9 @@ class ContentsController < ApplicationController
 
   def content_params
     params.require(:content).permit(:content, :page)
+  end
+
+  def set_content
+    @content = Content.find(params[:id])
   end
 end
