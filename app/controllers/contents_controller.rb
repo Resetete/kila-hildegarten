@@ -10,6 +10,7 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.save
+    redirect_to root_path
   end
 
   private

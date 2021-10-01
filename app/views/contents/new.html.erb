@@ -4,12 +4,20 @@ Create new content for the different pages
 
 Has a form for the new content
 
-<%= form_for @content  do |f| %>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
+<div class="row">
+  <%= form_for @content, class: 'col s12'  do |f| %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.text_area :content, class: 'materialize-textarea', cols: 50, rows: 50 %>
+        <%= f.label :content, 'Inhalt' %>
+      </div>
 
-  <%= f.label :page %>
-  <%= f.text_field :page %>
+      <div class="input-field col s12">
+        <%= f.select :page, Page::PAGE_TYPES %>
+        <%= f.label :page, 'Seite' %>
+      </div>
 
-  <%= f.submit %>
-<% end %>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

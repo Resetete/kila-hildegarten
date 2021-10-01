@@ -1,5 +1,3 @@
 class Page < ApplicationRecord
-  #has_many :contents # one page type can have several
-
-  PAGE_TYPES = %w[home contact team parents]
+  PAGE_TYPES = ['Home', 'Kinderladen', 'Wir über uns', 'Tagesablauf', 'Räume', 'Konzept', 'Eingewöhnung', 'Team', 'Eltern', 'Kontakt']
 end
