@@ -1,8 +1,12 @@
-<h1>Home page</h1>
-
 <p>if logged in admin</p>
 <p>show edit content button</p>
 <%= link_to 'new', new_content_path %>
-<%= "test: #{@content}" %>
+<%= link_to 'edit', edit_content_path(@main_content) %>
 
-<p>content of the start page</p>
+<p><%= simple_format(@main_content) %></p>
+
+<h2>Neuigkeiten</h2>
+<%= link_to 'edit', edit_content_path(@jobs) %>
+<p class="highlight"><%= simple_format(@jobs) %></p>
+<%= link_to 'edit', edit_content_path(@kila_free_positions) %>
+<p class="highlight"><%= simple_format(@kila_free_positions) %></p>
