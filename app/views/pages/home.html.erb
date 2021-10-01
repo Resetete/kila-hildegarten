@@ -3,10 +3,10 @@
 <%= link_to 'new', new_content_path %>
 <%= link_to 'edit', edit_content_path(@main_content) %>
 
-<p><%= simple_format(@main_content) %></p>
+<p><%= simple_format(@main_content.content) %></p>
 
 <h2>Neuigkeiten</h2>
 <%= link_to 'edit', edit_content_path(@jobs) %>
-<p class="highlight"><%= simple_format(@jobs) %></p>
+<p class="highlight"><%= simple_format(@jobs.content) %></p>
 <%= link_to 'edit', edit_content_path(@kila_free_positions) %>
-<p class="highlight"><%= simple_format(@kila_free_positions) %></p>
+<p class="highlight"><%= simple_format(@kila_free_positions.content) %></p>

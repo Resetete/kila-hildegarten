@@ -1,0 +1,17 @@
+<div class="row">
+  <%= form_for @content, class: 'col s12'  do |f| %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.text_area :content, class: 'materialize-textarea', :size => "30x10" %>
+        <%= f.label :content, 'Inhalt' %>
+      </div>
+
+      <div class="input-field col s12">
+        <%= f.select :page, Page::PAGE_TYPES %>
+        <%= f.label :page, 'Seite' %>
+      </div>
+
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

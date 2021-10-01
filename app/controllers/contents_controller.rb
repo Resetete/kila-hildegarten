@@ -13,6 +13,19 @@ class ContentsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @content = Content.find(params[:id])
+  end
+
+  def update
+    @content = Content.find(params[:id])
+    if @content.update(content_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def content_params
