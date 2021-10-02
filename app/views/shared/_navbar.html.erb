@@ -10,12 +10,15 @@
     <%= link_to 'Kila Hildegarten', root_path, class: "brand-logo" %>
     <ul class="right hide-on-med-and-down">
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Kinderladen<i class="material-icons right">arrow_drop_down</i></a></li>
-      <li> <%= link_to 'Team', root_path %> </li>
-      <li> <%= link_to 'Eltern', root_path %> </li>
-      <li> <%= link_to 'Bilder', root_path %> </li>
-      <li> <%= link_to 'Kontakt', root_path %> </li>
-      <li> <span class="horizontal-space"></span></li>
-      <li> <%= link_to 'Admin', root_path %> </li>
+      <li><%= link_to 'Team', root_path %></li>
+      <li><%= link_to 'Eltern', root_path %></li>
+      <li><%= link_to 'Bilder', root_path %></li>
+      <li><%= link_to 'Kontakt', root_path %></li>
+      <li><span class="horizontal-space"></span></li>
+      <li><%= link_to 'Login', new_admin_session_path %></li>
+      <% if admin_signed_in? %>
+        <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete %></li>
+      <% end %>
     </ul>
   </div>
 </nav>
