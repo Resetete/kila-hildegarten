@@ -1,15 +1,23 @@
-<%= show_content_actions(@main_content) %>
-<p><%= simple_format(@main_content.content) %></p>
+<div class="row valign-wrapper">
+  <div class="col s4">
+    <%= image_tag 'home', alt: 'kila garden picture with children', class: 'responsive-img' %>
+  </div>
 
-<h2>Neuigkeiten</h2>
-<div class="row">
-  <%= show_content_actions(@jobs) %>
-  <div class="card-panel teal white-text"><%= simple_format(@jobs.content) %></div>
-</div>
+  <div class="col s8">
+    <%= show_content_actions(@main_content) %>
+    <p><%= simple_format(@main_content.content) %></p>
 
-<div class="row">
-  <%= show_content_actions(@kila_free_positions) %>
-  <div class="card-panel teal white-text">
-    <%= simple_format(@kila_free_positions.content) %>
+    <h2>Neuigkeiten</h2>
+    <div class="row">
+      <%= show_content_actions(@jobs) %>
+      <div class="card-panel teal white-text"><%= simple_format(@jobs.content) %></div>
+    </div>
+
+    <div class="row">
+      <%= show_content_actions(@kila_free_positions) %>
+      <div class="card-panel teal white-text">
+        <%= simple_format(@kila_free_positions.content) %>
+      </div>
+    </div>
   </div>
 </div>
