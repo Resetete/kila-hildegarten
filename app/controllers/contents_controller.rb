@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:edit, :update]
+  before_action :authenticate_admin!
 
   def index
     @page_contents = Content.all
