@@ -1,5 +1,2 @@
-
-<%= link_to 'new', new_content_path %>
-<%= link_to 'edit', edit_content_path(@main_content) %>
-
+<%= show_content_actions(@main_content) %>
 <p><%= simple_format(@main_content.content) %></p>

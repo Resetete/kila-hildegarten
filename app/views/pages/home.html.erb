@@ -1,12 +1,15 @@
-<p>if logged in admin</p>
-<p>show edit content button</p>
-<%= link_to 'new', new_content_path %>
-<%= link_to 'edit', edit_content_path(@main_content) %>
-
+<%= show_content_actions(@main_content) %>
 <p><%= simple_format(@main_content.content) %></p>
 
 <h2>Neuigkeiten</h2>
-<%= link_to 'edit', edit_content_path(@jobs) %>
-<p class="highlight"><%= simple_format(@jobs.content) %></p>
-<%= link_to 'edit', edit_content_path(@kila_free_positions) %>
-<p class="highlight"><%= simple_format(@kila_free_positions.content) %></p>
+<div class="row">
+  <%= show_content_actions(@jobs) %>
+  <div class="card-panel teal white-text"><%= simple_format(@jobs.content) %></div>
+</div>
+
+<div class="row">
+  <%= show_content_actions(@kila_free_positions) %>
+  <div class="card-panel teal white-text">
+    <%= simple_format(@kila_free_positions.content) %>
+  </div>
+</div>

@@ -18,8 +18,11 @@
 
     <main>
       <div class="container main-content">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <% if notice %>
+          <p class="notice card-panel teal lighten-2"><%= notice %></p>
+        <% elsif alert %>
+          <p class="alert card-panel teal lighten-2"><%= alert %></p>
+        <% end %>
         <%= yield %>
       </div>
     </main>
