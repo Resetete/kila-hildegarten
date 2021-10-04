@@ -1,5 +1,5 @@
 class ContentsController < ApplicationController
-  before_action :set_content, only: [:edit, :update]
+  before_action :set_content, only: [:edit, :update, :destroy]
   before_action :authenticate_admin!
 
   def index
@@ -24,6 +24,11 @@ class ContentsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @content.destroy
+    redirect_to root_path
   end
 
   private

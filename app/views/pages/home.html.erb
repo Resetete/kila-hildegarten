@@ -5,18 +5,18 @@
 
   <div class="col s8">
     <%= show_content_actions(@main_content) %>
-    <p><%= simple_format(@main_content.content) %></p>
+    <p><%= simple_format(@main_content&.content) %></p>
 
     <h2>Neuigkeiten</h2>
     <div class="row">
       <%= show_content_actions(@jobs) %>
-      <div class="card-panel teal white-text"><%= simple_format(@jobs.content) %></div>
+      <div class="card-panel teal white-text"><%= simple_format(@jobs&.content) %></div>
     </div>
 
     <div class="row">
       <%= show_content_actions(@kila_free_positions) %>
       <div class="card-panel teal white-text">
-        <%= simple_format(@kila_free_positions.content) %>
+        <%= simple_format(@kila_free_positions&.content) %>
       </div>
     </div>
   </div>
