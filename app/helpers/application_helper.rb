@@ -9,11 +9,11 @@ module ApplicationHelper
 
   def button_types(page)
     if page.nil?
-      (link_to 'new', new_content_path, class: 'waves-effect waves-light btn-small')
+      (link_to 'Neu', new_content_path, class: 'waves-effect waves-light btn-small')
     elsif page
       [
-        (link_to 'edit', edit_content_path(page), class: 'waves-effect waves-light btn-small'),
-        (link_to 'delete', content_path(page), method: :delete, class: 'waves-effect waves-light btn-small', data: { confirm: 'Bist du sicher, dass du den Text löschen möchtest?'})
+        (link_to 'Bearbeiten', edit_content_path(page), class: 'waves-effect waves-light btn-small'),
+        (link_to 'Löschen', content_path(page), method: :delete, class: 'waves-effect waves-light btn-small', data: { confirm: 'Bist du sicher, dass du den Text löschen möchtest?'})
       ].join(' ').html_safe
     else
       []
