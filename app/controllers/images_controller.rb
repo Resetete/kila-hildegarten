@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     if @image.save
-      # TODO: show a message
+      # TODO: show a success message
       redirect_to root_path
     else
       render 'new'
