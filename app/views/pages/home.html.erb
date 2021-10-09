@@ -1,6 +1,11 @@
 <div class="row valign-wrapper">
   <div class="col s4">
-    <%= image_tag(@image.picture.url) %>
+    <% if signed_in? %>
+      <p> <%= "Nur die letzten 2 hochgeladene Bilder werden hier angezeigt. Bilder können #{link_to('hier', images_path)} gelöscht werden.".html_safe %></p>
+    <% end %>
+    <% @images.each do |image| %>
+      <%= image_tag(image.picture.url, alt: 'kila garden picture with children', class: 'responsive-img') %>
+    <% end %>
     <%= image_tag 'home', alt: 'kila garden picture with children', class: 'responsive-img' %>
   </div>
 

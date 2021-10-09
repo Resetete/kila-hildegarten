@@ -3,10 +3,7 @@ class PagesController < ApplicationController
     @main_content = Content.find_by(page: 'Home')
     @jobs = Content.find_by(page: 'Stellenausschreibung')
     @kila_free_positions = Content.find_by(page: 'Freie Plätze')
-    @image = Image.find_by(page: 'Home')
-    p '******'
-    p @image
-    p '****'
+    @images = Image.where(page: 'Home').last(2) # max number of images shown on home page
   end
 
   def about_us
