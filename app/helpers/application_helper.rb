@@ -5,6 +5,10 @@ module ApplicationHelper
     end
   end
 
+  def upload_image_helper(page)
+    link_to 'Neues Bild hochladen', new_image_path(page: page), class: 'waves-effect waves-light btn-small'
+  end
+
   private
 
   def button_types(page)

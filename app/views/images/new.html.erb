@@ -19,8 +19,7 @@
       </div>
 
       <div class="input-field col s12">
-        <%= f.select :page, Page::PAGE_TYPES %>
-        <%= f.label :page %>
+        <%= f.hidden_field :page %>
       </div>
 
       <%= f.submit %>

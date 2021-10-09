@@ -2,20 +2,28 @@ class ImagesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @images = Image.all 
+    @images = Image.all
   end
 
   def new
-    @image = Image.new
+    @image = Image.new(page: params[:page])
   end
 
   def create
     @image = Image.new(image_params)
     if @image.save
+      # TODO: show a message
       redirect_to root_path
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @image = Image.find(params[:id])
+    @image.destroy
+    # TODO: show a message after deletion
+    redirect_to images_path
   end
 
   private
