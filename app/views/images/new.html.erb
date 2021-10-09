@@ -1,20 +1,29 @@
-<%= form_for @image, :html => { multipart: true } do |f| %>
-  <% if @image.errors.any? %>
-    <ul>
-      <% @image.errors.full_messages.each do |msg| %>
-        <li><%= msg %> </li>
-      <% end %>
-    </ul>
+<div class="row">
+  <%= form_for @image, :html => { multipart: true }, class: 'col s12'  do |f| %>
+    <% if @image.errors.any? %>
+      <ul>
+        <% @image.errors.full_messages.each do |msg| %>
+          <li><%= msg %> </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'materialize-textarea', :size => "30x10" %>
+      </div>
+
+      <div class="input-field col s12">
+        <%= f.file_field :picture, accept: 'image/jpg, image/png image/gif' %>
+      </div>
+
+      <div class="input-field col s12">
+        <%= f.select :page, Page::PAGE_TYPES %>
+        <%= f.label :page %>
+      </div>
+
+      <%= f.submit %>
+    </div>
   <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :picture %>
-  <%= f.file_field :picture, accept: 'image/jpg, image/png image/gif' %>
-
-  <%= f.label :page %>
-  <%= f.select :page, Page::PAGE_TYPES %>
-
-  <%= f.submit %>
-<% end %>
+</div>

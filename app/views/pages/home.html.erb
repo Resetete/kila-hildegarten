@@ -1,6 +1,6 @@
 <div class="row valign-wrapper">
   <div class="col s4">
-    <%= p @image.picture.url, scope: 'file_requests.read' %>
+    <%= image_tag(@image.picture.url) %>
     <%= image_tag 'home', alt: 'kila garden picture with children', class: 'responsive-img' %>
   </div>
 
