@@ -1,0 +1,12 @@
+<div class="row">
+  <% @images.each do |image| %>
+    <div class="col s4">
+      <%= link_to 'Löschen', images_path(image), method: :delete, class: 'waves-effect waves-light btn-small', data: { confirm: 'Bist du sicher, dass du das Bild löschen möchtest?'} %>
+      <p>Webseite: <%= image.page %></p>
+      <p><%= image.name %></p>
+      <p>Erstellt: <%= image.created_at %></p>
+      <p>Updated: <%= image.updated_at %></p>
+      <%= image_tag(image.picture.url, alt: 'kila hildegarden', class: 'responsive-img') %>
+    </div>
+  <% end %>
+</div>
