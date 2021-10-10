@@ -1,16 +1,19 @@
 
 <div class="row">
   <%= form_for @image, :html => { multipart: true }, class: 'col s12'  do |f| %>
-    <% if @image.errors.any? %>
-      <ul>
-        <% @image.errors.full_messages.each do |msg| %>
-          <li><%= msg %> </li>
-        <% end %>
-      </ul>
-    <% end %>
-
     <div class="row">
       <h2 class="col s12">Neues Bild hochladen</h2>
+      <div class="col s12">
+        <% if @image.errors.any? %>
+          <ul>
+            <div class="card-panel orange">
+              <% @image.errors.full_messages.each do |msg| %>
+                <li><%= msg %> </li>
+              <% end %>
+            </div>
+          </ul>
+        <% end %>
+      </div>
 
       <div class="input-field col s12">
         <%= f.label :name %>

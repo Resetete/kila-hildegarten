@@ -8,7 +8,7 @@
     <div class="col s12 m6">
       <div class="card">
         <div class="card-image">
-          <%= image_tag(image.picture.url, alt: 'kila hildegarden', class: 'responsive-img') %>
+          <%= image_tag(image.picture.url, alt: 'kila hildegarden', class: 'responsive-img', size: "50") if image.picture %>
           <span class="card-title"><%= image.name %></span>
           <%= link_to "<i class='material-icons'>delete</i>".html_safe, image_path(image), method: :delete, class: 'btn-floating halfway-fab waves-effect waves-light red', data: { confirm: 'Bist du sicher, dass du das Bild löschen möchtest?'} %>
         </div>
