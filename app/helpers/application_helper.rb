@@ -5,16 +5,17 @@ module ApplicationHelper
     end
   end
 
-  # TODO: write a similar method for the content new page, wouldn't need the page selector array any more in the content model
   def upload_image_helper(page)
     link_to 'Neues Bild hochladen', new_image_path(page: page), class: 'waves-effect waves-light btn-small'
   end
+
+  # TODO: write a similar method for the content new page, wouldn't need the page selector array any more in the content model
 
   private
 
   def button_types(page)
     if page.nil?
-      (link_to 'Neu', new_content_path, class: 'waves-effect waves-light btn-small')
+      (link_to 'Neu', new_content_path(page: page), class: 'waves-effect waves-light btn-small')
     elsif page
       [
         (link_to 'Bearbeiten', edit_content_path(page), class: 'waves-effect waves-light btn-small'),
