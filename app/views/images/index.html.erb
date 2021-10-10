@@ -4,14 +4,20 @@
   </div>
 </div>
 <div class="row">
-  <% @images.each do |image| %>
-    <div class="col s4">
-      <%= link_to 'Löschen', image_path(image), method: :delete, class: 'waves-effect waves-light btn-small', data: { confirm: 'Bist du sicher, dass du das Bild löschen möchtest?'} %>
-      <p>Webseite: <%= image.page %></p>
-      <p><%= image.name %></p>
-      <p>Erstellt: <%= image.created_at %></p>
-      <p>Updated: <%= image.updated_at %></p>
-      <%= image_tag(image.picture.url, alt: 'kila hildegarden', class: 'responsive-img') %>
+    <% @images.each do |image| %>
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag(image.picture.url, alt: 'kila hildegarden', class: 'responsive-img') %>
+          <span class="card-title"><%= image.name %></span>
+          <%= link_to "<i class='material-icons'>delete</i>".html_safe, image_path(image), method: :delete, class: 'btn-floating halfway-fab waves-effect waves-light red', data: { confirm: 'Bist du sicher, dass du das Bild löschen möchtest?'} %>
+        </div>
+        <div class="card-content">
+          <p>Webseite: <%= image.page %></p>
+          <p>Erstellt: <%= image.created_at %></p>
+          <p>Updated: <%= image.updated_at %></p>
+        </div>
+      </div>
     </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>

@@ -5,6 +5,7 @@ class ImagesController < ApplicationController
     @images = Image.all
   end
 
+  # Number of max images should be limited thought carrierwave + max size of the image + check security 
   def new
     @image = Image.new(page: params[:page])
   end
