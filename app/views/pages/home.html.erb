@@ -1,12 +1,16 @@
 <div class="row valign-wrapper">
   <div class="col s4">
     <% if signed_in? %>
-      <div class="card-panel teal white-text"> <%= "Nur die letzten 2 hochgeladene Bilder werden hier angezeigt. Bilder können #{link_to('hier', images_path)} gelöscht werden.".html_safe %></div>
+      <div class="card">
+        <div class="card-panel teal white-text">
+          <%= "Nur die letzten 2 hochgeladene Bilder werden hier angezeigt. Bilder können #{link_to('hier', images_path)} gelöscht werden.".html_safe %>
+          <%= link_to "<i class='material-icons'>add</i>".html_safe, new_image_path, class: 'btn-floating halfway-fab waves-effect waves-light red' %>
+        </div>
+      </div>
     <% end %>
     <% @images.each do |image| %>
-      <%= image_tag(image.picture.url, alt: 'kila garden picture with children', class: 'responsive-img') %>
+      <%= image_tag(image.picture.url, alt: 'kila picture', class: 'responsive-img') %>
     <% end %>
-    <%= image_tag 'home', alt: 'kila garden picture with children', class: 'responsive-img' %>
   </div>
 
   <div class="col s8">

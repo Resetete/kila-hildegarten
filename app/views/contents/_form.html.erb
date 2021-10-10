@@ -2,7 +2,7 @@
   <%= form_for @content, class: 'col s12'  do |f| %>
     <div class="row">
       <div class="input-field col s12">
-        <%= f.text_area :content, class: 'materialize-textarea', :size => "30x10" %>
+        <%= f.text_area :content, class: 'materialize-textarea', size: "30x10" %>
         <%= f.label :content, 'Inhalt' %>
       </div>
 
@@ -11,7 +11,9 @@
         <%= f.label :page, 'Seite' %>
       </div>
 
-      <%= f.submit %>
+      <div class="col s12">
+        <%= f.button 'Abschicken', class: "btn waves-effect waves-light" %>
+      </div>
     </div>
   <% end %>
 </div>
