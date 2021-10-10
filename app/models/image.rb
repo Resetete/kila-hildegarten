@@ -1,6 +1,7 @@
 class Image < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
+  validates_presence_of :name, :picture
   validate :picture_size
   MAX_FILE_SIZE = 5
 

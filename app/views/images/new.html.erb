@@ -17,13 +17,13 @@
 
       <div class="input-field col s12">
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, required: true %>
       </div>
 
       <div class="file-field input-field col s12">
         <div class="btn">
           <span>File</span>
-          <%= f.file_field :picture %>
+          <%= f.file_field :picture, required: true %>
         </div>
         <div class="file-path-wrapper">
           <input class="file-path validate" type="text">
