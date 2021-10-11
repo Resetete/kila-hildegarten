@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def upload_image_helper(page)
-    link_to 'Neues Bild hochladen', new_image_path(page: page), class: 'waves-effect waves-light btn-small'
+    link_to 'Neues Bild hochladen', new_image_path(page: page), class: 'waves-effect waves-teal btn-flat red btn-small white-text'
   end
 
   def new_content_link_helper(page)
