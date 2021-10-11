@@ -4,6 +4,7 @@ class Image < ApplicationRecord
   validates_presence_of :name, :picture, :page
   validate :picture_size
   MAX_FILE_SIZE = 5
+  MAX_IMAGES_ON_HOMEPAGE = 2
 
   private
 

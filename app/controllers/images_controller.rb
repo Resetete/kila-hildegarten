@@ -1,11 +1,11 @@
 class ImagesController < ApplicationController
   before_action :authenticate_admin!
-
+  
   def index
     @images = Image.all
   end
 
-  # Number of max images should be limited thought carrierwave + max size of the image + check security 
+  # Number of max images should be limited thought carrierwave + check security
   def new
     @image = Image.new(page: params[:page])
   end

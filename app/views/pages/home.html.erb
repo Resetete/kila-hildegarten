@@ -3,8 +3,14 @@
     <% if signed_in? %>
       <div class="card">
         <div class="card-panel teal white-text">
-          <%= "Nur die 2 zuletzt hochgeladenen Bilder werden hier angezeigt. Bilder können #{link_to('hier', images_path(page: 'Home'), class: 'waves-effect waves-teal btn-flat red btn-small white-text')} gelöscht werden.".html_safe %>
-          <%= link_to "<i class='material-icons'>add</i>".html_safe, new_image_path(page: 'Home'), class: 'btn-floating halfway-fab waves-effect waves-light red' %>
+          <div class="card-content">
+            <span class="card-title">Bilder</span>
+            <%= "Nur die #{Image::MAX_IMAGES_ON_HOMEPAGE} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe %>
+          </div>
+          <div class="card-action">
+            <%= upload_image_helper('Home') %>
+            <%= link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red' %>
+          </div>
         </div>
       </div>
     <% end %>

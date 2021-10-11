@@ -1,9 +1,4 @@
 <div class="row">
-  <div class="col s12">
-    <%= upload_image_helper('Home') %>
-  </div>
-</div>
-<div class="row">
   <% @images.each do |image| %>
     <div class="col s12 m6">
       <div class="card">
@@ -14,8 +9,8 @@
         </div>
         <div class="card-content">
           <p>Webseite: <%= image.page %></p>
-          <p>Erstellt: <%= image.created_at %></p>
-          <p>Updated: <%= image.updated_at %></p>
+          <p>Erstellt: <%= image.created_at.localtime.strftime('%Y-%m-%d %H:%M:%S') %></p>
+          <p>Aktualisiert: <%= image.updated_at.localtime.strftime('%Y-%m-%d %H:%M:%S') %></p>
         </div>
       </div>
     </div>
