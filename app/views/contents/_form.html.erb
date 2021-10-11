@@ -1,5 +1,16 @@
 <div class="row">
   <%= form_for @content, class: 'col s12'  do |f| %>
+    <div class="col s12">
+      <% if @content.errors.any? %>
+        <ul>
+          <div class="card-panel orange">
+            <% @content.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </div>
+        </ul>
+      <% end %>
+    </div>
     <div class="row">
       <div class="input-field col s12">
         <%= f.text_area :content, class: 'materialize-textarea', size: "30x10" %>
@@ -7,8 +18,7 @@
       </div>
 
       <div class="input-field col s12">
-        <%= f.hidden_field :page %>
-        <%= f.label :page %>
+        <%= f.text_field :page %>
       </div>
 
       <div class="col s12">

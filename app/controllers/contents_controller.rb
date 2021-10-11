@@ -7,7 +7,7 @@ class ContentsController < ApplicationController
   end
 
   def new
-    @content = Content.new
+    @content = Content.new(page: params[:page])
   end
 
   def create
