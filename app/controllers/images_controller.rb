@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def index
     @images = Image.all
   end
@@ -13,8 +13,7 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     if @image.save
-      # TODO: show a success message
-      redirect_to root_path
+      redirect_to images_path, notice: 'Bild wurde erfolgreich hochgeladen'
     else
       render 'new'
     end
@@ -23,8 +22,7 @@ class ImagesController < ApplicationController
   def destroy
     @image = Image.find(params[:id])
     @image.destroy
-    # TODO: show a message after deletion
-    redirect_to images_path
+    redirect_to images_path, notice: 'Bild wurde erfolgreich gelöscht'
   end
 
   private

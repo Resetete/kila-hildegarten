@@ -13,7 +13,7 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     if @content.save
-      redirect_to root_path, notice: 'Inhalt erfolgreich aktualisiert.'
+      redirect_to root_path, notice: 'Text wurde erfolgreich gespeichert.'
     else
       render 'new'
     end
@@ -23,7 +23,7 @@ class ContentsController < ApplicationController
 
   def update
     if @content.update(content_params)
-      redirect_to root_path
+      redirect_to root_path, notice: 'Text wurde erfolgreich aktualisiert.'
     else
       render 'edit'
     end
