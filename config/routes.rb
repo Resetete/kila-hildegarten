@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get 'about_us', to: 'pages#about_us'
 
   resources :contents
-  resources :images, only: [:new, :destroy, :index]
+  resources :images, only: [:new, :create, :destroy, :index]
 end
