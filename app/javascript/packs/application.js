@@ -24,4 +24,5 @@ $(document).on('turbolinks:load', function() {
   $(".dropdown-trigger").dropdown();
   $('select').formSelect();
   $('#notices_error_messages').fadeOut(5000);
+  M.textareaAutoResize($('#form-text-area'));
 })
