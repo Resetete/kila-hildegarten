@@ -1,4 +1,17 @@
 module ApplicationHelper
+  def media_manipulation_helper(media:, section_name:)
+    if media
+      [
+        show_content_actions(media),
+        simple_format(media&.content)
+      ].join(' ').html_safe
+    else
+      new_content_link_helper(section_name)
+    end
+  end
+
+  private
+
   def show_content_actions(page)
     if signed_in?
       button_types(page)
@@ -10,12 +23,8 @@ module ApplicationHelper
   end
 
   def new_content_link_helper(page)
-    link_to 'Neu', new_content_path(page: page), class: 'waves-effect waves-teal btn-flat red btn-small white-text'
+    (link_to 'Neu', new_content_path(page: page), class: 'waves-effect waves-teal btn-flat red btn-small white-text').html_safe
   end
-
-  # TODO: write a similar method for the content new page, wouldn't need the page selector array any more in the content model
-
-  private
 
   def button_types(page)
     [

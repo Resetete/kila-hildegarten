@@ -14,34 +14,19 @@
   </div>
 
   <div class="col s8">
-    <% if @main_content %>
-      <%= show_content_actions(@main_content) %>
-      <%= simple_format(@main_content&.content) %>
-    <% else %>
-      <%= new_content_link_helper('Home') %>
-    <% end %>
+    <%= media_manipulation_helper(media: @main_content, section_name: 'Home') %>
 
     <h2>Neuigkeiten</h2>
     <div class="row">
       <div class="card-panel teal white-text">
-        <% if @jobs %>
-          <%= show_content_actions(@jobs) %>
-          <%= simple_format(@jobs&.content) %>
-        <% else %>
-          <%= new_content_link_helper('Stellenausschreibung') %>
-        <% end %>
+        <%= media_manipulation_helper(media: @jobs, section_name: 'Stellenausschreibung') %>
       </div>
     </div>
 
     <h2>Freie Plätze</h2>
     <div class="row">
       <div class="card-panel teal white-text">
-        <% if @kila_free_positions %>
-          <%= show_content_actions(@kila_free_positions) %>
-          <%= simple_format(@kila_free_positions&.content) %>
-        <% else %>
-          <%= new_content_link_helper('Freie Plätze') %>
-        <% end %>
+        <%= media_manipulation_helper(media: @kila_free_positions, section_name: 'Freie Plätze') %>
       </div>
     </div>
   </div>
