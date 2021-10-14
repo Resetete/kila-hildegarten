@@ -296,12 +296,12 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
-  carrierwave-dropbox
+  carrierwave-dropbox (~> 2.0)
   devise
   factory_bot_rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
-  mini_magick
+  mini_magick (~> 4.11)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rspec-core!

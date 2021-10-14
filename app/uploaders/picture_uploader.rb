@@ -32,7 +32,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-     process resize_to_fill: [200, 200]
+     process resize_to_fill: [50, 50]
   end
 
   version :large_size do
@@ -47,11 +47,11 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  def filename
-    if original_filename
-      'uploaded_file.jpg'
-    elsif file
-      file.filename
-    end
-  end
+  # def filename
+  #   if original_filename
+  #     'uploaded_file.jpg'
+  #   elsif file
+  #     file.filename
+  #   end
+  # end
 end

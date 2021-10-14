@@ -1,5 +1,6 @@
 class Image < ApplicationRecord
   mount_uploader :picture, PictureUploader
+  after_destroy :remove_picture!
 
   validates_presence_of :name, :picture, :page
   validate :picture_size
