@@ -10,7 +10,7 @@ class Image < ApplicationRecord
   MAX_IMAGES_ON_HOMEPAGE = 2
   TOTAL_UPLOAD_LIMIT = 40
 
-  private
+  #private
 
   def picture_size
     if picture.size > MAX_FILE_SIZE.megabytes

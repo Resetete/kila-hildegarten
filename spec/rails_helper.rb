@@ -7,6 +7,9 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'devise'
 require 'shoulda/matchers'
+require 'factory_girl_rails'
+FactoryGirl.find_definitions
+
 
 #require_relative 'support/controller_macros'
 
@@ -48,7 +51,7 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.include Devise::Test::ControllerHelpers, :type=>:controller
-  config.include FactoryBot::Syntax::Methods
+  config.include FactoryGirl::Syntax::Methods
   #config.extend ControllerMacros,:type=>:controller
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
