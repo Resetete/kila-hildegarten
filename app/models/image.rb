@@ -1,6 +1,6 @@
 class Image < ApplicationRecord
   mount_uploader :picture, PictureUploader
-  after_destroy :remove_picture!
+  #after_destroy :remove_picture!
 
   validates_presence_of :name, :picture, :page
   validate :picture_size
@@ -10,7 +10,7 @@ class Image < ApplicationRecord
   MAX_IMAGES_ON_HOMEPAGE = 2
   TOTAL_UPLOAD_LIMIT = 40
 
-  #private
+  private
 
   def picture_size
     if picture.size > MAX_FILE_SIZE.megabytes
