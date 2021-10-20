@@ -28,7 +28,7 @@ RSpec.describe Image, type: :model do
   end
 
   context "when no image is chosen" do
-    image = FactoryGirl.build(:image, picture: nil)
+    let(:image) { FactoryGirl.build(:image, picture: nil) }
 
     it "returns an error message" do
       image.valid?
