@@ -10,7 +10,7 @@ require 'shoulda/matchers'
 require 'factory_girl_rails'
 
 
-#require_relative 'support/controller_macros'
+require_relative 'support/controller_macros'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -49,9 +49,11 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+  config.render_views
+  
   config.include Devise::Test::ControllerHelpers, :type=>:controller
   #config.include FactoryGirl::Syntax::Methods
-  #config.extend ControllerMacros,:type=>:controller
+  config.extend ControllerMacros,:type=>:controller
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

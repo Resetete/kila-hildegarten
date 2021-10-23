@@ -7,9 +7,7 @@ FactoryGirl.define do
     page { 'Home' }
 
     trait :invalid_image do
-      name { Faker::Name.name }
       picture { nil }
-      page { 'Home' }
     end
   end
 end
