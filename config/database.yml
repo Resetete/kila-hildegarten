@@ -23,3 +23,5 @@ test:
 production:
   <<: *default
   database: db/production
+  username: hildegarten
+  password: <%= ENV['HILDEGARTEN_DATABASE_PASSWORD'] %>
