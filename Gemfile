@@ -30,7 +30,6 @@ gem 'mini_magick', '~> 4.11'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :production do
-  gem 'rails_12factor'
   # use postgres for all environments
   gem 'pg'
 end
