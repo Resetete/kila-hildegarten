@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'carrierwave-dropbox', '~> 2.0'
 gem 'mini_magick', '~> 4.11'
-
+gem 'pg'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -31,7 +31,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :production do
   # use postgres for all environments
-  gem 'pg'
 end
 
 group :development, :test do
@@ -40,7 +39,6 @@ group :development, :test do
   #gem 'factory_bot_rails'
   # Use sqlite3 as the database for Active Record
   #gem 'sqlite3', '~> 1.4'
-  gem 'pg'
   gem 'rspec-rails', '~> 3.4'
 end
 
