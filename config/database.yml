@@ -24,4 +24,4 @@ production:
   <<: *default
   database: hildegarten_production
   username: hildegarten
-  #password: <%= ENV['HILDEGARTEN_DATABASE_PASSWORD'] %>
+  password: <%= ENV['HILDEGARTEN_DATABASE_PASSWORD'] %>
