@@ -10,7 +10,7 @@
             = upload_image_helper('home')
             = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
 
-    - @images.each do |image|
+    - @home_images.each do |image|
       = image_tag(image.picture.url, alt: 'kila picture', class: 'responsive-img')
 
   .col.s8
@@ -25,7 +25,6 @@
     .row
       .card-panel.teal.white-text
         = media_manipulation_helper(media: @kila_free_positions, section_name: 'open_places')
-
 
 .row
   .col.s12
@@ -54,3 +53,37 @@
 
     - @daily_life_images.each do |image|
       = image_tag(image.picture.url, alt: 'daily life pictures', class: 'responsive-img')
+
+
+.row#rooms_section
+  .col.s12
+    %h2
+      Räume
+  .col.s12
+    = media_manipulation_helper(media: @rooms, section_name: 'rooms')
+  .col.s12
+    .col.s4.no-padding
+      - if signed_in?
+        .card
+          .card-panel.teal.white-text
+            Bilder
+            = upload_image_helper('rooms')
+            = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
+
+    - @rooms_images.each do |image|
+      = image_tag(image.picture.url, alt: 'kila rooms pictures', class: 'responsive-img')
+
+
+.row#concept_section
+  .col.s12
+    %h2
+      Konzept
+  .col.s12
+    = media_manipulation_helper(media: @concept, section_name: 'concept')
+
+.row#familarization_section
+  .col.s12
+    %h2
+      Eingewöhnung
+  .col.s12
+    = media_manipulation_helper(media: @familarization, section_name: 'familarization')
