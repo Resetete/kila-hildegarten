@@ -3,6 +3,10 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+// get all images from javascript/images folder
+// ensures that webpacker will add this path to the manifest file
+
+
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("jquery")
@@ -16,6 +20,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
 import '../stylesheets/application';
 import 'jquery/dist/jquery';
 import 'materialize-css/dist/js/materialize';
@@ -26,6 +31,3 @@ $(document).on('turbolinks:load', function() {
   $('#notices_error_messages').fadeOut(5000);
   M.textareaAutoResize($('#form-text-area'));
 })
-
-
-const images = require.context('app/javascript/images', true)
