@@ -1,0 +1,27 @@
+.row.valign-wrapper
+  .col.s4
+    - if signed_in?
+      .card
+        .card-panel.teal.white-text
+          .card-content
+            %span.card-title Bilder
+            = "Nur die #{Image::MAX_IMAGES_ON_HOMEPAGE} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe
+          .card-action
+            = upload_image_helper('Home')
+            = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
+
+    - @images.each do |image|
+      = image_tag(image.picture.url, alt: 'kila picture', class: 'responsive-img')
+
+  .col.s8
+    = media_manipulation_helper(media: @main_content, section_name: 'Home')
+
+    %h2 Neuigkeiten
+    .row
+      .card-panel.teal.white-text
+        = media_manipulation_helper(media: @jobs, section_name: 'Stellenausschreibung')
+
+    %h2 Freie Plätze
+    .row
+      .card-panel.teal.white-text
+        = media_manipulation_helper(media: @kila_free_positions, section_name: 'Freie Plätze')
