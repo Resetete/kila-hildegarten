@@ -15,6 +15,10 @@ class PagesController < ApplicationController
     @parents = Content.find_by(page: 'parents')
   end
 
+  def photos
+    @photos = page_image_retriever('photos')
+  end
+
   def imprint
     @imprint = Content.find_by(page: 'imprint')
   end

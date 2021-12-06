@@ -30,4 +30,5 @@ $(document).on('turbolinks:load', function() {
   $('select').formSelect();
   $('#notices_error_messages').fadeOut(5000);
   M.textareaAutoResize($('#form-text-area'));
+  $('.materialboxed').materialbox();
 })
