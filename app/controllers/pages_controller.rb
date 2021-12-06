@@ -7,8 +7,8 @@ class PagesController < ApplicationController
     end
   end
 
-  def contact
-    @main_content = Content.find_by(page: 'contact')
+  def imprint
+    @imprint = Content.find_by(page: 'imprint')
   end
 
   private
