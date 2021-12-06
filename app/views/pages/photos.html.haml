@@ -1,10 +1,11 @@
+%h1.center-align Eindrücke aus dem Hildegarten
+
+- if signed_in?
+  = upload_image_helper('photos')
+  = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
+
 .container
   .row.card
-    .col.s12.m6.l4
-      = image_tag 'home', class: "materialboxed responsive-img card"
-    .col.s12.m6.l4
-      = image_tag 'home', class: "materialboxed responsive-img card"
-    .col.s12.m6.l4
-      = image_tag 'home', class: "materialboxed responsive-img card"
-    .col.s12.m6.l4
-      = image_tag 'home', class: "materialboxed responsive-img card"
+    - @photos.each do |photo|
+      .col.s12.m6.l4
+        = image_tag(photo.picture.url, alt: 'photos from the kila', class: 'materialboxed responsive-img card')
