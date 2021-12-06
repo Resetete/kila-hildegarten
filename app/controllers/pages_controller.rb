@@ -7,6 +7,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def contact
+    @contact = Content.find_by(page: 'contact')
+  end
+
   def imprint
     @imprint = Content.find_by(page: 'imprint')
   end
