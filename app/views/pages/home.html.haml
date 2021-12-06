@@ -31,3 +31,25 @@
   Über uns
 
 = media_manipulation_helper(media: @about_us, section_name: 'Über uns')
+
+%h2#daily_life_section
+  Tagesablauf
+
+.row.valign-wrapper
+  .col.s8
+    = media_manipulation_helper(media: @daily_life_intro, section_name: 'Tagesablauf Einführung')
+    = media_manipulation_helper(media: @daily_life, section_name: 'Tagesablauf')
+
+  .col.s4
+    - if signed_in?
+      .card
+        .card-panel.teal.white-text
+          .card-content
+            %span.card-title Bilder
+            = "Nur die #{Image::MAX_IMAGES_ON_HOMEPAGE} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe
+          .card-action
+            = upload_image_helper('daily_life_image')
+            = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
+
+    - @daily_life_images.each do |image|
+      = image_tag(image.picture.url, alt: 'daily life pictures', class: 'responsive-img')
