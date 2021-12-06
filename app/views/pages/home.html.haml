@@ -19,12 +19,12 @@
     %h2 Neuigkeiten
     .row
       .card-panel.teal.white-text
-        = media_manipulation_helper(media: @jobs, section_name: 'open_positions')
+        = media_manipulation_helper(media: @open_positions, section_name: 'open_positions')
 
     %h2 Freie Plätze
     .row
       .card-panel.teal.white-text
-        = media_manipulation_helper(media: @kila_free_positions, section_name: 'open_places')
+        = media_manipulation_helper(media: @kila_free_positions, section_name: 'kila_free_positions')
 
 .row
   .col.s12
