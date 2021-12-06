@@ -1,13 +1,12 @@
 module ApplicationHelper
   def media_manipulation_helper(media:, section_name:)
-    return unless signed_in?
     if media
       [
         show_content_actions(media),
         simple_format(media&.content)
       ].join(' ').html_safe
     else
-      new_content_link_helper(section_name)
+      new_content_link_helper(section_name) if signed_in?
     end
   end
 
