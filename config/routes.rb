@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   root 'pages#home'
   get 'contact', to: 'pages#contact'
+  get 'parents', to: 'pages#parents'
   get 'imprint', to: 'pages#imprint'
 
   resources :contents
