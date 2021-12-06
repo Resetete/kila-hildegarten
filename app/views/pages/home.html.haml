@@ -7,38 +7,39 @@
             %span.card-title Bilder
             = "Nur die #{Image::MAX_IMAGES_ON_HOMEPAGE} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe
           .card-action
-            = upload_image_helper('Home')
+            = upload_image_helper('home')
             = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
 
     - @images.each do |image|
       = image_tag(image.picture.url, alt: 'kila picture', class: 'responsive-img')
 
   .col.s8
-    = media_manipulation_helper(media: @main_content, section_name: 'Home')
+    = media_manipulation_helper(media: @main_content, section_name: 'home')
 
     %h2 Neuigkeiten
     .row
       .card-panel.teal.white-text
-        = media_manipulation_helper(media: @jobs, section_name: 'Stellenausschreibung')
+        = media_manipulation_helper(media: @jobs, section_name: 'open_positions')
 
     %h2 Freie Plätze
     .row
       .card-panel.teal.white-text
-        = media_manipulation_helper(media: @kila_free_positions, section_name: 'Freie Plätze')
+        = media_manipulation_helper(media: @kila_free_positions, section_name: 'open_places')
 
 
-%h2#about_us_section
-  Über uns
+.row
+  .col.s12
+    %h2#about_us_section
+      Über uns
+    = media_manipulation_helper(media: @about_us, section_name: 'about_us')
 
-= media_manipulation_helper(media: @about_us, section_name: 'Über uns')
-
-%h2#daily_life_section
-  Tagesablauf
-
-.row.valign-wrapper
+.row
+  .col.s12
+    %h2#daily_life_section
+      Tagesablauf
   .col.s8
-    = media_manipulation_helper(media: @daily_life_intro, section_name: 'Tagesablauf Einführung')
-    = media_manipulation_helper(media: @daily_life, section_name: 'Tagesablauf')
+    = media_manipulation_helper(media: @daily_life_intro, section_name: 'daily_life_intro')
+    = media_manipulation_helper(media: @daily_life, section_name: 'daily_life')
 
   .col.s4
     - if signed_in?
@@ -48,7 +49,7 @@
             %span.card-title Bilder
             = "Nur die #{Image::MAX_IMAGES_ON_HOMEPAGE} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe
           .card-action
-            = upload_image_helper('daily_life_image')
+            = upload_image_helper('daily_life')
             = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
 
     - @daily_life_images.each do |image|
