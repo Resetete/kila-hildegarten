@@ -1,5 +1,6 @@
 module ApplicationHelper
   def media_manipulation_helper(media:, section_name:)
+    return unless signed_in?
     if media
       [
         show_content_actions(media),
