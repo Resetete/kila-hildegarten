@@ -1,89 +1,141 @@
-.row.valign-wrapper
-  .col.s4
-    - if signed_in?
-      .card
-        .card-panel.teal.white-text
-          .card-content
-            %span.card-title Bilder
-            = "Nur die #{Image::MAX_IMAGES_ON_HOMEPAGE} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe
-          .card-action
-            = upload_image_helper('home')
-            = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
+%section
+  = image_tag('background/abstract/Layer1.png', id: 'layer1')
+  = image_tag('background/abstract/Layer2.png', id: 'layer2')
+  %h1#kila-text Kila Hildegarten
+  = image_tag('background/abstract/layer3.png', id: 'layer3')
+  = image_tag('background/abstract/layer4.png', id: 'layer4')
+  = image_tag('background/abstract/layer5.png', id: 'layer5')
+  = image_tag('background/abstract/layer6.png', id: 'layer6')
+  = image_tag('background/abstract/layer7.png', id: 'layer7')
+  %h1#welcome-text Willkommen im
+  = image_tag('background/abstract/layer8.png', id: 'layer8')
+  = image_tag('background/abstract/layer9.png', id: 'layer9')
+  = image_tag('background/abstract/layer10.png', id: 'layer10')
+  = image_tag('background/abstract/layer11.png', id: 'layer11')
+  = image_tag('background/abstract/layer12.png', id: 'layer12')
+  = image_tag('background/abstract/stars.png', id: 'stars')
 
-    - @home_images.last(Image::MAX_IMAGES_ON_HOMEPAGE).each do |image|
-      = image_tag(image.picture.url, alt: 'kila picture', class: 'responsive-img')
-
-  .col.s8
-    = media_manipulation_helper(media: @home, section_name: 'home')
-
-    %h2 Neuigkeiten
-    .row
-      .card-panel.teal.white-text
-        = media_manipulation_helper(media: @open_positions, section_name: 'open_positions')
-
-    %h2 Freie Plätze
-    .row
-      .card-panel.teal.white-text
-        = media_manipulation_helper(media: @kila_free_positions, section_name: 'kila_free_positions')
-
-.row
-  .col.s12
-    %h2#about_us_section
-      Über uns
-    = media_manipulation_helper(media: @about_us, section_name: 'about_us')
-
-.row
-  .col.s12
-    %h2#daily_life_section
-      Tagesablauf
-  .col.s8
-    = media_manipulation_helper(media: @daily_life_intro, section_name: 'daily_life_intro')
-    = media_manipulation_helper(media: @daily_life, section_name: 'daily_life')
-
-  .col.s4
-    - if signed_in?
-      .card
-        .card-panel.teal.white-text
-          .card-content
-            %span.card-title Bilder
-            = "Nur die #{Image::MAX_IMAGES_ON_HOMEPAGE} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe
-          .card-action
-            = upload_image_helper('daily_life')
-            = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
-
-    - @daily_life_images.last(Image::MAX_IMAGES_ON_HOMEPAGE).each do |image|
-      = image_tag(image.picture.url, alt: 'daily life pictures', class: 'responsive-img')
-
-
-.row#rooms_section
-  .col.s12
-    %h2
-      Räume
-  .col.s12
-    = media_manipulation_helper(media: @rooms, section_name: 'rooms')
-  .col.s12
-    .col.s4.no-padding
+.container.main-content
+  .row.valign-wrapper
+    .col.s4
       - if signed_in?
         .card
           .card-panel.teal.white-text
-            Bilder
-            = upload_image_helper('rooms')
-            = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
+            .card-content
+              %span.card-title Bilder
+              = "Nur die #{Image::MAX_IMAGES_ON_HOMEPAGE} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe
+            .card-action
+              = upload_image_helper('home')
+              = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
 
-    - @rooms_images.each do |image|
-      = image_tag(image.picture.url, alt: 'kila rooms pictures', class: 'responsive-img')
+      - @home_images.last(Image::MAX_IMAGES_ON_HOMEPAGE).each do |image|
+        = image_tag(image.picture.url, alt: 'kila picture', class: 'responsive-img')
 
+    .col.s8
+      = media_manipulation_helper(media: @home, section_name: 'home')
 
-.row#concept_section
-  .col.s12
-    %h2
-      Konzept
-  .col.s12
-    = media_manipulation_helper(media: @concept, section_name: 'concept')
+      %h2 Neuigkeiten
+      .row
+        .card-panel.teal.white-text
+          = media_manipulation_helper(media: @open_positions, section_name: 'open_positions')
 
-.row#familarization_section
-  .col.s12
-    %h2
-      Eingewöhnung
-  .col.s12
-    = media_manipulation_helper(media: @familarization, section_name: 'familarization')
+      %h2 Freie Plätze
+      .row
+        .card-panel.teal.white-text
+          = media_manipulation_helper(media: @kila_free_positions, section_name: 'kila_free_positions')
+
+  .row
+    .col.s12
+      %h2#about_us_section
+        Über uns
+      = media_manipulation_helper(media: @about_us, section_name: 'about_us')
+
+  .row
+    .col.s12
+      %h2#daily_life_section
+        Tagesablauf
+    .col.s8
+      = media_manipulation_helper(media: @daily_life_intro, section_name: 'daily_life_intro')
+      = media_manipulation_helper(media: @daily_life, section_name: 'daily_life')
+
+    .col.s4
+      - if signed_in?
+        .card
+          .card-panel.teal.white-text
+            .card-content
+              %span.card-title Bilder
+              = "Nur die #{Image::MAX_IMAGES_ON_HOMEPAGE} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe
+            .card-action
+              = upload_image_helper('daily_life')
+              = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
+
+      - @daily_life_images.last(Image::MAX_IMAGES_ON_HOMEPAGE).each do |image|
+        = image_tag(image.picture.url, alt: 'daily life pictures', class: 'responsive-img')
+
+  .row#rooms_section
+    .col.s12
+      %h2
+        Räume
+    .col.s12
+      = media_manipulation_helper(media: @rooms, section_name: 'rooms')
+    .col.s12
+      .col.s4.no-padding
+        - if signed_in?
+          .card
+            .card-panel.teal.white-text
+              Bilder
+              = upload_image_helper('rooms')
+              = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
+
+      - @rooms_images.each do |image|
+        = image_tag(image.picture.url, alt: 'kila rooms pictures', class: 'responsive-img')
+
+  .row#concept_section
+    .col.s12
+      %h2
+        Konzept
+    .col.s12
+      = media_manipulation_helper(media: @concept, section_name: 'concept')
+
+  .row#familarization_section
+    .col.s12
+      %h2
+        Eingewöhnung
+    .col.s12
+      = media_manipulation_helper(media: @familarization, section_name: 'familarization')
+
+:javascript
+  let kilaText = document.getElementById('kila-text');
+  let layer1 = document.getElementById('layer1');
+  let layer2 = document.getElementById('layer2');
+  let layer3 = document.getElementById('layer3');
+  let layer4 = document.getElementById('layer4');
+  let layer5 = document.getElementById('layer5');
+  let layer6 = document.getElementById('layer6');
+  let layer7 = document.getElementById('layer7');
+  let welcomeText = document.getElementById('welcome-text');
+  let layer8 = document.getElementById('layer8');
+  let layer9 = document.getElementById('layer9');
+  let layer10 = document.getElementById('layer10');
+  let layer11 = document.getElementById('layer11');
+  let layer12 = document.getElementById('layer12');
+  let stars = document.getElementById('stars');
+
+  window.addEventListener('scroll', function(){
+    let value = window.scrollY;
+    welcomeText.style.marginRight = value + 'px';
+    layer1.style.right = value * 0.2 + 'px';
+    layer2.style.top = value * 0.2 + 'px';
+    layer3.style.top = value * 0.12 + 'px';
+    layer4.style.left = value * 0.7 + 'px';
+    layer5.style.top = value * 1 + 'px';
+    layer6.style.top = value * 0.2 + 'px';
+    layer7.style.top = value * 0.3 + 'px';
+    layer8.style.left = value * 0.2 + 'px';
+    layer9.style.top = value * 0.4 + 'px';
+    layer10.style.top = value * 0.1 + 'px';
+    layer11.style.left = value * 0.6 + 'px';
+    layer12.style.right = value * -0.2 + 'px';
+    stars.style.left = value * 0.2 + 'px';
+    kilaText.style.marginLeft = value * 0.2 + 'px';
+  })
