@@ -60,20 +60,12 @@ section img {
   object-fit: cover;
 }
 
-#layer1 {
-  z-index: 5;
-}
-
-#layer2 {
-  z-index: 4;
-}
-
-#layer3 {
-  z-index: 3;
-}
-
-#layer4 {
+#rocket {
   z-index: 1;
+}
+
+#background {
+  opacity: 0.6;
 }
 
 #kila-text {
@@ -82,7 +74,7 @@ section img {
   color: white;
   white-space: nowrap;
   font-size: 7.5rem;
-  z-index: 2;
+  z-index: 99;
 }
 
 #welcome-text {
@@ -90,7 +82,7 @@ section img {
   color: rgba(255,255,255,0.7);
   white-space: nowrap;
   font-size: 5.5rem;
-  z-index: 1;
+  z-index: 3;
   top: 30vh;
 }
 
