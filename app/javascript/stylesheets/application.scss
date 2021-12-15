@@ -2,6 +2,7 @@
 
 html {
   background-color: rgba(190,190,248,1); /* #bebef8 */
+  scroll-behavior: smooth;
 }
 
 h2 {
@@ -74,8 +75,6 @@ section img {
 
 #hand1, #hand2, #hand3, #hand4 {
   z-index: 6;
-  position: absolute;
-  top: 15vh;
 }
 
 #bushes-front-layer1 {
@@ -102,7 +101,14 @@ section img {
   top: 30vh;
 }
 
+#hand1, #hand2, #hand3, #hand4 {
+  position: absolute;
+  top: 20vh;
+}
 
+#bushes-front-layer1 {
+  top: 12vh;
+}
 
 /**************/
 /*** Footer ***/
