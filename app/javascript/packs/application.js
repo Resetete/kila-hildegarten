@@ -33,16 +33,11 @@ $(document).on('turbolinks:load', function() {
     clipRelativeInput: true
   });
 
+
   $(".dropdown-trigger").dropdown();
   $('select').formSelect();
   $('#notices_error_messages').fadeOut(5000);
   M.textareaAutoResize($('#form-text-area'));
   $('.materialboxed').materialbox();
   $('.sidenav').sidenav();
-
-  let rocket = document.getElementById('rocket');
-  window.addEventListener('scroll', function(){
-    let value = window.scrollY;
-    rocket.style.tranform = 'translate(100 px, 50 px)';
-  })
 })

@@ -94,6 +94,31 @@ section.hero-animation {
   left: 30vw;
 }
 
+#rocket {
+  animation: wave 4s infinite alternate;
+}
+
+@keyframes wave {
+  0% {
+    transform: translate(0px,10vh);
+  }
+    20% {
+    transform: translate(10vw,30vh);
+  }
+    40% {
+    transform: translate(20vw,40vh);
+  }
+    60% {
+    transform: translate(30vw,50vh);
+  }
+    80% {
+    transform: translate(35vw,50vh);
+  }
+    100% {
+    transform: translate(60vw,50vh);
+  }
+}
+
 
 /**************/
 /*** Footer ***/
