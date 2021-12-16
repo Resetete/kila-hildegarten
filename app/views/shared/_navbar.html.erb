@@ -1,4 +1,4 @@
-<div class="navbar-fixed">
+<div class="navbar-fixed" id='fixed-navbar'>
   <ul id="dropdown1" class="dropdown-content">
     <li><%= link_to 'Wir über uns', '#about_us_section' %></li>
     <li><%= link_to 'Tagesablauf', '#daily_life_section' %></li>
@@ -9,6 +9,7 @@
   <nav>
     <div class="nav-wrapper container">
       <%= link_to 'Kila Hildegarten', root_path, class: "brand-logo" %>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Kinderladen<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><%= link_to 'Team', root_path %></li>
@@ -24,4 +25,18 @@
       </ul>
     </div>
   </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><%= link_to 'Kinderladen', root_path %></li>
+    <li><%= link_to 'Team', root_path %></li>
+    <li><%= link_to 'Eltern', parents_path %></li>
+    <li><%= link_to 'Bilder', photos_path %></li>
+    <li><%= link_to 'Kontakt', contact_path %></li>
+    <li><span class="horizontal-space"></span></li>
+    <% if admin_signed_in? %>
+      <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'Login', new_admin_session_path %></li>
+    <% end %>
+  </ul>
 </div>

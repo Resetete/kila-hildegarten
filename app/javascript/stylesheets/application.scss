@@ -36,6 +36,13 @@ nav {
   margin-left: 5em;
 }
 
+/******/
+/*** Fix sidenav menu */
+
+#fixed-navbar {
+  z-index: 998;
+}
+
 /***************************/
 /*** Main page hero image ***/
 /**************************/

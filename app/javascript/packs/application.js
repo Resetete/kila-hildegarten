@@ -31,4 +31,5 @@ $(document).on('turbolinks:load', function() {
   $('#notices_error_messages').fadeOut(5000);
   M.textareaAutoResize($('#form-text-area'));
   $('.materialboxed').materialbox();
+  $('.sidenav').sidenav();
 })
