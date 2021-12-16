@@ -1,0 +1,12 @@
+.container.main-content
+  .row
+    .col.s12
+      %h2 Auflistung aller Seiteninhalte
+
+  - @page_contents.each do |content|
+    .card
+      .card-content
+        %h5 Seite
+        = content.page
+        %h5 Inhalt
+        = content.content
