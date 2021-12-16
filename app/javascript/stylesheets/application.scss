@@ -47,12 +47,10 @@ nav {
 /*** Main page hero image ***/
 /**************************/
 
-/* banner */
 section.hero-animation {
   height: 95vh;
 }
 
-/* container */
 .parallax {
   position: absolute;
   width: 100%;
@@ -82,7 +80,8 @@ section.hero-animation {
   color: white;
   white-space: nowrap;
   font-size: 7.5rem;
-  z-index: 99;
+  top: 30vh;
+  left: 20vw;
 }
 
 #welcome-text {
@@ -91,7 +90,8 @@ section.hero-animation {
   white-space: nowrap;
   font-size: 5.5rem;
   z-index: 3;
-  top: 30vh;
+  top: 15vh;
+  left: 30vw;
 }
 
 
