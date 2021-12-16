@@ -23,6 +23,14 @@ main {
   flex: 1 0 auto;
 }
 
+.fixed {
+  [type="checkbox"] {
+    + label {
+      pointer-events: auto;
+    }
+  }
+}
+
 /**************/
 /*** NavBar ***/
 /**************/
