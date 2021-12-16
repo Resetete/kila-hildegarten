@@ -47,29 +47,33 @@ nav {
 /*** Main page hero image ***/
 /**************************/
 
-section {
-  position: relative;
+/* banner */
+section.hero-animation {
+  height: 95vh;
+}
+
+/* container */
+.parallax {
+  position: absolute;
   width: 100%;
-  height: 100vh;
-  padding: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: hidden;
+  height: 95vh;
   background: #252c5a;
 }
 
-section img {
+.parallax #scene .layer {
   position: absolute;
   top: 0;
   left: 0;
+  height: 95vh;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
-#rocket {
-  z-index: 1;
+.parallax #scene .layer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 #kila-text {
