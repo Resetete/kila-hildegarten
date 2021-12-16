@@ -28,7 +28,10 @@ import 'materialize-css/dist/js/materialize';
 $(document).on('turbolinks:load', function() {
   const Parallax = require('parallax-js')
   var scene = document.getElementById('scene');
-  var parallaxInstance = new Parallax(scene);
+  var parallaxInstance = new Parallax(scene, {
+    relativeInput: true,
+    clipRelativeInput: true
+  });
 
   $(".dropdown-trigger").dropdown();
   $('select').formSelect();
