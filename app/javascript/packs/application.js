@@ -39,4 +39,10 @@ $(document).on('turbolinks:load', function() {
   M.textareaAutoResize($('#form-text-area'));
   $('.materialboxed').materialbox();
   $('.sidenav').sidenav();
+
+  let rocket = document.getElementById('rocket');
+  window.addEventListener('scroll', function(){
+    let value = window.scrollY;
+    rocket.style.tranform = 'translate(100 px, 50 px)';
+  })
 })
