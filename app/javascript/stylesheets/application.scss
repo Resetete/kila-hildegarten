@@ -56,6 +56,7 @@ section {
   justify-content: center;
   align-items: center;
   overflow-y: hidden;
+  background: #252c5a;
 }
 
 section img {
@@ -69,10 +70,6 @@ section img {
 
 #rocket {
   z-index: 1;
-}
-
-#background {
-  opacity: 0.6;
 }
 
 #kila-text {
