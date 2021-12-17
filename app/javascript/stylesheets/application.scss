@@ -56,6 +56,7 @@ section.hero-animation {
   width: 100%;
   height: 95vh;
   background: #252c5a;
+  overflow: hidden;
 }
 
 .parallax #scene .layer {
@@ -94,6 +95,11 @@ section.hero-animation {
   z-index: 3;
   top: 15vh;
   left: 30vw;
+}
+
+#hand1, #hand2, #hand3, #hand4 {
+  position: absolute;
+  top: 20vh;
 }
 
 /*** ball jumping on hero image animation */

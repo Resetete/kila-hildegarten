@@ -29,9 +29,9 @@
         = image_tag('background/garden-scene/bushes-layer-3.png')
       .layer{'data-depth': 0.5}
         = image_tag('background/garden-scene/butterfly-orange.png')
-      .layer{'data-depth': 0.5}
+      .layer#butterfly-red-right{'data-depth': 0.5}
         = image_tag('background/garden-scene/butterfly-red-right.png')
-      .layer{'data-depth': 0.5}
+      .layer#cat-walk-to-left{'data-depth': 0.5}
         = image_tag('background/garden-scene/cat-walk-to-left.png')
       .layer{'data-depth': 0.6}
         = image_tag('background/garden-scene/tree-stump.png')
@@ -43,14 +43,14 @@
         = image_tag('background/garden-scene/butterfly-green.png')
       .layer{'data-depth': 0.8}
         %h1#welcome-text Willkommen im
-      .layer.hands-wrapper
-        = image_tag('background/garden-scene/hand1.png', class: 'hands')
-      .layer.hands-wrapper
-        = image_tag('background/garden-scene/hand2.png', class: 'hands')
-      .layer.hands-wrapper
-        = image_tag('background/garden-scene/hand3.png', class: 'hands')
-      .layer.hands-wrapper
-        = image_tag('background/garden-scene/hand4.png', class: 'hands')
+      .layer
+        = image_tag('background/garden-scene/hand1.png', id: 'hand1')
+      .layer
+        = image_tag('background/garden-scene/hand2.png', id: 'hand2')
+      .layer
+        = image_tag('background/garden-scene/hand3.png', id: 'hand3')
+      .layer
+        = image_tag('background/garden-scene/hand4.png', id: 'hand4')
       .layer#ball-wrapper
         = image_tag('background/garden-scene/ball.png', id: 'ball')
       .layer{'data-depth': 0.85}

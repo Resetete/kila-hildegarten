@@ -40,4 +40,25 @@ $(document).on('turbolinks:load', function() {
   M.textareaAutoResize($('#form-text-area'));
   $('.materialboxed').materialbox();
   $('.sidenav').sidenav();
+
+  let butterflyRedRight = document.getElementById('butterfly-red-right');
+  let catWalkToLeft = document.getElementById('cat-walk-to-left');
+  let hand1 = document.getElementById('hand1');
+  let hand2 = document.getElementById('hand2');
+  let hand3 = document.getElementById('hand3');
+  let hand4 = document.getElementById('hand4');
+
+  window.addEventListener('scroll', function(){
+    let value = window.scrollY;
+    butterflyRedRight.style.transform = 'translate(' + value*0.4 + 'px,' + -value*0.1 + 'px)';
+    catWalkToLeft.style.left = value * -0.5 + 'px';
+    hand1.style.transform = 'translateY(20vh)';
+    hand2.style.transform = 'translateY(20vh)';
+    hand3.style.transform = 'translateY(20vh)';
+    hand4.style.transform = 'translateY(20vh)';
+    hand1.style.top = value * -0.17 + 'px';
+    hand2.style.top = value * -0.2 + 'px';
+    hand3.style.top = value * -0.2 + 'px';
+    hand4.style.top = value * -0.15 + 'px';
+  })
 })
