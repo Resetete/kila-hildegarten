@@ -82,11 +82,13 @@ section.hero-animation {
   font-size: 7.5rem;
   top: 30vh;
   left: 20vw;
+  text-shadow: 2px 2px 5px gray;
 }
 
 #welcome-text {
   position: absolute;
   color: rgba(255,255,255,0.7);
+  text-shadow: 2px 2px 5px gray;
   white-space: nowrap;
   font-size: 5.5rem;
   z-index: 3;
@@ -95,18 +97,18 @@ section.hero-animation {
 }
 
 /*** rocket hero image animation */
-#rocket {
-  animation: x-axis 32s infinite cubic-bezier(0.02, 0.01, 0.21, 1);
+#ball {
+  animation: x-axis 5s infinite cubic-bezier(0.02, 0.01, 0.21, 1);
 }
 
-#rocket-wrapper {
-  animation: y-axis 8s infinite cubic-bezier(0.3, 0.27, 0.07, 1.64)
+#ball {
+  animation: y-axis 2s infinite cubic-bezier(0.3, 0.27, 0.07, 1.64)
 }
 
 @keyframes y-axis {
   50% {
     animation-timing-function: cubic-bezier(0.17, 0.5, 0.6, 0.4);
-    transform: translateY(10vh);
+    transform: translateY(-10vh);
   }
 }
 

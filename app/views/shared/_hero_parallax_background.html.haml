@@ -7,13 +7,17 @@
         = image_tag('background/garden-scene/gras.png')
       .layer{'data-depth-y': 0.1}
         = image_tag('background/garden-scene/ground-near-clouds.png')
-      .layer{'data-depth': 0.15, 'data-invert-y': true}
+      .layer{'data-depth': 0.15}
         = image_tag('background/garden-scene/cloud1.png')
       .layer{'data-depth': 0.2}
         = image_tag('background/garden-scene/cloud2.png')
       .layer{'data-depth-x': 0.25}
         = image_tag('background/garden-scene/tree-right.png')
-      .layer{'data-depth': 0.35}
+      .layer{'data-depth': 0.3}
+        = image_tag('background/garden-scene/folhas-middle.png')
+      .layer{'data-depth': 0.31}
+        = image_tag('background/garden-scene/leafes-layer3.png')
+      .layer{'data-depth': 0.32}
         = image_tag('background/garden-scene/butterfly-green-right.png')
       .layer{'data-depth': 0.45}
         = image_tag('background/garden-scene/bushes-2nd-level.png')
@@ -21,19 +25,27 @@
         = image_tag('background/garden-scene/tree-left.png')
       .layer{'data-depth-y': 0.47}
         = image_tag('background/garden-scene/bushes-layer4.png')
+      .layer{'data-depth-y': 0.47}
+        = image_tag('background/garden-scene/bushes-layer-3.png')
       .layer{'data-depth': 0.5}
         = image_tag('background/garden-scene/butterfly-orange.png')
       .layer{'data-depth': 0.5}
         = image_tag('background/garden-scene/butterfly-red-right.png')
+      .layer{'data-depth': 0.5}
+        = image_tag('background/garden-scene/cat-walk-to-left.png')
       .layer{'data-depth': 0.6}
         = image_tag('background/garden-scene/tree-stump.png')
       .layer{'data-depth': 0.7}
         %h1#kila-text KiLa Hildegarten
+      .layer{'data-depth': 0.5}
+        = image_tag('background/garden-scene/folhas-behind-bushes-level2.png')
       .layer{'data-depth': 0.75}
         = image_tag('background/garden-scene/butterfly-green.png')
       .layer{'data-depth': 0.8}
         %h1#welcome-text Willkommen im
-      .layer#rocket-wrapper
-        = image_tag('background/garden-scene/ball.png', id: 'rocket')
+      .layer#ball-wrapper
+        = image_tag('background/garden-scene/ball.png', id: 'ball')
       .layer{'data-depth': 0.85}
         = image_tag('background/garden-scene/flowers-in-frond-tree-stump.png')
+      .layer
+        = image_tag('background/garden-scene/bushes-front-layer1.png')
