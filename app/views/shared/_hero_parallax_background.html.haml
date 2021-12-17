@@ -1,35 +1,39 @@
 %section.hero-animation
   .parallax
     #scene
-      .layer{'data-depth': 0.1}
-        = image_tag('background/abstract/stars.png')
-      .layer{'data-depth': 0.15}
-        = image_tag('background/abstract/layer1.png')
+      .layer
+        = image_tag('background/garden-scene/background-sky.png')
+      .layer
+        = image_tag('background/garden-scene/gras.png')
+      .layer{'data-depth-y': 0.1}
+        = image_tag('background/garden-scene/ground-near-clouds.png')
+      .layer{'data-depth': 0.15, 'data-invert-y': true}
+        = image_tag('background/garden-scene/cloud1.png')
       .layer{'data-depth': 0.2}
-        = image_tag('background/abstract/layer3.png')
-      .layer{'data-depth-y': 0.25}
-        = image_tag('background/abstract/layer13.png')
-      .layer{'data-depth-x': 0.3}
-        = image_tag('background/abstract/layer4.png')
+        = image_tag('background/garden-scene/cloud2.png')
+      .layer{'data-depth-x': 0.25}
+        = image_tag('background/garden-scene/tree-right.png')
       .layer{'data-depth': 0.35}
-        = image_tag('background/abstract/layer5.png')
-      .layer{'data-depth': 0.4}
-        = image_tag('background/abstract/layer6.png')
-      .layer{'data-depth-x': 0.45}
-        = image_tag('background/abstract/layer7.png')
+        = image_tag('background/garden-scene/butterfly-green-right.png')
+      .layer{'data-depth': 0.45}
+        = image_tag('background/garden-scene/bushes-2nd-level.png')
+      .layer{'data-depth-x': 0.47}
+        = image_tag('background/garden-scene/tree-left.png')
+      .layer{'data-depth-y': 0.47}
+        = image_tag('background/garden-scene/bushes-layer4.png')
       .layer{'data-depth': 0.5}
-        = image_tag('background/abstract/layer8.png')
-      .layer{'data-depth': 0.55}
-        = image_tag('background/abstract/layer9.png')
+        = image_tag('background/garden-scene/butterfly-orange.png')
+      .layer{'data-depth': 0.5}
+        = image_tag('background/garden-scene/butterfly-red-right.png')
       .layer{'data-depth': 0.6}
-        = image_tag('background/abstract/layer12.png')
+        = image_tag('background/garden-scene/tree-stump.png')
       .layer{'data-depth': 0.7}
+        %h1#kila-text KiLa Hildegarten
+      .layer{'data-depth': 0.75}
+        = image_tag('background/garden-scene/butterfly-green.png')
+      .layer{'data-depth': 0.8}
         %h1#welcome-text Willkommen im
       .layer#rocket-wrapper
-        = image_tag('background/abstract/rocket.png', id: 'rocket')
-      .layer{'data-depth': 0.8}
-        %h1#kila-text KiLa Hildegarten
-      .layer{'data-depth': 0.9}
-        = image_tag('background/abstract/layer10.png')
-      .layer{'data-depth': 0.95}
-        = image_tag('background/abstract/layer14.png')
+        = image_tag('background/garden-scene/ball.png', id: 'rocket')
+      .layer{'data-depth': 0.85}
+        = image_tag('background/garden-scene/flowers-in-frond-tree-stump.png')
