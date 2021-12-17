@@ -96,12 +96,8 @@ section.hero-animation {
   left: 30vw;
 }
 
-/*** rocket hero image animation */
-#ball {
-  animation: x-axis 5s infinite cubic-bezier(0.02, 0.01, 0.21, 1);
-}
-
-#ball {
+/*** ball jumping on hero image animation */
+#ball-wrapper {
   animation: y-axis 2s infinite cubic-bezier(0.3, 0.27, 0.07, 1.64)
 }
 
@@ -111,14 +107,6 @@ section.hero-animation {
     transform: translateY(-10vh);
   }
 }
-
-@keyframes x-axis {
-  50% {
-    animation-timing-function: cubic-bezier(0.17, 0.5, 0.6, 0.4);
-    transform: translateX(60vw);
-  }
-}
-
 
 /**************/
 /*** Footer ***/
