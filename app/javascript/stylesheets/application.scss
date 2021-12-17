@@ -95,27 +95,37 @@ section.hero-animation {
 }
 
 #rocket {
-  animation: wave 4s infinite alternate;
+  // animation: x-axis 32s infinite ease-in-out;
+  animation: x-axis 32s infinite cubic-bezier(0.02, 0.01, 0.21, 1);
 }
 
-@keyframes wave {
-  0% {
-    transform: translate(0px,10vh);
+#rocket-wrapper {
+  // animation: y-axis 8s infinite ease-in-out;
+  animation: y-axis 8s infinite cubic-bezier(0.3, 0.27, 0.07, 1.64)
+}
+
+// @keyframes x-axis {
+//   50% {
+//     transform: translateX(100vw);
+//   }
+// }
+// @keyframes y-axis {
+//   50% {
+//     transform: translateY(40vh);
+//   }
+// }
+
+@keyframes y-axis {
+  50% {
+    animation-timing-function: cubic-bezier(0.17, 0.5, 0.6, 0.4);
+    transform: translateY(10vh);
   }
-    20% {
-    transform: translate(10vw,30vh);
-  }
-    40% {
-    transform: translate(20vw,40vh);
-  }
-    60% {
-    transform: translate(30vw,50vh);
-  }
-    80% {
-    transform: translate(35vw,50vh);
-  }
-    100% {
-    transform: translate(60vw,50vh);
+}
+
+@keyframes x-axis {
+  50% {
+    animation-timing-function: cubic-bezier(0.17, 0.5, 0.6, 0.4);
+    transform: translateX(60vw);
   }
 }
 
