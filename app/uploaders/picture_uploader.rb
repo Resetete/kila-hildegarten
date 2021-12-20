@@ -3,7 +3,9 @@ class PictureUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  process resize_to_fit: [1500, 1500]
+  # Reduce the size of the uploaded image (max width = 1000px)
+  process :resize_to_limit => [800, nil]
+  process :convert => 'jpg'
 
   # Choose what kind of storage to use for this uploader:
   storage :dropbox
