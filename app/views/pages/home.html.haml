@@ -1,8 +1,19 @@
 = render 'shared/hero_parallax_background'
 
 .container.main-content
-  .row.valign-wrapper
-    .col.s4
+  .row
+    .col.s12.l8
+      = media_manipulation_helper(media: @home, section_name: 'home')
+      %h2 Neuigkeiten
+      .row
+        .card-panel.teal.white-text
+          = media_manipulation_helper(media: @open_positions, section_name: 'open_positions')
+      %h2 Freie Plätze
+      .row
+        .card-panel.teal.white-text
+          = media_manipulation_helper(media: @kila_free_positions, section_name: 'kila_free_positions')
+
+    .col.s12.l4
       - if signed_in?
         .card
           .card-panel.teal.white-text
@@ -12,22 +23,8 @@
             .card-action
               = upload_image_helper('home')
               = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
-
       - @home_images.last(Image::MAX_IMAGES_ON_HOMEPAGE).each do |image|
-        = image_tag(image.picture.url, alt: 'kila picture', class: 'responsive-img')
-
-    .col.s8
-      = media_manipulation_helper(media: @home, section_name: 'home')
-
-      %h2 Neuigkeiten
-      .row
-        .card-panel.teal.white-text
-          = media_manipulation_helper(media: @open_positions, section_name: 'open_positions')
-
-      %h2 Freie Plätze
-      .row
-        .card-panel.teal.white-text
-          = media_manipulation_helper(media: @kila_free_positions, section_name: 'kila_free_positions')
+        %p.valign-wrapper= image_tag(image.picture.url, alt: 'kila picture', class: 'responsive-img')
 
   .row
     .col.s12
@@ -39,11 +36,11 @@
     .col.s12
       %h2#daily_life_section
         Tagesablauf
-    .col.s8
+    .col.s12.l8
       = media_manipulation_helper(media: @daily_life_intro, section_name: 'daily_life_intro')
       = media_manipulation_helper(media: @daily_life, section_name: 'daily_life')
 
-    .col.s4
+    .col.s12.l4
       - if signed_in?
         .card
           .card-panel.teal.white-text
@@ -55,7 +52,7 @@
               = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
 
       - @daily_life_images.last(Image::MAX_IMAGES_ON_HOMEPAGE).each do |image|
-        = image_tag(image.picture.url, alt: 'daily life pictures', class: 'responsive-img')
+        image_tag(image.picture.url, alt: 'daily life pictures', class: 'responsive-img')
 
   .row#rooms_section
     .col.s12
@@ -73,7 +70,7 @@
               = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
 
       - @rooms_images.each do |image|
-        = image_tag(image.picture.url, alt: 'kila rooms pictures', class: 'responsive-img')
+        image_tag(image.picture.url, alt: 'kila rooms pictures', class: 'responsive-img')
 
   .row#concept_section
     .col.s12
