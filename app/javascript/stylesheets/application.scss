@@ -80,23 +80,20 @@ section.hero-animation {
 }
 
 #kila-text {
-  position: absolute;
-  vertical-align: center;
+  position: relative;
   color: white;
-  white-space: nowrap;
-  font-size: 7.5em;
-  top: 30vh;
-  left: 20vw;
+  font-size: 12vw;
+  top: 40vh;
+  left: 10vw;
 }
 
 #welcome-text {
-  position: absolute;
+  position: relative;
   color: rgba(255,255,255,0.7);
-  white-space: nowrap;
-  font-size: 5.5em;
+  font-size: 10vw;
   z-index: 3;
-  top: 15vh;
-  left: 30vw;
+  top: 30vh;
+  left: 10vw;
 }
 
 #rocket {
@@ -128,4 +125,33 @@ section.hero-animation {
 footer {
   background-color: rgba(200,190,250,1) !important;
   color: black !important;
+}
+
+
+
+/***********************/
+/*** Responsiveness *****/
+/***********************/
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  #kila-text {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 7.5em;
+    left: 20vw;
+    top: 30vh;
+  }
+
+  #welcome-text {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 5.5em;
+    left: 30vw;
+    top: 15vh;
+  }
+}
+
+@-ms-viewport{
+    width: device-width;
 }
