@@ -49,6 +49,8 @@ nav {
 
 section.hero-animation {
   height: 95vh;
+  overflow: hidden;
+  width: auto;
 }
 
 .parallax {
@@ -56,6 +58,7 @@ section.hero-animation {
   width: 100%;
   height: 95vh;
   background: #252c5a;
+  overflow: hidden;
 }
 
 .parallax #scene .layer {
@@ -64,6 +67,7 @@ section.hero-animation {
   left: 0;
   height: 95vh;
   width: 100%;
+  overflow: hidden;
 }
 
 .parallax #scene .layer img {
@@ -71,7 +75,8 @@ section.hero-animation {
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
+  width: auto;
+  overflow: hidden;
 }
 
 #kila-text {
@@ -79,7 +84,7 @@ section.hero-animation {
   vertical-align: center;
   color: white;
   white-space: nowrap;
-  font-size: 7.5rem;
+  font-size: 7.5em;
   top: 30vh;
   left: 20vw;
 }
@@ -88,7 +93,7 @@ section.hero-animation {
   position: absolute;
   color: rgba(255,255,255,0.7);
   white-space: nowrap;
-  font-size: 5.5rem;
+  font-size: 5.5em;
   z-index: 3;
   top: 15vh;
   left: 30vw;
