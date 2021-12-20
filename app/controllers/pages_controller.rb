@@ -11,6 +11,9 @@ class PagesController < ApplicationController
     @contact = Content.find_by(page: 'contact')
   end
 
+  def team
+  end
+
   def parents
     @parents = Content.find_by(page: 'parents')
   end

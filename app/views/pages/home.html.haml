@@ -26,11 +26,14 @@
       - @home_images.last(Image::MAX_IMAGES_ON_HOMEPAGE).each do |image|
         %p.valign-wrapper= image_tag(image.picture.url, alt: 'kila picture', class: 'responsive-img')
 
-  .row
-    .col.s12
+  .row.valign-wrapper
+    .col.s12.l8
       %h2#about_us_section
         Über uns
       = media_manipulation_helper(media: @about_us, section_name: 'about_us')
+    .col.s12.l4
+      #team-link.btn
+        = link_to 'Du möchtest mehr wissen?', team_path
 
   .row
     .col.s12
