@@ -135,6 +135,17 @@ footer {
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
+
+  section.hero-animation {
+    height: 95vh;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .parallax #scene .layer img {
+    width: 100%;
+  }
+
   #kila-text {
     position: absolute;
     white-space: nowrap;
