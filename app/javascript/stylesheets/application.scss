@@ -101,6 +101,15 @@ section.hero-animation {
   left: 10vw;
 }
 
+#impressum-welcome-text {
+  position: relative;
+  color: rgba(255,255,255,0.7);
+  font-size: 3vw;
+  z-index: 3;
+  top: 30vh;
+  left: 10vw;
+}
+
 #rocket {
   animation: x-axis 32s infinite cubic-bezier(0.02, 0.01, 0.21, 1);
 }
