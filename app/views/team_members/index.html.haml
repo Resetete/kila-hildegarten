@@ -1,4 +1,13 @@
 .container.main-content
   %h1 Team
-  - @team_members.each do |member|
-    = member
+  - @team_members.each do |team_member|
+    .row
+      .col.s12.m7
+        .card
+          .card-image
+            - if team_member.image
+              = image_tag(team_member.image&.picture.url, alt: 'kila picture', class: 'responsive-img')
+            .card-title
+              = team_member.name
+          .card-content
+            = team_member.content&.content
