@@ -4,6 +4,7 @@ class Image < ApplicationRecord
   validates_presence_of :name, :picture, :page
   validate :picture_size
   validate :total_upload_limit
+  belongs_to :team_member
 
   MAX_FILE_SIZE = 2
   MAX_IMAGES_ON_HOMEPAGE = 2

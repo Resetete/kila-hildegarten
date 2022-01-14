@@ -1,0 +1,16 @@
+= form_for @team_member do |f|
+  .row
+    -# team member attributes
+    .input-field.col.s12
+      = f.label :name
+      = f.text_field :name
+
+    = f.fields_for :contents do |f|
+      .input-field.col.s12
+        = f.label :content
+        = f.text_area :content, id: 'form-text-area', class: 'materialize-textarea'
+
+      = f.hidden_field :page, value: 'team'
+
+    .col.s12
+      = f.button 'Erstellen', class: "btn waves-effect waves-light"
