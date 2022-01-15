@@ -5,14 +5,12 @@ class TeamMembersController < ApplicationController
 
   def new
     @team_member = TeamMember.new
+    @team_member.contents.build
   end
 
   def create
     @team_member = TeamMember.new(team_member_params)
-    p '********'
-    p "params"
-    p params
-    p @team_member
+    p "#{@team_member}"
     if @team_member.save
       redirect_to team_members_path
     end

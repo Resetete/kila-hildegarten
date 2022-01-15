@@ -1,5 +1,6 @@
 .container.main-content
   %h1 Team
+  = link_to new_team_member_path
   - @team_members.each do |team_member|
     .row
       .col.s12.m7
@@ -7,7 +8,10 @@
           .card-image
             - if team_member.image
               = image_tag(team_member.image&.picture.url, alt: 'kila picture', class: 'responsive-img')
+            - else
+              = image_tag('logo-kila.png')
             .card-title
               = team_member.name
           .card-content
-            = team_member.content&.content
+            - team_member.contents.each do |entry|
+              = entry.content

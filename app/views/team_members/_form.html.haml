@@ -5,12 +5,12 @@
       = f.label :name
       = f.text_field :name
 
-    = f.fields_for :contents do |f|
+    = f.fields_for :contents do |content_field|
       .input-field.col.s12
-        = f.label :content
-        = f.text_area :content, id: 'form-text-area', class: 'materialize-textarea'
+        = content_field.label :content
+        = content_field.text_area :content, id: 'form-text-area', class: 'materialize-textarea'
 
-      = f.hidden_field :page, value: 'team'
+      = content_field.hidden_field :page, value: 'team'
 
     .col.s12
       = f.button 'Erstellen', class: "btn waves-effect waves-light"
