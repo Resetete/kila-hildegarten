@@ -1,16 +1,33 @@
 = form_for @team_member do |f|
   .row
+    .col.s12
+      - if @team_member.errors.any?
+        %ul.card-panel.orange
+          - @team_member.errors.full_messages.each do |msg|
+            %li= msg
     -# team member attributes
     .input-field.col.s12
       = f.label :name
       = f.text_field :name
 
+    -# content attributes
     = f.fields_for :contents do |content_field|
       .input-field.col.s12
-        = content_field.label :content
+        = content_field.label :content, 'Beschreibung'
         = content_field.text_area :content, id: 'form-text-area', class: 'materialize-textarea'
 
       = content_field.hidden_field :page, value: 'team'
+
+    -# images attributes
+    = f.fields_for :images do |image_field|
+      .file-field.input-field.col.s12
+        .btn
+          %span File
+          = image_field.file_field :picture, required: true, class: "file-path validate"
+        -# .file-path-wrapper
+        -#   = image_field.text_field#, class: "file-path validate"
+
+      = image_field.hidden_field :page, value: 'team'
 
     .col.s12
       = f.button 'Erstellen', class: "btn waves-effect waves-light"
