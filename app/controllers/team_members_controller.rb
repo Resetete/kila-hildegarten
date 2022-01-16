@@ -11,7 +11,7 @@ class TeamMembersController < ApplicationController
 
   def create
     @team_member = TeamMember.new(team_member_params)
-    @team_member.images.last.name = TeamMember.name
+    @team_member.images.last.name = team_member_params[:name]
     if @team_member.save
       redirect_to team_members_path
     end
