@@ -1,7 +1,7 @@
 class TeamMember < ApplicationRecord
-  has_many :contents
-  accepts_nested_attributes_for :contents #, allow_destroy: true
+  has_many :contents, dependent: :destroy
+  accepts_nested_attributes_for :contents
 
-  has_many :images
-  accepts_nested_attributes_for :images #, allow_destroy: true
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images
 end
