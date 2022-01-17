@@ -31,5 +31,7 @@ $(document).on('turbolinks:load', function() {
   $('#notices_error_messages').fadeOut(5000);
   $('.materialboxed').materialbox();
   $('.sidenav').sidenav();
-  $('#scene').parallax();
+  const Parallax = require('parallax-js')
+  var scene = document.getElementById('scene');
+  var parallaxInstance = new Parallax(scene)
 });
