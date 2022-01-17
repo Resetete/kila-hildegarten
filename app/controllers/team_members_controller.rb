@@ -4,7 +4,7 @@ class TeamMembersController < ApplicationController
 
   def new
     @team_member = TeamMember.new
-    @team_member.build_content
+    @team_member.build_content(content: nil)
     @team_member.build_image
   end
 
