@@ -6,16 +6,19 @@
 
   - @team_members.each do |team_member|
     .row
-      .col.s12.m7
+      .col.s12.m6
         .card
           .card-image
-            - if team_member.images
+            - if team_member.images || image_tag('logo-kila.png')
               - team_member.images.each do |image|
                 = image_tag(image&.picture.url, alt: 'kila picture', class: 'responsive-img')
-            - else
-              = image_tag('logo-kila.png')
-            .card-title
-              = team_member.name
+                = team_member_action_buttons(team_member)
+
+      .col.s12.m6
+        .card
           .card-content
-            - team_member.contents.each do |entry|
-              = entry.content
+            %span.card-title= team_member.name
+            %p
+              - team_member.contents.each do |entry|
+                = entry.content
+          = team_member_action_buttons(team_member)

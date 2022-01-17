@@ -10,6 +10,17 @@ module ApplicationHelper
     end
   end
 
+  def team_member_action_buttons(team_member)
+    if signed_in?
+      tag.div(class: 'card-action') do
+        [
+          (link_to "<i class='material-icons'>edit</i>".html_safe, edit_team_member_path(team_member), class: 'btn-floating waves-effect waves-light red', title: 'Neues Teammitglied hinzufügen'),
+          (link_to "<i class='material-icons'>delete</i>".html_safe, team_member_path(team_member), method: :delete, class: 'btn-floating waves-effect waves-light red', data: { confirm: 'Bist du sicher, dass du das Teammitglied löschen möchtest?'}),
+        ].join(' ').html_safe
+      end
+    end
+  end
+
   private
 
   def show_content_actions(page)
