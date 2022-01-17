@@ -32,8 +32,10 @@ class TeamMembersController < ApplicationController
   end
 
   def destroy
+    @team_member.image.destroy
+    @team_member.content.destroy
     @team_member.destroy
-    redirect_to team_path
+    redirect_to team_path, notice: 'Teammitglied wurde erfolgreich gelöscht.'
   end
 
   private
