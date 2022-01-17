@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   def home
-    # TODO: reduce image size --> image uploader
     Page::NAMES.each do |page_name|
       instance_variable_set "@#{page_name}", page_content_retriever(page_name)
       instance_variable_set "@#{page_name}_images", page_image_retriever(page_name)
@@ -12,6 +11,7 @@ class PagesController < ApplicationController
   end
 
   def team
+    @team_members = TeamMember.all
   end
 
   def parents

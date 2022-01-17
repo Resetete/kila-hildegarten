@@ -1,8 +1,4 @@
 class TeamMembersController < ApplicationController
-  def index
-    @team_members = TeamMember.all
-  end
-
   def new
     @team_member = TeamMember.new
     @team_member.contents.build

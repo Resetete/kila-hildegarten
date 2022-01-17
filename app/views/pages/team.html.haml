@@ -1,4 +1,21 @@
 .container.main-content
-  %h1 Team
+  %h1
+    Team
+    - if signed_in?
+      = link_to "<i class='material-icons'>add</i>".html_safe, new_team_member_path, class: 'btn-floating waves-effect waves-light red', title: 'Neues Teammitglied hinzufügen'
 
-  = link_to "<i class='material-icons'>add</i>".html_safe, new_team_member_path, class: 'btn-floating waves-effect waves-light red'
+  - @team_members.each do |team_member|
+    .row
+      .col.s12.m7
+        .card
+          .card-image
+            - if team_member.images
+              - team_member.images.each do |image|
+                = image_tag(image&.picture.url, alt: 'kila picture', class: 'responsive-img')
+            - else
+              = image_tag('logo-kila.png')
+            .card-title
+              = team_member.name
+          .card-content
+            - team_member.contents.each do |entry|
+              = entry.content
