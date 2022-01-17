@@ -6,14 +6,14 @@
 
   - @team_members.each do |team_member|
     .row
-      .col.s12.m6
+      .col.s12.m2
         .card
           .card-image
             - if team_member.image
               = image_tag(team_member.image.picture.url, alt: 'kila picture', class: 'responsive-img')
               = team_member_action_buttons(team_member)
 
-      .col.s12.m6
+      .col.s12.m10
         .card
           .card-content
             %span.card-title= team_member.name
