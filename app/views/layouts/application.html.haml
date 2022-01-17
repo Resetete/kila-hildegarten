@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %title KiLa Hildegarten
+    = csrf_meta_tags
+    = csp_meta_tag
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'favicon_master.png', media: 'all'
+
+  %body
+    %header
+      = render 'shared/navbar'
+
+    %main
+      .container#notices_error_messages
+        - if notice
+          %p.notice.card-panel.teal.lighten-2= notice
+        - elsif alert
+          %p.alert.card-panel.teal.lighten-2= alert
+      = yield
+
+    %footer
+      = render 'shared/footer'

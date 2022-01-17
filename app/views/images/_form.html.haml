@@ -1,0 +1,25 @@
+.container.main-content
+= form_for @image, :html => { multipart: true }, class: 'col s12'  do |f|
+  .row
+    %h2.col.s12 Neues Bild hochladen
+    .col.s12
+      - if @image.errors.any?
+        %ul
+          - @image.errors.full_messages.each do |msg|
+            %li.card-panel.orange= msg
+
+    .input-field.col.s12
+      = f.label :name
+      = f.text_field :name, required: true
+
+    .file-field.input-field.col.s12
+      .btn
+        %span File
+        = f.file_field :picture, required: true
+      .file-path-wrapper
+        %input.file-path.validate{:type => "text"}/
+
+    .input-field.col.s12
+      = f.hidden_field :page
+    .col.s12
+      = f.button 'Hochladen', class: "btn waves-effect waves-light"

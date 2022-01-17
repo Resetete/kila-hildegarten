@@ -1,0 +1,17 @@
+.container.main-content
+  .row
+    - @images.each do |image|
+      .col.s12.m6
+        .card
+          .card-image
+            = image_tag(image.picture.url, alt: 'kila hildegarden', class: '') if image.picture
+            %span.card-title= image.name
+            = link_to "<i class='material-icons'>delete</i>".html_safe, image_path(image), method: :delete, class: 'btn-floating halfway-fab waves-effect waves-light red', data: { confirm: 'Bist du sicher, dass du das Bild löschen möchtest?'}
+
+          .card-content
+            %p
+              Webseite:
+              = image.page
+            %p
+              Erstellt:
+              = image.created_at.localtime.strftime('%Y-%m-%d %H:%M:%S')

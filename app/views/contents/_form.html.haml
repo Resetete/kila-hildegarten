@@ -1,0 +1,15 @@
+.row
+  = form_for @content, class: 'col s12'  do |f|
+    .col.s12
+      - if @content.errors.any?
+        %ul
+          - @content.errors.full_messages.each do |msg|
+            %li.card-panel.orange= msg
+    .row
+      .input-field.col.s12
+        = f.text_area :content, id: 'textarea', class: 'materialize-textarea'
+        = f.label :content, 'Inhalt'
+      .input-field.col.s12
+        = f.hidden_field :page
+      .col.s12
+        = f.button 'Abschicken', class: "btn waves-effect waves-light"
