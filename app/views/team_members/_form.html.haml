@@ -23,9 +23,9 @@
       .file-field.input-field.col.s12
         .btn
           %span File
-          = image_field.file_field :picture, required: true, class: "file-path validate"
-        -# .file-path-wrapper
-        -#   = image_field.text_field#, class: "file-path validate"
+          = f.file_field :picture, required: true
+        .file-path-wrapper
+          %input.file-path.validate{type: "text"}
 
       = image_field.hidden_field :page, value: 'team'
 
