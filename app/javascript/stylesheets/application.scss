@@ -51,7 +51,7 @@ nav {
 }
 
 /***************************/
-/*** Home page hero image ***/
+/*** Home page garden hero image ***/
 /**************************/
 
 section {
@@ -90,6 +90,12 @@ section img {
   z-index: 6;
   position: absolute;
   top: 20vh;
+}
+
+#ball {
+  z-index: 6;
+  position: absolute;
+  top: -10vh;
 }
 
 #bushes-front-layer1 {

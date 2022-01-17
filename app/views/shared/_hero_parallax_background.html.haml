@@ -28,7 +28,6 @@
   = image_tag('background/garden-scene/bushes-front-layer1.png', id: 'bushes-front-layer1')
 
 :javascript
-  let kilaText = document.getElementById('kila-text');
   let cloud1 = document.getElementById('cloud1');
   let cloud2 = document.getElementById('cloud2');
   let butterflyRedRight = document.getElementById('butterfly-red-right');
@@ -47,14 +46,18 @@
     let value = window.scrollY;
     cloud1.style.left = value * 0.8 + 'px';
     cloud2.style.left = value * 0.4 + 'px';
-    butterflyRedRight.style.left = value * 0.4 + 'px';
-    butterflyGreenRight.style.top = value * -0.3 + 'px';
+    butterflyRedRight.style.transform = 'translate(' + value*0.4 + 'px,' + -value*0.1 + 'px)';
+    butterflyGreenRight.style.transform = 'translate(' + -value*0.4 + 'px,' + -value*0.1 + 'px)';
     catWalkToLeft.style.left = value * -0.5 + 'px';
-    butterflyOrangeLeft.style.left = value * 0.2 + 'px';
-    butterflyGreenLeft.style.transform = 'translate(' + value*0.2 + 'px,' + value*0.1 + 'px)';
+    butterflyOrangeLeft.style.transform = 'translate(' + -value*0.1 + 'px,' + -value*0.2 + 'px)';
+    butterflyGreenLeft.style.transform = 'translate(' + value*0.4 + 'px,' + -value*0.1 + 'px)';
     ball.style.left = value * 0.2 + 'px';
-    hand1.style.top = value * -0.2 + 'px';
-    hand2.style.top = value * -0.3 + 'px';
-    hand3.style.top = value * -0.25 + 'px';
+    hand1.style.transform = 'translateY(15vh)';
+    hand2.style.transform = 'translateY(15vh)';
+    hand3.style.transform = 'translateY(15vh)';
+    hand4.style.transform = 'translateY(15vh)';
+    hand1.style.top = value * -0.17 + 'px';
+    hand2.style.top = value * -0.2 + 'px';
+    hand3.style.top = value * -0.2 + 'px';
     hand4.style.top = value * -0.15 + 'px';
   })

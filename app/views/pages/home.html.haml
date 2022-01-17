@@ -88,39 +88,3 @@
         Eingewöhnung
     .col.s12
       = media_manipulation_helper(media: @familarization, section_name: 'familarization')
-
-:javascript
-  let kilaText = document.getElementById('kila-text');
-  let cloud1 = document.getElementById('cloud1');
-  let cloud2 = document.getElementById('cloud2');
-  let butterflyRedRight = document.getElementById('butterfly-red-right');
-  let butterflyGreenRight = document.getElementById('butterfly-green-right');
-  let welcomeText = document.getElementById('welcome-text');
-  let catWalkToLeft = document.getElementById('cat-walk-to-left');
-  let butterflyGreenLeft = document.getElementById('butterfly-green-left');
-  let butterflyOrangeLeft = document.getElementById('butterfly-orange-left');
-  let ball = document.getElementById('ball');
-  let hand1 = document.getElementById('hand1');
-  let hand2 = document.getElementById('hand2');
-  let hand3 = document.getElementById('hand3');
-  let hand4 = document.getElementById('hand4');
-
-  window.addEventListener('scroll', function(){
-    let value = window.scrollY;
-    cloud1.style.left = value * 0.8 + 'px';
-    cloud2.style.left = value * 0.4 + 'px';
-    butterflyRedRight.style.transform = 'translate(' + value*0.4 + 'px,' + -value*0.1 + 'px)';
-    butterflyGreenRight.style.transform = 'translate(' + -value*0.4 + 'px,' + -value*0.1 + 'px)';
-    catWalkToLeft.style.left = value * -0.5 + 'px';
-    butterflyOrangeLeft.style.transform = 'translate(' + -value*0.1 + 'px,' + -value*0.2 + 'px)';
-    butterflyGreenLeft.style.transform = 'translate(' + value*0.4 + 'px,' + -value*0.1 + 'px)';
-    ball.style.left = value * 0.2 + 'px';
-    hand1.style.transform = 'translateY(20vh)';
-    hand2.style.transform = 'translateY(20vh)';
-    hand3.style.transform = 'translateY(20vh)';
-    hand4.style.transform = 'translateY(20vh)';
-    hand1.style.top = value * -0.17 + 'px';
-    hand2.style.top = value * -0.2 + 'px';
-    hand3.style.top = value * -0.2 + 'px';
-    hand4.style.top = value * -0.15 + 'px';
-  })
