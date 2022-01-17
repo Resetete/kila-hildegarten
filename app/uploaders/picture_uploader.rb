@@ -9,7 +9,6 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :dropbox
-  # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -45,9 +44,9 @@ class PictureUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #    process resize_to_fill: [50, 50]
-  # end
+  version :thumb do
+    process resize_to_fill: [300, 400]
+  end
   #
   # version :large_size do
   #    process resize_to_fit: [800, 800]

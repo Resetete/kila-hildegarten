@@ -10,7 +10,7 @@
         .card
           .card-image
             - if team_member.image
-              = image_tag(team_member.image.picture.url, alt: 'kila picture', class: 'responsive-img')
+              = image_tag(team_member.image.picture.thumb.url, alt: 'kila picture', class: 'responsive-img')
               = team_member_action_buttons(team_member)
 
       .col.s12.m10
