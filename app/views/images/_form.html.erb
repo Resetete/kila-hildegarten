@@ -6,9 +6,9 @@
     <div class="col s12">
       <% if @image.errors.any? %>
         <ul>
-          <div class="card-panel orange">
+          <div>
             <% @image.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
+              <li class="card-panel orange"><%= msg %></li>
             <% end %>
           </div>
         </ul>

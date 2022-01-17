@@ -2,32 +2,30 @@
   .row
     .col.s12
       - if @team_member.errors.any?
-        %ul.card-panel.orange
+        %ul
           - @team_member.errors.full_messages.each do |msg|
-            %li= msg
+            %li.card-panel.orange= msg
     -# team member attributes
     .input-field.col.s12
       = f.label :name
       = f.text_field :name
 
     -# content attributes
-    = f.fields_for :contents do |content_field|
+    = f.fields_for :content do |content_field|
       .input-field.col.s12
         = content_field.label :content, 'Beschreibung'
         = content_field.text_area :content, id: 'form-text-area', class: 'materialize-textarea'
-
       = content_field.hidden_field :page, value: 'team'
 
-    -# images attributes
-    = f.fields_for :images do |image_field|
+    -# image attributes
+    = f.fields_for :image do |image_field|
       .file-field.input-field.col.s12
         .btn
           %span File
-          = f.file_field :picture, required: true
+          = image_field.file_field :picture
         .file-path-wrapper
           %input.file-path.validate{type: "text"}
-
       = image_field.hidden_field :page, value: 'team'
 
     .col.s12
-      = f.button 'Erstellen', class: "btn waves-effect waves-light"
+      = f.button 'Abschicken', class: "btn waves-effect waves-light"

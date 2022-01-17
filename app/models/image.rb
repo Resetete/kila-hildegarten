@@ -1,10 +1,9 @@
 class Image < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
-  validates_presence_of :name, :picture, :page
+  validates_presence_of :picture, :page
   validate :picture_size
   validate :total_upload_limit
-  belongs_to :team_member
 
   MAX_FILE_SIZE = 2
   MAX_IMAGES_ON_HOMEPAGE = 2
