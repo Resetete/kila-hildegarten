@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'json'
 
-class CloudflareProxy
+class Cloudflare
   def initialize(app)
     @app = app
   end

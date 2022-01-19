@@ -15,7 +15,8 @@ module KilaHildegarten
     config.assets.check_precompiled_asset = false
 
     # configure cloudflare to adjust the request header when redirecting from http to https
-    config.middleware.use CloudflareProxy
+    require_relative '../lib/middleware/cloudflare'
+    config.middleware.use Cloudflare
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
