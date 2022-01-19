@@ -14,6 +14,9 @@ module KilaHildegarten
     config.assets.initialize_on_precompile = false
     config.assets.check_precompiled_asset = false
 
+    # configure cloudflare to adjust the request header when redirecting from http to https
+    config.middleware.use CloudflareProxy
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
