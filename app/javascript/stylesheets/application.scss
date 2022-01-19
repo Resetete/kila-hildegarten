@@ -62,7 +62,8 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: hidden;
+  overflow: hidden;
+  background-image: image-url('/background/garden-scene/garden-scene-fallback.jpg');
 }
 
 section img {
