@@ -109,16 +109,17 @@ section img {
   color: white;
   text-shadow: 1px 2px black;
   white-space: nowrap;
-  font-size: 7.5rem;
+  font-size: 13vw;
   z-index: 4;
 }
 
 #welcome-text {
+  width: 80vw;
   position: absolute;
   color: rgba(255,255,255,1);
   text-shadow: 1px 1px gray;
   white-space: nowrap;
-  font-size: 5.5rem;
+  font-size: 12vw;
   z-index: 1;
   top: 25vh;
 }
