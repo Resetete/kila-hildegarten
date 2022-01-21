@@ -1,9 +1,9 @@
 .container.main-content
-  .row
-    .col.s6
-      = media_manipulation_helper(media: @contact, section_name: 'contact')
-    .col.s6
-      %iframe{:frameborder => "0", :height => "350", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "https://www.openstreetmap.org/export/embed.html?bbox=13.319817781448366%2C52.48145872916354%2C13.322886228561401%2C52.48262340917277&layer=mapnik&marker=52.482042373764386%2C13.321351774011418", :style => "border: 1px solid black", :width => "425"}
-      %br/
-      %small
-      %a{:href => "https://www.openstreetmap.org/?mlat=52.48204&mlon=13.32135#map=19/52.48204/13.32135"} Größere Karte anzeigen
+  %h1 Kontakt
+
+  = media_manipulation_helper(media: @contact, section_name: 'contact')
+  .iframe-container
+    %iframe{height: '450', width: '600', scrolling: "no", src: "https://www.openstreetmap.org/export/embed.html?bbox=13.319817781448366%2C52.48145872916354%2C13.322886228561401%2C52.48262340917277&layer=mapnik&marker=52.482042373764386%2C13.321351774011418"}
+    %br/
+    %small
+      %a{href: "https://www.openstreetmap.org/?mlat=52.48204&mlon=13.32135#map=19/52.48204/13.32135"} Größere Karte anzeigen
