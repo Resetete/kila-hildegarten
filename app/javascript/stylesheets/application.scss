@@ -205,6 +205,15 @@ section.imprint-hero-animation {
 #team-link {
   border-radius: 10px;
   height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#about_us_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /**************/
@@ -213,6 +222,13 @@ section.imprint-hero-animation {
 footer {
   background-color: rgba(200,190,250,1) !important;
   color: black !important;
+}
+
+footer .footer-address {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 
@@ -248,6 +264,17 @@ footer {
     font-size: 5.5em;
     left: 30vw;
     top: 15vh;
+  }
+
+  #about_us_section {
+    flex-direction: row;
+  }
+
+  footer .footer-address {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
   }
 }
 

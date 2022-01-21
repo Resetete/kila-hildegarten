@@ -1,17 +1,16 @@
 %footer.page-footer
-  .container
-    .row
-      .col.l6.s12.grey-text.text-lighten-4
-        %address
-          Kinderladen Hildegarten<br>
-          Hildegardstr. 16 a<br>
-          10715 Berlin
-      .col.l4.offset-l2.s12
-        %ul
-          %li
-            = link_to 'Tel.: 030 / 853 91 60', 'tel:+490308539160', class: 'grey-text text-lighten-4 right'
-          %li
-            = link_to 'info@kila-hildegarten.de', 'mailto:info@kila-hildegarten.de', class: 'grey-text text-lighten-4 right'
+  .container.footer-address
+    %address.grey-text.text-lighten-4
+      Kinderladen Hildegarten,
+      %br
+      Hildegardstr. 16a,
+      %br
+      10715 Berlin
+    %ul
+      %li
+        = link_to 'Tel.: 030 / 853 91 60', 'tel:+490308539160', class: 'grey-text text-lighten-4'
+      %li
+        = link_to 'info@kila-hildegarten.de', 'mailto:info@kila-hildegarten.de', class: 'grey-text text-lighten-4'
 
   .footer-copyright
     .container

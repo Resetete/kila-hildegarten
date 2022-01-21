@@ -26,20 +26,20 @@
       - @home_images.last(Image::MAX_IMAGES_ON_HOMEPAGE).each do |image|
         %p.valign-wrapper= image_tag(image.picture.url, alt: 'kila picture', class: 'responsive-img')
 
-  .row.valign-wrapper
+  .row#about_us_section
     .col.s12.l8
-      %h2#about_us_section
+      %h2
         Über uns
       = media_manipulation_helper(media: @about_us, section_name: 'about_us')
     .col.s12.l4
       #team-link
         = link_to 'Du möchtest mehr wissen?', team_path, class: 'btn waves-effect waves-light text-white'
 
-  .row
+  .row#daily_life_section
     .col.s12
-      %h2#daily_life_section
+      %h2
         Tagesablauf
-    .col.s12.l8
+    .col.s12.l8.center-align
       = media_manipulation_helper(media: @daily_life_intro, section_name: 'daily_life_intro')
       = media_manipulation_helper(media: @daily_life, section_name: 'daily_life')
 
