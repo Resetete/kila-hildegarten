@@ -32,6 +32,6 @@ $(document).on('turbolinks:load', function() {
   $('.materialboxed').materialbox();
   $('.sidenav').sidenav();
   const Parallax = require('parallax-js')
-  var scene = document.getElementById('scene');
-  var parallaxInstance = new Parallax(scene)
+  var scene = $('#scene').get(0);
+  var parallaxInstance = new Parallax(scene);
 });
