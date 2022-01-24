@@ -30,8 +30,12 @@ $(document).on('turbolinks:load', function() {
   $('select').formSelect();
   $('#notices_error_messages').fadeOut(5000);
   $('.materialboxed').materialbox();
-  $('.sidenav').sidenav();
-  const Parallax = require('parallax-js')
-  var scene = $('#scene').get(0);
-  var parallaxInstance = new Parallax(scene);
+  if($('#scene').length > 0){
+    const Parallax = require('parallax-js')
+    var scene = $('#scene').get(0);
+    var parallaxInstance = new Parallax(scene);
+  };
+  $(".sidenav").sidenav({
+    closeOnClick: true}
+  );
 });

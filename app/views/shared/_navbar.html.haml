@@ -28,7 +28,7 @@
         - else
           %li= link_to 'Login', new_admin_session_path
 
-  %ul.sidenav#mobile-demo
+  %ul.sidenav#mobile-demo{'data-turbolinks': "false"}
     %li= link_to 'Kinderladen', root_path
     %li= link_to 'Team', team_path
     %li= link_to 'Eltern', parents_path
