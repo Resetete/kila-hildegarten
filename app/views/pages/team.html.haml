@@ -1,5 +1,5 @@
 .container.main-content
-  %h1
+  %h1.center-align
     Team
     - if signed_in?
       = link_to "<i class='material-icons'>add</i>".html_safe, new_team_member_path, class: 'btn-floating waves-effect waves-light red', title: 'Neues Teammitglied hinzufügen'
