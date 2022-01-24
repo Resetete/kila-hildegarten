@@ -193,7 +193,7 @@ section.imprint-hero-animation {
 #main-text {
   position: relative;
   color: white;
-  font-size: 10vw;
+  font-size: 13vw;
   top: 40vh;
   left: 20vw;
 }
@@ -201,10 +201,10 @@ section.imprint-hero-animation {
 #imprint-welcome-text {
   position: relative;
   color: rgba(255,255,255,0.7);
-  font-size: 3vw;
+  font-size: 4vw;
   z-index: 3;
   top: 30vh;
-  left: 7vw;
+  left: 10vw;
 }
 
 #rocket {
@@ -319,6 +319,19 @@ footer .footer-address {
     font-size: 5.5em;
     left: 30vw;
     top: 15vh;
+  }
+
+  #main-text {
+    position: relative;
+    color: white;
+    font-size: 10vw;
+  }
+
+  #imprint-welcome-text {
+    font-size: 3vw;
+    z-index: 3;
+    top: 25vh;
+    left: 15vw;
   }
 
   #about_us_section {
