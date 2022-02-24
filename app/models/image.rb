@@ -5,9 +5,10 @@ class Image < ApplicationRecord
   validate :picture_size
   validate :total_upload_limit
 
-  MAX_FILE_SIZE = 2
-  MAX_IMAGES_ON_HOMEPAGE = 2
-  TOTAL_UPLOAD_LIMIT = 40
+  MAX_FILE_SIZE = 2.freeze
+  MAX_IMAGES_ON_HOMEPAGE = 2.freeze
+  MAX_IMAGES_ON_DAILY_LIFE_SECTION = 3.freeze
+  TOTAL_UPLOAD_LIMIT = 40.freeze
 
   private
 

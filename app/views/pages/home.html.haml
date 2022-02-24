@@ -37,25 +37,23 @@
 
   .row#daily_life_section
     .col.s12
-      %h1
-        Tagesablauf
-    .col.s12.l8
+      %h1 Tagesablauf
+    .col.s12.l12
       = media_manipulation_helper(media: @daily_life_intro, section_name: 'daily_life_intro')
-      = media_manipulation_helper(media: @daily_life, section_name: 'daily_life')
-
-    .col.s12.l4
+    .col.s12.l12
       - if signed_in?
         .card
           .card-panel.teal.white-text
             .card-content
               %span.card-title Bilder
-              = "Nur die #{Image::MAX_IMAGES_ON_HOMEPAGE} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe
+              = "Nur die #{Image::MAX_IMAGES_ON_DAILY_LIFE_SECTION} zuletzt hochgeladenen Bilder werden hier angezeigt.".html_safe
             .card-action
               = upload_image_helper('daily_life')
               = link_to "<i class='material-icons'>edit</i>".html_safe, images_path, class: 'btn-floating waves-effect waves-light red'
-
-      - @daily_life_images.last(Image::MAX_IMAGES_ON_HOMEPAGE).each do |image|
+      - @daily_life_images.last(Image::MAX_IMAGES_ON_DAILY_LIFE_SECTION).each do |image|
         = image_tag(image.picture.url, alt: 'daily life pictures', class: 'responsive-img')
+    .col.s12.l12
+      = media_manipulation_helper(media: @daily_life, section_name: 'daily_life')
 
   .row#rooms_section
     .col.s12
