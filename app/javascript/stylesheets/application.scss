@@ -161,9 +161,7 @@ section img {
   background-color: #f0f1ff;
 }
 
-.background-team {
-  background-image: url(asset-path('team_background.png'));
-}
+
 
 /**************/
 /*** Imprint **/
@@ -249,6 +247,8 @@ section.imprint-hero-animation {
   height: auto;
   display: flex;
   justify-content: center;
+  position: relative;
+  top: 15%;
 }
 
 #about_us_section {
@@ -256,6 +256,27 @@ section.imprint-hero-animation {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.background-team {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.background-team img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.wrapper {
+  height: 300px;
+  padding: 0 !important;
 }
 
 /******************/
