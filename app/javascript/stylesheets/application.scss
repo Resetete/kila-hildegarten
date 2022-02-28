@@ -238,9 +238,9 @@ section.imprint-hero-animation {
 }
 
 
-/*************/
-/* About us */
-/*************/
+/*********************/
+/* About us section */
+/********************/
 
 #team-link {
   border-radius: 10px;
@@ -277,6 +277,18 @@ section.imprint-hero-animation {
 .wrapper {
   height: 300px;
   padding: 0 !important;
+}
+
+
+/************************/
+/** Daily life section **/
+/**************/
+
+.daily-life-images-wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /******************/
@@ -367,6 +379,13 @@ footer .footer-address {
 
   #about_us_section {
     flex-direction: row;
+  }
+
+  .daily-life-images-wrapper {
+    flex-flow: row;
+    overflow: hidden;
+    margin: 2em 0;
+    width: 100%;
   }
 
   footer .footer-address {
