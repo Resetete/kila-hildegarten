@@ -251,15 +251,6 @@ section.imprint-hero-animation {
 /* About us section */
 /********************/
 
-#team-link {
-  border-radius: 10px;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: 15%;
-}
-
 #about_us_section {
   display: flex;
   align-items: center;
@@ -281,6 +272,15 @@ section.imprint-hero-animation {
   left: 0;
   width: 100%;
   object-fit: cover;
+}
+
+#team-link {
+  border-radius: 10px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 10px;
 }
 
 .wrapper {
