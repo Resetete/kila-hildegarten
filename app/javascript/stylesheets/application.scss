@@ -394,6 +394,19 @@ footer .footer-address {
     flex-direction: row;
   }
 
+  .home-page-images {
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 0.5em 0;
+    }
+  }
+
   .daily-life-images-wrapper {
     flex-flow: row;
     overflow: hidden;
