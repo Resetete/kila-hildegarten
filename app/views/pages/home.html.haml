@@ -4,15 +4,13 @@
   .col.s12.m8.l8
     = media_manipulation_helper(media: @home, section_name: 'home')
     %h2 Neuigkeiten
-    .row
-      .card-panel.teal.white-text
-        = media_manipulation_helper(media: @open_positions, section_name: 'open_positions')
+    .card-panel.teal.white-text
+      = media_manipulation_helper(media: @open_positions, section_name: 'open_positions')
     %h2 Freie Plätze
-    .row
-      .card-panel.teal.white-text
-        = media_manipulation_helper(media: @kila_free_positions, section_name: 'kila_free_positions')
+    .card-panel.teal.white-text
+      = media_manipulation_helper(media: @kila_free_positions, section_name: 'kila_free_positions')
 
-  .col.s12.m4.l4.no-padding
+  .col.s12.m4.l4
     - if signed_in?
       .card
         .card-panel.teal.white-text
