@@ -28,7 +28,6 @@ main {
   flex: 1 0 auto;
 }
 
-
 /*********************/
 /*** Cookie banner ***/
 /*********************/
@@ -81,9 +80,9 @@ nav {
   z-index: 998;
 }
 
-/***************************/
+/***********************************/
 /*** Home page garden hero image ***/
-/**************************/
+/***********************************/
 
 section {
   position: relative;
@@ -161,7 +160,17 @@ section img {
   background-color: #f0f1ff;
 }
 
-
+.home-page-images {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  align-items: space-between;
+  justify-content: space-between;
+  width: 100%;
+  img {
+    max-width: 49%;
+  }
+}
 
 /**************/
 /*** Imprint **/
@@ -282,13 +291,19 @@ section.imprint-hero-animation {
 
 /************************/
 /** Daily life section **/
-/**************/
+/************************/
 
 .daily-life-images-wrapper {
   display: flex;
   flex-flow: column;
+  overflow: hidden;
   justify-content: space-between;
-  align-items: center;
+  align-items: space-between;
+  .daily-life-example-image {
+    max-width: 100%;
+    margin-top: 1em;
+    height: auto;
+  }
 }
 
 /******************/
@@ -329,13 +344,11 @@ footer .footer-address {
   flex-direction: column;
 }
 
-
-
 /***********************/
 /*** Responsiveness *****/
 /***********************/
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 600px) {
   /* For desktop: */
 
   section.imprint-hero-animation {
@@ -384,8 +397,10 @@ footer .footer-address {
   .daily-life-images-wrapper {
     flex-flow: row;
     overflow: hidden;
-    margin: 2em 0;
     width: 100%;
+    .daily-life-example-image {
+      max-width: 32%;
+    }
   }
 
   footer .footer-address {
