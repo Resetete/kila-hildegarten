@@ -172,9 +172,10 @@ section img {
   }
 }
 
-/**************/
-/*** Imprint **/
-/**************/
+/*******************************/
+/*** Imprint *******************/
+/*******************************/
+
 section.imprint-hero-animation {
   height: 95vh;
   overflow: hidden;
@@ -306,6 +307,31 @@ section.imprint-hero-animation {
   }
 }
 
+/*********************************/
+/** Room plan section ************/
+/*********************************/
+
+.room-plan-animated {
+  height: 100%; 
+}
+
+.room-plan {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.walking-circle {
+  border-radius: 50%;
+  width: 2vw;
+  height: 2vw;
+  background: red;
+  position: relative;
+  left: 49%;
+  top: 33vw;
+}
+
 /******************/
 /** Contact page */
 /******************/
@@ -329,9 +355,10 @@ section.imprint-hero-animation {
   width: 100%;
 }
 
-/**************/
-/*** Footer ***/
-/**************/
+/**************************/
+/*** Footer ***************/
+/**************************/
+
 footer {
   background-color: #7c87fd !important;
   color: black !important;

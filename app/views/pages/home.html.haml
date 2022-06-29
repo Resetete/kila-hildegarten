@@ -58,7 +58,9 @@
 .row#rooms_section.container
   .col.s12
     %h1 Räume
-    = image_tag('other_images/room-plan-small.png', alt: 'kila rooms plant', class: 'responsive-img')
+    .room-plan-animated
+      .walking-circle
+      = image_tag('other_images/room-plan-small.png', alt: 'kila rooms plant', class: 'responsive-img', id: 'room-plan')
 
 #concept_section.section-background-color
   .row.container
