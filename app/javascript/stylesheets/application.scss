@@ -436,6 +436,34 @@ section.imprint-hero-animation {
   opacity: 1;
 }
 
+/************/
+/* eating-room */
+/************/
+
+/* eating-room room plan icon and photo */
+#eating-room-icon {
+  left: 60%;
+  top: 15%;
+}
+
+/*hovering over the icon will change it to red */
+#eating-room-icon:hover {
+  color: red;
+}
+
+#eating-room-detail-photo {
+  top: 34%;
+  left: 0;
+  /* don't show the image initially */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* hovering over icon shows the eating-room image */
+#eating-room-icon:hover + img {
+  opacity: 1;
+}
+
 /******************/
 /** Contact page */
 /******************/
