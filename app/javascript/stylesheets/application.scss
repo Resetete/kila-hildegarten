@@ -327,14 +327,15 @@ section.imprint-hero-animation {
   margin-bottom: 15%;
 }
 
-/* general room plan icon and photo styles */
+/* general room plan icon style */
 .camera-icon {
   position: absolute;
-  color: red;
+  color: #7c87fd;
   font-size: 1.5em;
   z-index: 10;
 }
 
+/* general room plan detail photo style */
 .detail-photo {
   position: absolute;
   max-width: 17vw;
@@ -346,15 +347,20 @@ section.imprint-hero-animation {
   top: 38%;
 }
 
+/*hovering over the icon will change it to red */
+#kitchen-icon:hover {
+  color: red;
+}
+
 #kitchen-detail-photo {
   top: 34%;
   left: 0;
   /* don't show the image initially */
   opacity: 0;
-  /*width: 0;*/
   transition: opacity .5s ease;
 }
 
+/* hovering over icon shows the kitchen image */
 #kitchen-icon:hover + img {
   opacity: 1;
 }
