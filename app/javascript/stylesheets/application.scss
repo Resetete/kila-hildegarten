@@ -339,12 +339,14 @@ section.imprint-hero-animation {
 .detail-photo-vertical {
   position: absolute;
   max-width: 17vw;
+  z-index: 10;
 }
 
 /* general room plan detail photo style */
 .detail-photo-horizontal {
   position: absolute;
   max-width: 30vw;
+  z-index: 10;
 }
 
 /***********************/
@@ -356,6 +358,7 @@ section.imprint-hero-animation {
   top: 34%;
   left: 0;
   opacity: 1;
+  z-index: 0; /* make sure it is below the other images */
 }
 
 /************/
@@ -457,10 +460,10 @@ section.imprint-hero-animation {
   color: red;
 }
 
+/* hide the default starting image by hovering over icon */
 #eating-room-icon:hover ~ #children-playing-in-garden-detail-photo {
   opacity: 0;
 }
-
 
 #eating-room-detail-photo {
   top: 50%;
@@ -488,6 +491,11 @@ section.imprint-hero-animation {
 /*hovering over the icon will change it to red */
 #arts-room-icon:hover {
   color: red;
+}
+
+/* hide the default starting image by hovering over icon */
+#arts-room-icon:hover ~ #children-playing-in-garden-detail-photo {
+  opacity: 0;
 }
 
 #arts-room-detail-photo {
@@ -546,6 +554,11 @@ section.imprint-hero-animation {
   color: red;
 }
 
+/* hide the default starting image by hovering over icon */
+#garden-icon:hover ~ #children-playing-in-garden-detail-photo {
+  opacity: 0;
+}
+
 #garden-detail-photo {
   top: 50%;
   left: 0;
@@ -573,6 +586,11 @@ section.imprint-hero-animation {
 /*hovering over the icon will change it to red */
 #werkstatt-icon:hover {
   color: red;
+}
+
+/* hide the default starting image by hovering over icon */
+#werkstatt-icon:hover ~ #children-playing-in-garden-detail-photo {
+  opacity: 0;
 }
 
 #werkstatt-detail-photo {
@@ -603,6 +621,11 @@ section.imprint-hero-animation {
   color: red;
 }
 
+/* hide the default starting image by hovering over icon */
+#playing-room-icon:hover ~ #children-playing-in-garden-detail-photo {
+  opacity: 0;
+}
+
 #playing-room-detail-photo {
   top: 50%;
   left: 0;
@@ -629,6 +652,11 @@ section.imprint-hero-animation {
 /*hovering over the icon will change it to red */
 #tobe-room-icon:hover {
   color: red;
+}
+
+/* hide the default starting image by hovering over icon */
+#tobe-room-icon:hover ~ #children-playing-in-garden-detail-photo {
+  opacity: 0;
 }
 
 #tobe-room-detail-photo {
