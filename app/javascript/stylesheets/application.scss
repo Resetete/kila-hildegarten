@@ -464,6 +464,203 @@ section.imprint-hero-animation {
   opacity: 1;
 }
 
+/************/
+/* arts-room */
+/************/
+
+/* arts-room room plan icon and photo */
+#arts-room-icon {
+  left: 60%;
+  top: 35%;
+}
+
+/*hovering over the icon will change it to red */
+#arts-room-icon:hover {
+  color: red;
+}
+
+#arts-room-detail-photo {
+  top: 34%;
+  left: 0;
+  /* don't show the image initially */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* hovering over icon shows the arts-room image */
+#arts-room-icon:hover + img {
+  opacity: 1;
+}
+
+/*****************/
+/* relaxing-room */
+/*****************/
+
+/* relaxing-room room plan icon and photo */
+#relaxing-room-icon {
+  left: 60%;
+  top: 50%;
+}
+
+/*hovering over the icon will change it to red */
+#relaxing-room-icon:hover {
+  color: red;
+}
+
+#relaxing-room-detail-photo {
+  top: 34%;
+  left: 0;
+  /* don't show the image initially */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* hovering over icon shows the relaxing-room image */
+#relaxing-room-icon:hover + img {
+  opacity: 1;
+}
+
+/*****************/
+/* garden ********/
+/*****************/
+
+/* garden room plan icon and photo */
+#garden-icon {
+  left: 80%;
+  top: 30%;
+}
+
+/*hovering over the icon will change it to red */
+#garden-icon:hover {
+  color: red;
+}
+
+#garden-detail-photo {
+  top: 34%;
+  left: 0;
+  /* don't show the image initially */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* hovering over icon shows the garden image */
+#garden-icon:hover + img {
+  opacity: 1;
+}
+
+
+/*****************/
+/* werkstatt ********/
+/*****************/
+
+/* werkstatt room plan icon and photo */
+#werkstatt-icon {
+  left: 75%;
+  top: 40%;
+}
+
+/*hovering over the icon will change it to red */
+#werkstatt-icon:hover {
+  color: red;
+}
+
+#werkstatt-detail-photo {
+  top: 34%;
+  left: 0;
+  /* don't show the image initially */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* hovering over icon shows the werkstatt image */
+#werkstatt-icon:hover + img {
+  opacity: 1;
+}
+
+/**********************/
+/* playing-room ********/
+/**********************/
+
+/* playing-room room plan icon and photo */
+#playing-room-icon {
+  left: 30%;
+  top: 20%;
+}
+
+/*hovering over the icon will change it to red */
+#playing-room-icon:hover {
+  color: red;
+}
+
+#playing-room-detail-photo {
+  top: 34%;
+  left: 0;
+  /* don't show the image initially */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* hovering over icon shows the playing-room image */
+#playing-room-icon:hover + img {
+  opacity: 1;
+}
+
+/**********************/
+/* tobe-room ********/
+/**********************/
+
+/* tobe-room room plan icon and photo */
+#tobe-room-icon {
+  left: 20%;
+  top: 20%;
+}
+
+/*hovering over the icon will change it to red */
+#tobe-room-icon:hover {
+  color: red;
+}
+
+#tobe-room-detail-photo {
+  top: 34%;
+  left: 0;
+  /* don't show the image initially */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* hovering over icon shows the tobe-room image */
+#tobe-room-icon:hover + img {
+  opacity: 1;
+}
+
+/**********************/
+/* sleeping-room ********/
+/**********************/
+
+/* sleeping-room room plan icon and photo */
+#sleeping-room-icon {
+  left: 10%;
+  top: 10%;
+}
+
+/*hovering over the icon will change it to red */
+#sleeping-room-icon:hover {
+  color: red;
+}
+
+#sleeping-room-detail-photo {
+  top: 34%;
+  left: 0;
+  /* don't show the image initially */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* hovering over icon shows the sleeping-room image */
+#sleeping-room-icon:hover + img {
+  opacity: 1;
+}
+
 /******************/
 /** Contact page */
 /******************/
