@@ -59,8 +59,11 @@
   .col.s12
     %h1 Räume
     .room-plan-animated
-      .walking-circle
-      = image_tag('other_images/room-plan-small.png', alt: 'kila rooms plant', class: 'responsive-img', id: 'room-plan')
+      = image_tag('other_images/room-plan-small.png', alt: 'kila rooms plant', id: 'room-plan')
+      .camera-icon#kitchen-icon
+        = fa_icon('camera-retro')
+      =image_tag('other_images/room-plan-details/kitchen.jpg', class: 'detail-photo', id: 'kitchen-detail-photo')
+
 
 #concept_section.section-background-color
   .row.container
