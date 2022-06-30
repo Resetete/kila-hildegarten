@@ -60,8 +60,6 @@
     %h1 Räume
     .room-plan-animated
       = image_tag('other_images/room-plan-small.png', alt: 'kila rooms plant', id: 'room-plan')
-      = image_tag('other_images/room-plan-details/children-playing-garden.jpg', class: 'detail-photo-vertical', id: 'children-playing-in-garden-detail-photo')
-      
       = add_room_plan_details(room_name: 'house-entry', orientation: 'vertical')
       = add_room_plan_details(room_name: 'kitchen', orientation: 'vertical')
       = add_room_plan_details(room_name: 'wardrobe', orientation: 'vertical')
@@ -73,6 +71,7 @@
       = add_room_plan_details(room_name: 'relaxing-room', orientation: 'vertical')
       = add_room_plan_details(room_name: 'garden', orientation: 'horizontal')
       = add_room_plan_details(room_name: 'werkstatt', orientation: 'horizontal')
+      = image_tag('other_images/room-plan-details/children-playing-garden.jpg', class: 'detail-photo-vertical', id: 'children-playing-in-garden-detail-photo')
 
 #concept_section.section-background-color
   .row.container

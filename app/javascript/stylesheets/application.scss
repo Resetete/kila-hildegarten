@@ -457,6 +457,11 @@ section.imprint-hero-animation {
   color: red;
 }
 
+#eating-room-icon:hover ~ #children-playing-in-garden-detail-photo {
+  opacity: 0;
+}
+
+
 #eating-room-detail-photo {
   top: 50%;
   left: 0;
@@ -477,7 +482,7 @@ section.imprint-hero-animation {
 /* arts-room room plan icon and photo */
 #arts-room-icon {
   left: 60%;
-  top: 50%;
+  top: 35%;
 }
 
 /*hovering over the icon will change it to red */
