@@ -573,9 +573,17 @@ section.imprint-hero-animation {
   top: 40%;
 }
 
+
 /*hovering over the icon will change it to red */
 #werkstatt-icon:hover {
   color: red;
+}
+
+#werkstatt-icon::after {
+    content: 'Werkstatt im Keller';
+    color: black;
+    font-size: 0.7em;
+    padding-left: 5px;
 }
 
 #werkstatt-detail-photo {
