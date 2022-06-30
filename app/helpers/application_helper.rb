@@ -44,12 +44,12 @@ module ApplicationHelper
     ].join(' ').html_safe
   end
 
-  def add_room_plan_details(room_name)
+  def add_room_plan_details(room_name:, orientation:)
     [
       tag.div(class: 'camera-icon', id: "#{room_name}-icon") do
         fa_icon('camera-retro')
       end,
-      image_tag("other_images/room-plan-details/#{room_name}.jpg", class: 'detail-photo', id: "#{room_name}-detail-photo")
+      image_tag("other_images/room-plan-details/#{room_name}.jpg", class: "detail-photo-#{orientation}", id: "#{room_name}-detail-photo")
     ].join.html_safe
   end
 end

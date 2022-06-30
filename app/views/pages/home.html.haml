@@ -60,19 +60,19 @@
     %h1 Räume
     .room-plan-animated
       = image_tag('other_images/room-plan-small.png', alt: 'kila rooms plant', id: 'room-plan')
-      = image_tag('other_images/room-plan-details/children-playing-garden.jpg', class: 'detail-photo', id: 'children-playing-in-garden-detail-photo')
+      = image_tag('other_images/room-plan-details/children-playing-garden.jpg', class: 'detail-photo-vertical', id: 'children-playing-in-garden-detail-photo')
       
-      = add_room_plan_details('house-entry')
-      = add_room_plan_details('kitchen')
-      = add_room_plan_details('wardrobe')
-      = add_room_plan_details('playing-room')
-      = add_room_plan_details('tobe-room')
-      = add_room_plan_details('sleeping-room')
-      = add_room_plan_details('eating-room')
-      = add_room_plan_details('arts-room')
-      = add_room_plan_details('relaxing-room')
-      = add_room_plan_details('garden')
-      = add_room_plan_details('werkstatt')
+      = add_room_plan_details(room_name: 'house-entry', orientation: 'vertical')
+      = add_room_plan_details(room_name: 'kitchen', orientation: 'vertical')
+      = add_room_plan_details(room_name: 'wardrobe', orientation: 'vertical')
+      = add_room_plan_details(room_name: 'playing-room', orientation: 'horizontal')
+      = add_room_plan_details(room_name: 'tobe-room', orientation: 'horizontal')
+      = add_room_plan_details(room_name: 'sleeping-room', orientation: 'vertical')
+      = add_room_plan_details(room_name: 'eating-room', orientation: 'horizontal')
+      = add_room_plan_details(room_name: 'arts-room', orientation: 'vertical')
+      = add_room_plan_details(room_name: 'relaxing-room', orientation: 'vertical')
+      = add_room_plan_details(room_name: 'garden', orientation: 'horizontal')
+      = add_room_plan_details(room_name: 'werkstatt', orientation: 'horizontal')
 
 #concept_section.section-background-color
   .row.container

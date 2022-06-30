@@ -336,9 +336,15 @@ section.imprint-hero-animation {
 }
 
 /* general room plan detail photo style */
-.detail-photo {
+.detail-photo-vertical {
   position: absolute;
   max-width: 17vw;
+}
+
+/* general room plan detail photo style */
+.detail-photo-horizontal {
+  position: absolute;
+  max-width: 30vw;
 }
 
 /***********************/
@@ -452,7 +458,7 @@ section.imprint-hero-animation {
 }
 
 #eating-room-detail-photo {
-  top: 34%;
+  top: 50%;
   left: 0;
   /* don't show the image initially */
   opacity: 0;
@@ -471,7 +477,7 @@ section.imprint-hero-animation {
 /* arts-room room plan icon and photo */
 #arts-room-icon {
   left: 60%;
-  top: 35%;
+  top: 50%;
 }
 
 /*hovering over the icon will change it to red */
@@ -536,7 +542,7 @@ section.imprint-hero-animation {
 }
 
 #garden-detail-photo {
-  top: 34%;
+  top: 50%;
   left: 0;
   /* don't show the image initially */
   opacity: 0;
@@ -565,7 +571,7 @@ section.imprint-hero-animation {
 }
 
 #werkstatt-detail-photo {
-  top: 34%;
+  top: 50%;
   left: 0;
   /* don't show the image initially */
   opacity: 0;
@@ -593,7 +599,7 @@ section.imprint-hero-animation {
 }
 
 #playing-room-detail-photo {
-  top: 34%;
+  top: 50%;
   left: 0;
   /* don't show the image initially */
   opacity: 0;
@@ -621,7 +627,7 @@ section.imprint-hero-animation {
 }
 
 #tobe-room-detail-photo {
-  top: 34%;
+  top: 50%;
   left: 0;
   /* don't show the image initially */
   opacity: 0;
