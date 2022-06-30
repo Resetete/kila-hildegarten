@@ -43,4 +43,13 @@ module ApplicationHelper
       (link_to 'Löschen', content_path(page), method: :delete, class: 'waves-effect waves-teal btn-flat red btn-small white-text', data: { confirm: 'Bist du sicher, dass du den Text löschen möchtest?'})
     ].join(' ').html_safe
   end
+
+  def add_room_plan_details(room_name)
+    [
+      tag.div(class: 'camera-icon', id: "#{room_name}-icon") do
+        fa_icon('camera-retro')
+      end,
+      image_tag("other_images/room-plan-details/#{room_name}.jpg", class: 'detail-photo', id: "#{room_name}-detail-photo")
+    ].join.html_safe
+  end
 end
