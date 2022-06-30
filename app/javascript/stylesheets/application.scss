@@ -361,6 +361,11 @@ section.imprint-hero-animation {
   z-index: 0; /* make sure it is below the other images */
 }
 
+/* hide the default starting image by hovering over icon */
+.hide-element:hover ~ #children-playing-in-garden-detail-photo {
+  opacity: 0;
+}
+
 /************/
 /* kitchen */
 /************/
@@ -460,11 +465,6 @@ section.imprint-hero-animation {
   color: red;
 }
 
-/* hide the default starting image by hovering over icon */
-#eating-room-icon:hover ~ #children-playing-in-garden-detail-photo {
-  opacity: 0;
-}
-
 #eating-room-detail-photo {
   top: 50%;
   left: 0;
@@ -491,11 +491,6 @@ section.imprint-hero-animation {
 /*hovering over the icon will change it to red */
 #arts-room-icon:hover {
   color: red;
-}
-
-/* hide the default starting image by hovering over icon */
-#arts-room-icon:hover ~ #children-playing-in-garden-detail-photo {
-  opacity: 0;
 }
 
 #arts-room-detail-photo {
@@ -554,11 +549,6 @@ section.imprint-hero-animation {
   color: red;
 }
 
-/* hide the default starting image by hovering over icon */
-#garden-icon:hover ~ #children-playing-in-garden-detail-photo {
-  opacity: 0;
-}
-
 #garden-detail-photo {
   top: 50%;
   left: 0;
@@ -586,11 +576,6 @@ section.imprint-hero-animation {
 /*hovering over the icon will change it to red */
 #werkstatt-icon:hover {
   color: red;
-}
-
-/* hide the default starting image by hovering over icon */
-#werkstatt-icon:hover ~ #children-playing-in-garden-detail-photo {
-  opacity: 0;
 }
 
 #werkstatt-detail-photo {
@@ -621,11 +606,6 @@ section.imprint-hero-animation {
   color: red;
 }
 
-/* hide the default starting image by hovering over icon */
-#playing-room-icon:hover ~ #children-playing-in-garden-detail-photo {
-  opacity: 0;
-}
-
 #playing-room-detail-photo {
   top: 50%;
   left: 0;
@@ -652,11 +632,6 @@ section.imprint-hero-animation {
 /*hovering over the icon will change it to red */
 #tobe-room-icon:hover {
   color: red;
-}
-
-/* hide the default starting image by hovering over icon */
-#tobe-room-icon:hover ~ #children-playing-in-garden-detail-photo {
-  opacity: 0;
 }
 
 #tobe-room-detail-photo {

@@ -46,7 +46,7 @@ module ApplicationHelper
 
   def add_room_plan_details(room_name:, orientation:)
     [
-      tag.div(class: 'camera-icon', id: "#{room_name}-icon") do
+      tag.div(class: 'camera-icon hide-element', id: "#{room_name}-icon") do
         fa_icon('camera-retro')
       end,
       image_tag("other_images/room-plan-details/#{room_name}.jpg", class: "detail-photo-#{orientation}", id: "#{room_name}-detail-photo")
