@@ -25,6 +25,8 @@ gem 'mini_magick', '~> 4.11'
 gem 'pg'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# allow fonte awesome 5 icons
+gem 'font_awesome5_rails'
 
 gem 'haml'
 

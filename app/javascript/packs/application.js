@@ -24,6 +24,7 @@ require("channels")
 import '../stylesheets/application';
 import 'jquery/dist/jquery';
 import 'materialize-css/dist/js/materialize';
+import "@fortawesome/fontawesome-free/js/all";
 
 $(document).on('turbolinks:load', function() {
   $(".dropdown-trigger").dropdown();
