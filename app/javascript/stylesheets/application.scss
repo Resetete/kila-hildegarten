@@ -408,6 +408,34 @@ section.imprint-hero-animation {
   opacity: 1;
 }
 
+/************/
+/* wardrobe */
+/************/
+
+/* wardrobe room plan icon and photo */
+#wardrobe-icon {
+  left: 50%;
+  top: 15%;
+}
+
+/*hovering over the icon will change it to red */
+#wardrobe-icon:hover {
+  color: red;
+}
+
+#wardrobe-detail-photo {
+  top: 34%;
+  left: 0;
+  /* don't show the image initially */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* hovering over icon shows the wardrobe image */
+#wardrobe-icon:hover + img {
+  opacity: 1;
+}
+
 /******************/
 /** Contact page */
 /******************/
