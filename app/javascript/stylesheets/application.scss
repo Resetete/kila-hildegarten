@@ -341,6 +341,10 @@ section.imprint-hero-animation {
   max-width: 17vw;
 }
 
+/************/
+/* kitchen */
+/************/
+
 /* kitchen room plan icon and photo */
 #kitchen-icon {
   left: 44%;
@@ -362,6 +366,34 @@ section.imprint-hero-animation {
 
 /* hovering over icon shows the kitchen image */
 #kitchen-icon:hover + img {
+  opacity: 1;
+}
+
+/************/
+/* house entry */
+/************/
+
+/* house-entry room plan icon and photo */
+#house-entry-icon {
+  left: 49%;
+  top: 57%;
+}
+
+/*hovering over the icon will change it to red */
+#house-entry-icon:hover {
+  color: red;
+}
+
+#house-entry-detail-photo {
+  top: 34%;
+  left: 0;
+  /* don't show the image initially */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* hovering over icon shows the house-entry image */
+#house-entry-icon:hover + img {
   opacity: 1;
 }
 
