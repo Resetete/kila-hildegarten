@@ -386,12 +386,14 @@ section.imprint-hero-animation {
   left: 0;
   /* don't show the image initially */
   opacity: 0;
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
   transition: opacity .5s ease;
 }
 
 /* hovering over icon shows the kitchen image */
 #kitchen-icon:hover + img {
   opacity: 1;
+  width: 100%;
 }
 
 /****************/
@@ -413,6 +415,7 @@ section.imprint-hero-animation {
   top: 34%;
   left: 0;
   /* don't show the image initially */
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
   opacity: 0;
   transition: opacity .5s ease;
 }
@@ -420,6 +423,7 @@ section.imprint-hero-animation {
 /* hovering over icon shows the house-entry image */
 #house-entry-icon:hover + img {
   opacity: 1;
+  width: 100%;
 }
 
 /************/
@@ -441,6 +445,7 @@ section.imprint-hero-animation {
   top: 34%;
   left: 0;
   /* don't show the image initially */
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
   opacity: 0;
   transition: opacity .5s ease;
 }
@@ -448,6 +453,7 @@ section.imprint-hero-animation {
 /* hovering over icon shows the wardrobe image */
 #wardrobe-icon:hover + img {
   opacity: 1;
+  width: 100%; /* in addition to being invisible, the image will not respond to hovering */
 }
 
 /************/
@@ -469,6 +475,7 @@ section.imprint-hero-animation {
   top: 50%;
   left: 0;
   /* don't show the image initially */
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
   opacity: 0;
   transition: opacity .5s ease;
 }
@@ -476,6 +483,7 @@ section.imprint-hero-animation {
 /* hovering over icon shows the eating-room image */
 #eating-room-icon:hover + img {
   opacity: 1;
+  width: 100%;
 }
 
 /************/
@@ -497,6 +505,7 @@ section.imprint-hero-animation {
   top: 34%;
   left: 0;
   /* don't show the image initially */
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
   opacity: 0;
   transition: opacity .5s ease;
 }
@@ -504,6 +513,7 @@ section.imprint-hero-animation {
 /* hovering over icon shows the arts-room image */
 #arts-room-icon:hover + img {
   opacity: 1;
+  width: 100%;
 }
 
 /*****************/
@@ -525,6 +535,7 @@ section.imprint-hero-animation {
   top: 34%;
   left: 0;
   /* don't show the image initially */
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */  
   opacity: 0;
   transition: opacity .5s ease;
 }
@@ -532,6 +543,7 @@ section.imprint-hero-animation {
 /* hovering over icon shows the relaxing-room image */
 #relaxing-room-icon:hover + img {
   opacity: 1;
+  width: 100%;
 }
 
 /*****************/
@@ -554,12 +566,14 @@ section.imprint-hero-animation {
   left: 0;
   /* don't show the image initially */
   opacity: 0;
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
   transition: opacity .5s ease;
 }
 
 /* hovering over icon shows the garden image */
 #garden-icon:hover + img {
   opacity: 1;
+  width: 100%;
 }
 
 
@@ -590,6 +604,7 @@ section.imprint-hero-animation {
   top: 50%;
   left: 0;
   /* don't show the image initially */
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
   opacity: 0;
   transition: opacity .5s ease;
 }
@@ -597,6 +612,7 @@ section.imprint-hero-animation {
 /* hovering over icon shows the werkstatt image */
 #werkstatt-icon:hover + img {
   opacity: 1;
+  width: 100%;
 }
 
 /**********************/
@@ -619,12 +635,14 @@ section.imprint-hero-animation {
   left: 0;
   /* don't show the image initially */
   opacity: 0;
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
   transition: opacity .5s ease;
 }
 
 /* hovering over icon shows the playing-room image */
 #playing-room-icon:hover + img {
   opacity: 1;
+  width: 100%;
 }
 
 /**********************/
@@ -647,12 +665,14 @@ section.imprint-hero-animation {
   left: 0;
   /* don't show the image initially */
   opacity: 0;
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
   transition: opacity .5s ease;
 }
 
 /* hovering over icon shows the tobe-room image */
 #tobe-room-icon:hover + img {
   opacity: 1;
+  width: 100%;
 }
 
 /**********************/
@@ -676,11 +696,13 @@ section.imprint-hero-animation {
   /* don't show the image initially */
   opacity: 0;
   transition: opacity .5s ease;
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
 }
 
 /* hovering over icon shows the sleeping-room image */
 #sleeping-room-icon:hover + img {
   opacity: 1;
+  width: 100%;
 }
 
 /******************/
