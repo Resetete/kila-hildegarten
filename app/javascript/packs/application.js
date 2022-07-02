@@ -49,4 +49,19 @@ $(document).on('turbolinks:load', function() {
   $('.close').click(function(e) {
     $('.cookie-banner').fadeOut();
   });
+
+  // hover effect on mobile - check if an element has ::hover pseudoelement and substitute it with the .hover class
+  $('.room-plan-animated > div').on("touchstart", function (e) {
+    'use strict'; //satisfy code inspectors
+    var link = $(this); //preselect the link
+    if (link.hasClass('hover')) {
+        return true;
+     } 
+    else {
+       link.addClass('hover');
+       $('.room-plan-animated > div').not(this).removeClass('hover');
+       e.preventDefault();
+       return false; //extra, and to make sure the function has consistent return points
+      }
+    });
 });

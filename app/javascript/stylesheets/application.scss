@@ -362,7 +362,7 @@ section.imprint-hero-animation {
 }
 
 /* hide the default starting image by hovering over icon */
-.hide-element:hover ~ #children-playing-in-garden-detail-photo {
+.hide-element:hover ~ #children-playing-in-garden-detail-photo, .hide-element.hover ~ #children-playing-in-garden-detail-photo {
   opacity: 0;
 }
 
@@ -377,7 +377,8 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#kitchen-icon:hover {
+/* mobile:  add the hover class so that it also works on mobile */
+#kitchen-icon:hover, #kitchen-icon.hover {
   color: red;
 }
 
@@ -391,13 +392,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the kitchen image */
-#kitchen-icon:hover + img {
+#kitchen-icon:hover + img, #kitchen-icon.hover + img {
   opacity: 1;
   width: 100%;
 }
 
 /* so that image can remain when hovering over image */
-#kitchen-icon + img:hover {
+#kitchen-icon + img:hover, #kitchen-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
@@ -413,7 +414,7 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#house-entry-icon:hover {
+#house-entry-icon:hover, #house-entry-icon.hover {
   color: red;
 }
 
@@ -427,13 +428,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the house-entry image */
-#house-entry-icon:hover + img {
+#house-entry-icon:hover + img, #house-entry-icon.hover + img {
   opacity: 1;
   width: 100%;
 }
 
 /* so that image can remain when hovering over image */
-#house-entry-icon + img:hover {
+#house-entry-icon + img:hover, #house-entry-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
@@ -449,7 +450,7 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#wardrobe-icon:hover {
+#wardrobe-icon:hover, #wardrobe-icon.hover {
   color: red;
 }
 
@@ -463,13 +464,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the wardrobe image */
-#wardrobe-icon:hover + img {
+#wardrobe-icon:hover + img, #wardrobe-icon.hover + img {
   opacity: 1;
   width: 100%; /* in addition to being invisible, the image will not respond to hovering */
 }
 
 /* so that image can remain when hovering over image */
-#wardrobe-icon + img:hover {
+#wardrobe-icon + img:hover, #wardrobe-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
@@ -485,7 +486,7 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#eating-room-icon:hover {
+#eating-room-icon:hover, #eating-room-icon.hover {
   color: red;
 }
 
@@ -499,13 +500,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the eating-room image */
-#eating-room-icon:hover + img {
+#eating-room-icon:hover + img, #eating-room-icon.hover + img {
   opacity: 1;
   width: 100%;
 }
 
 /* so that image can remain when hovering over image */
-#eating-room-icon + img:hover {
+#eating-room-icon + img:hover, #eating-room-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
@@ -521,7 +522,7 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#arts-room-icon:hover {
+#arts-room-icon:hover, #arts-room-icon.hover {
   color: red;
 }
 
@@ -535,13 +536,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the arts-room image */
-#arts-room-icon:hover + img {
+#arts-room-icon:hover + img, #arts-room-icon.hover + img {
   opacity: 1;
   width: 100%;
 }
 
 /* so that image can remain when hovering over image */
-#arts-room-icon + img:hover {
+#arts-room-icon + img:hover, #arts-room-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
@@ -557,7 +558,7 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#relaxing-room-icon:hover {
+#relaxing-room-icon:hover, #relaxing-room-icon.hover {
   color: red;
 }
 
@@ -571,13 +572,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the relaxing-room image */
-#relaxing-room-icon:hover + img {
+#relaxing-room-icon:hover + img, #relaxing-room-icon.hover + img {
   opacity: 1;
   width: 100%;
 }
 
 /* so that image can remain when hovering over image */
-#relaxing-room-icon + img:hover {
+#relaxing-room-icon + img:hover, #relaxing-room-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
@@ -593,7 +594,7 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#garden-icon:hover {
+#garden-icon:hover, #garden-icon.hover {
   color: red;
 }
 
@@ -607,13 +608,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the garden image */
-#garden-icon:hover + img {
+#garden-icon:hover + img, #garden-icon.hover + img {
   opacity: 1;
   width: 100%;
 }
 
 /* so that image can remain when hovering over image */
-#garden-icon + img:hover {
+#garden-icon + img:hover, #garden-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
@@ -630,7 +631,7 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#werkstatt-icon:hover {
+#werkstatt-icon:hover, #werkstatt-icon.hover {
   color: red;
 }
 
@@ -651,13 +652,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the werkstatt image */
-#werkstatt-icon:hover + img {
+#werkstatt-icon:hover + img, #werkstatt-icon.hover + img {
   opacity: 1;
   width: 100%;
 }
 
 /* so that image can remain when hovering over image */
-#werkstatt-icon + img:hover {
+#werkstatt-icon + img:hover, #werkstatt-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
@@ -673,7 +674,7 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#playing-room-icon:hover {
+#playing-room-icon:hover, #playing-room-icon.hover {
   color: red;
 }
 
@@ -687,13 +688,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the playing-room image */
-#playing-room-icon:hover + img {
+#playing-room-icon:hover + img, #playing-room-icon.hover + img {
   opacity: 1;
   width: 100%;
 }
 
 /* so that image can remain when hovering over image */
-#playing-room-icon + img:hover {
+#playing-room-icon + img:hover, #playing-room-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
@@ -709,7 +710,7 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#tobe-room-icon:hover {
+#tobe-room-icon:hover, #tobe-room-icon.hover {
   color: red;
 }
 
@@ -723,13 +724,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the tobe-room image */
-#tobe-room-icon:hover + img {
+#tobe-room-icon:hover + img, #tobe-room-icon.hover + img {
   opacity: 1;
   width: 100%;
 }
 
 /* so that image can remain when hovering over image */
-#tobe-room-icon + img:hover {
+#tobe-room-icon + img:hover, #tobe-room-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
@@ -745,7 +746,7 @@ section.imprint-hero-animation {
 }
 
 /*hovering over the icon will change it to red */
-#sleeping-room-icon:hover {
+#sleeping-room-icon:hover, #sleeping-room-icon.hover {
   color: red;
 }
 
@@ -759,13 +760,13 @@ section.imprint-hero-animation {
 }
 
 /* hovering over icon shows the sleeping-room image */
-#sleeping-room-icon:hover + img {
+#sleeping-room-icon:hover + img, #sleeping-room-icon.hover + img {
   opacity: 1;
   width: 100%;
 }
 
 /* so that image can remain when hovering over image */
-#sleeping-room-icon + img:hover {
+#sleeping-room-icon + img:hover, #sleeping-room-icon + img.hover {
   opacity: 1;
   width: 100%;
 }
