@@ -396,6 +396,12 @@ section.imprint-hero-animation {
   width: 100%;
 }
 
+/* so that image can remain when hovering over image */
+#kitchen-icon + img:hover {
+  opacity: 1;
+  width: 100%;
+}
+
 /****************/
 /* house entry */
 /***************/
@@ -422,6 +428,12 @@ section.imprint-hero-animation {
 
 /* hovering over icon shows the house-entry image */
 #house-entry-icon:hover + img {
+  opacity: 1;
+  width: 100%;
+}
+
+/* so that image can remain when hovering over image */
+#house-entry-icon + img:hover {
   opacity: 1;
   width: 100%;
 }
@@ -456,6 +468,12 @@ section.imprint-hero-animation {
   width: 100%; /* in addition to being invisible, the image will not respond to hovering */
 }
 
+/* so that image can remain when hovering over image */
+#wardrobe-icon + img:hover {
+  opacity: 1;
+  width: 100%;
+}
+
 /************/
 /* eating-room */
 /************/
@@ -482,6 +500,12 @@ section.imprint-hero-animation {
 
 /* hovering over icon shows the eating-room image */
 #eating-room-icon:hover + img {
+  opacity: 1;
+  width: 100%;
+}
+
+/* so that image can remain when hovering over image */
+#eating-room-icon + img:hover {
   opacity: 1;
   width: 100%;
 }
@@ -516,6 +540,12 @@ section.imprint-hero-animation {
   width: 100%;
 }
 
+/* so that image can remain when hovering over image */
+#arts-room-icon + img:hover {
+  opacity: 1;
+  width: 100%;
+}
+
 /*****************/
 /* relaxing-room */
 /*****************/
@@ -542,6 +572,12 @@ section.imprint-hero-animation {
 
 /* hovering over icon shows the relaxing-room image */
 #relaxing-room-icon:hover + img {
+  opacity: 1;
+  width: 100%;
+}
+
+/* so that image can remain when hovering over image */
+#relaxing-room-icon + img:hover {
   opacity: 1;
   width: 100%;
 }
@@ -576,6 +612,12 @@ section.imprint-hero-animation {
   width: 100%;
 }
 
+/* so that image can remain when hovering over image */
+#garden-icon + img:hover {
+  opacity: 1;
+  width: 100%;
+}
+
 
 /*****************/
 /* werkstatt ********/
@@ -586,7 +628,6 @@ section.imprint-hero-animation {
   left: 75%;
   top: 40%;
 }
-
 
 /*hovering over the icon will change it to red */
 #werkstatt-icon:hover {
@@ -611,6 +652,12 @@ section.imprint-hero-animation {
 
 /* hovering over icon shows the werkstatt image */
 #werkstatt-icon:hover + img {
+  opacity: 1;
+  width: 100%;
+}
+
+/* so that image can remain when hovering over image */
+#werkstatt-icon + img:hover {
   opacity: 1;
   width: 100%;
 }
@@ -645,6 +692,12 @@ section.imprint-hero-animation {
   width: 100%;
 }
 
+/* so that image can remain when hovering over image */
+#playing-room-icon + img:hover {
+  opacity: 1;
+  width: 100%;
+}
+
 /**********************/
 /* tobe-room ********/
 /**********************/
@@ -675,6 +728,12 @@ section.imprint-hero-animation {
   width: 100%;
 }
 
+/* so that image can remain when hovering over image */
+#tobe-room-icon + img:hover {
+  opacity: 1;
+  width: 100%;
+}
+
 /**********************/
 /* sleeping-room ********/
 /**********************/
@@ -701,6 +760,12 @@ section.imprint-hero-animation {
 
 /* hovering over icon shows the sleeping-room image */
 #sleeping-room-icon:hover + img {
+  opacity: 1;
+  width: 100%;
+}
+
+/* so that image can remain when hovering over image */
+#sleeping-room-icon + img:hover {
   opacity: 1;
   width: 100%;
 }
