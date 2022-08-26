@@ -30,8 +30,10 @@ gem 'font_awesome5_rails'
 # compatibility of ruby 2 to r3 upgrade
 gem 'psych', '< 4'
 
-gem 'net-ftp'
-gem 'net-smtp'
+gem 'net-ftp', require: false
+gem 'net-smtp', require: false
+gem 'net-imap', require: false
+gem 'net-pop', require: false
 
 gem 'haml'
 
