@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
@@ -27,6 +27,8 @@ gem 'pg'
 # gem 'image_processing', '~> 1.2'
 # allow fonte awesome 5 icons
 gem 'font_awesome5_rails'
+# compatibility of ruby 2 to r3 upgrade
+gem 'psych', '< 4'
 
 gem 'haml'
 
