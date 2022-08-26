@@ -30,6 +30,9 @@ gem 'font_awesome5_rails'
 # compatibility of ruby 2 to r3 upgrade
 gem 'psych', '< 4'
 
+gem 'net-ftp'
+gem 'net-smtp'
+
 gem 'haml'
 
 # Reduces boot times through caching; required in config/boot.rb
