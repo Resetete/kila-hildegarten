@@ -82,6 +82,8 @@
 
 .row#familarization_section.container
   .col.s12
-    %h1 Eingewöhnung
+    .heading-eingewohnung
+      %h1 Eingewöhnung
+      = image_tag('other_images/eingewoehnung.jpg', alt: 'Eingewöhnung', id: 'eingewoehnung')
   .col.s12
     = media_manipulation_helper(media: @familarization, section_name: 'familarization')
