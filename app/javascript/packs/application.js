@@ -31,6 +31,8 @@ $(document).on('turbolinks:load', function() {
   $('select').formSelect();
   $('#notices_error_messages').fadeOut(5000);
   $('.materialboxed').materialbox();
+  M.textareaAutoResize($('.materialize-textarea'));
+
   if($('#scene').length > 0){
     const Parallax = require('parallax-js')
     var scene = $('#scene').get(0);
