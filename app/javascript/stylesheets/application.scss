@@ -41,16 +41,21 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #eee;
+  background-color: #7c87fd;
   border-radius: 5px;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+.cookie-banner a {
+  color: white;
 }
 
 .close {
   height: 20px;
-  background-color: #777;
+  background-color: white;
   border: none;
-  color: white;
+  color: black;
   border-radius: 2px;
   cursor: pointer;
 }
