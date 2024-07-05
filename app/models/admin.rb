@@ -3,4 +3,6 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable, :timeoutable
+
+  enum role: { admin: 0, webling_user: 1 }
 end
