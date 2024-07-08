@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'imprint', to: 'pages#imprint'
 
   get 'webling_photos', to: 'webling_photos#index'
+  get 'webling_photos/:id', to: 'webling_photos#show', as: 'webling_photo'
 
   resources :team_members
   resources :contents

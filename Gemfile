@@ -37,6 +37,9 @@ gem 'net-pop', require: false
 
 gem 'haml'
 
+# requests
+gem 'faraday'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

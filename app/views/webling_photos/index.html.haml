@@ -1,2 +1,11 @@
 .container
   %h1 Photos und Dokumente
+
+  - @subfolders_with_photo_ids.each do |subfolder|
+    %h3= subfolder.dig('properties', 'title')
+    %ul
+      - subfolder[:photo_objects].each do |photo|
+        %li
+          - photo_id = photo['id']
+          - auth_token = Admin.find_by(role: 'webling_user').auth_token
+          = image_tag webling_photo_path(id: photo_id, token: auth_token), alt: photo.dig('properties', 'file', 'name'), class: 'thumbnail'
