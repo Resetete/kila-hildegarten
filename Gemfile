@@ -51,6 +51,16 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   #gem 'sqlite3', '~> 1.4'
   gem 'rspec-rails', '~> 3.4'
+
+  # Basic Pry Setup
+  gem 'awesome_print' # pretty print ruby objects
+  gem 'pry' # Console with powerful introspection capabilities
+  gem 'pry-byebug' # Integrates pry with byebug
+  gem 'pry-doc' # Provide MRI Core documentation
+  gem 'pry-rails'
+  # Auxiliary Gems
+  gem 'pry-rescue' # Start a pry session whenever something goes wrong
+  gem 'pry-theme' # An easy way to customize Pry colors via theme files
 end
 
 group :development do
