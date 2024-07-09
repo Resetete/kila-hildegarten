@@ -43,6 +43,9 @@ gem 'faraday'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# cpontrol page security, e.g. incorporating webpages as iframe
+gem 'secure_headers'
+
 group :production do
   # use postgres for all environments
 end

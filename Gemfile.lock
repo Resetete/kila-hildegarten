@@ -269,6 +269,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    secure_headers (6.5.0)
     selenium-webdriver (4.4.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -365,6 +366,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.4)
   rspec-rails (~> 3.4)
   sass-rails (>= 6)
+  secure_headers
   selenium-webdriver
   shoulda-matchers (~> 3.0)
   spring

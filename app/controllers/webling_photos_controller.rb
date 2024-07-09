@@ -1,5 +1,6 @@
 class WeblingPhotosController < ApplicationController
   protect_from_forgery with: :null_session
+  before_action :allow_iframe_for_webling_photos, only: [:index]
 
   layout 'bare'
 
@@ -43,5 +44,9 @@ class WeblingPhotosController < ApplicationController
     unless user && user.webling_user?
       redirect_to(root_path, status: :unauthorized, alert: 'Unauthorized')
     end
+  end
+
+  def allow_iframe_for_webling_photos
+    response.headers['Content-Security-Policy'] = "frame-ancestors 'self' https://hildegarten.webling.eu/"
   end
 end
