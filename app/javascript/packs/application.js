@@ -37,6 +37,7 @@ $(document).on('turbolinks:load', function() {
   $('#notices_error_messages').fadeOut(5000);
   $('.materialboxed').materialbox();
   M.textareaAutoResize($('.materialize-textarea'));
+  $('.collapsible').collapsible();
 
   if($('#scene').length > 0){
     const Parallax = require('parallax-js')
