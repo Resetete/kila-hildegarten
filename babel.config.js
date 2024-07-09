@@ -44,13 +44,14 @@ module.exports = function(api) {
       [
         '@babel/plugin-proposal-class-properties',
         {
-          loose: true
+          loose: false
         }
       ],
       [
         '@babel/plugin-proposal-object-rest-spread',
         {
-          useBuiltIns: true
+          useBuiltIns: true,
+          loose: false
         }
       ],
       [
@@ -58,13 +59,15 @@ module.exports = function(api) {
         {
           helpers: false,
           regenerator: true,
-          corejs: false
+          corejs: false,
+          loose: false
         }
       ],
       [
         '@babel/plugin-transform-regenerator',
         {
-          async: false
+          async: false,
+          loose: false
         }
       ]
     ].filter(Boolean)

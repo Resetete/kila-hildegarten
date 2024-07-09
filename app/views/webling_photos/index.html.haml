@@ -4,25 +4,28 @@
     %button.waves-effect.waves-light.btn#download-selected-btn Download Selected
 
   - @subfolders_with_photo_ids.each_with_index do |subfolder, idx|
-    .action-items.valign-wrapper
-      %h3= subfolder.dig('properties', 'title')
-      %p.left-padding
-        %label
-          %input{type: "checkbox", class: 'filled-in select-all-checkbox', id: "select-all-checkbox-#{idx}", data: { index: idx }}
-            %span Select all
-    .row
-      %ul.photo-elements
-        - subfolder[:photo_objects].each do |photo|
-          - photo_id = photo['id']
-          - auth_token = Admin.find_by(role: 'webling_user').auth_token
-          %li.col.s12.m3
-            .card.medium.hoverable
-              .card-image
-                - photo_content = webling_photo_path(id: photo_id, token: auth_token)
-                = image_tag(photo_content, alt: photo.dig('properties', 'file', 'name'), class: 'responsive-img')
-              .card-content
-                = photo.dig('properties', 'file', 'name')
-                %p.card-action
-                  %label
-                    %input{type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: photo_content}
-                      %span Download
+    %ul.collapsible
+      %li
+        .collapsible-header.action-items
+          %h2= subfolder.dig('properties', 'title')
+          %p.left-padding
+            %label
+              %input{type: "checkbox", class: 'filled-in select-all-checkbox', id: "select-all-checkbox-#{idx}", data: { index: idx }}
+                %span Select all
+        .collapsible-body
+          .row
+            %ul.photo-elements
+              - subfolder[:photo_objects].each do |photo|
+                - photo_id = photo['id']
+                - auth_token = Admin.find_by(role: 'webling_user').auth_token
+                %li.col.s12.m3
+                  .card.medium.hoverable
+                    .card-image
+                      - photo_content = webling_photo_path(id: photo_id, token: auth_token)
+                      = image_tag(photo_content, alt: photo.dig('properties', 'file', 'name'), class: 'responsive-img')
+                    .card-content
+                      = photo.dig('properties', 'file', 'name')
+                      %p.card-action
+                        %label
+                          %input{type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: photo_content}
+                            %span Download
