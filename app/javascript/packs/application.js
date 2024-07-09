@@ -6,13 +6,17 @@
 // get all images from javascript/images folder
 // ensures that webpacker will add this path to the manifest file
 
-
-require("@rails/ujs").start()
-require("turbolinks").start()
 require("jquery")
-require("@rails/activestorage").start()
 require("channels")
 
+import Rails from "@rails/ujs"
+import Turbolinks from "turbolinks"
+import * as ActiveStorage from "@rails/activestorage"
+
+// Initialize Rails, Turbolinks, and ActiveStorage
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
