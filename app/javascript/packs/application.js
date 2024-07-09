@@ -25,6 +25,7 @@ import '../stylesheets/application';
 import 'jquery/dist/jquery';
 import 'materialize-css/dist/js/materialize';
 import "@fortawesome/fontawesome-free/js/all";
+import './webling_photos'
 
 $(document).on('turbolinks:load', function() {
   $(".dropdown-trigger").dropdown();
@@ -58,7 +59,7 @@ $(document).on('turbolinks:load', function() {
     var link = $(this); //preselect the link
     if (link.hasClass('hover')) {
         return true;
-     } 
+     }
     else {
        link.addClass('hover');
        $('.room-plan-animated > div').not(this).removeClass('hover');

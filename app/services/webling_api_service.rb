@@ -7,18 +7,18 @@ class WeblingApiService
   end
 
   def subfolders_with_photo_ids
-    # Rails.cache.fetch('subfolders_with_photo_ids', expires_in: 12.hours) do
+    Rails.cache.fetch('subfolders_with_photo_ids', expires_in: 12.hours) do
       subfolder_ids.map do |folder_id|
         raw = request_photos_per_subfolder(folder_id)
         next unless raw
 
         # for debugging get only first two photos
-        photo_ids = raw.dig('children', 'document').flatten.first(2)
+        photo_ids = raw.dig('children', 'document').flatten.first(10)
         photo_objects = photo_ids.map { |photo_id| get_photo_object(photo_id) }
         raw[:photo_objects] = photo_objects
         raw
       end.compact
-    # end
+    end
   end
 
   def get_photo_object(photo_id)
@@ -33,7 +33,7 @@ class WeblingApiService
   private
 
   def subfolder_ids
-    @subfolders ||= get_public_photos_documentgroups.dig('children', 'documentgroup') || []
+    @subfolders ||= get_public_photos_documentgroups&.dig('children', 'documentgroup') || []
   end
 
   def request_photos_per_subfolder(folder)

@@ -563,7 +563,7 @@ section.imprint-hero-animation {
 
 #relaxing-room-detail-photo {
   /* don't show the image initially */
-  width: 0; /* in addition to being invisible, the image will not respond to hovering */  
+  width: 0; /* in addition to being invisible, the image will not respond to hovering */
   opacity: 0;
   transition: opacity .5s ease;
 }
@@ -993,4 +993,38 @@ footer .footer-address {
 
 @-ms-viewport{
     width: device-width;
+}
+
+
+/*****************/
+// Webling photos
+/*****************/
+
+.thumbnail-container {
+  height: 15vh;
+}
+
+.list-element-container {
+  padding: 1em;
+  width: 25%;
+}
+
+.responsive-img{
+  width: auto;
+  max-height: 100%;
+}
+
+.photo-elements {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.photo-checkbox {
+  margin-right: 10px;
+  transform: scale(1.5); // To make the checkbox more visible
+  display: inline-block; // Ensure the checkbox is displayed
+  position: relative;   // Ensure the checkbox is not absolutely positioned
+  z-index: 1;           // Ensure the checkbox is above other elements
 }

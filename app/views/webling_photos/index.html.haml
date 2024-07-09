@@ -1,11 +1,25 @@
 .container
   %h1 Photos und Dokumente
 
+  %button#download-selected-btn Download Selected
+  %input#select-all-checkbox{type: "checkbox", multiple: true} Select All
+  %input#default-checkbox{type:"checkbox", class:"w-4, h-4, text-blue-600,rounded"} Test
+
+
   - @subfolders_with_photo_ids.each do |subfolder|
     %h3= subfolder.dig('properties', 'title')
-    %ul
+    %ul.photo-elements
       - subfolder[:photo_objects].each do |photo|
-        %li
+        %li.list-element-container
           - photo_id = photo['id']
           - auth_token = Admin.find_by(role: 'webling_user').auth_token
-          = image_tag webling_photo_path(id: photo_id, token: auth_token), alt: photo.dig('properties', 'file', 'name'), class: 'thumbnail'
+          .thumbnail-container
+            - photo_content = webling_photo_path(id: photo_id, token: auth_token)
+            = image_tag photo_content, alt: photo.dig('properties', 'file', 'name'), class: 'responsive-img'
+            = check_box_tag('test', value: photo_content, class: 'photo-checkbox')
+            %input{type:"checkbox", id:"checkbox1", value: photo}
+            %label{for:"checkbox1"} Label name
+            %input.photo-checkbox{type: "checkbox", value: photo_content}
+            %label
+              %input.btn-check.photo-checkbox{type: "checkbox", value: webling_photo_path(id: photo_id, token: auth_token)}
+            -# = photo.dig('properties', 'file', 'name')
