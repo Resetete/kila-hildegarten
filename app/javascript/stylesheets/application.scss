@@ -1000,20 +1000,6 @@ footer .footer-address {
 // Webling photos
 /*****************/
 
-.thumbnail-container {
-  height: 15vh;
-}
-
-.list-element-container {
-  padding: 1em;
-  width: 25%;
-}
-
-.responsive-img{
-  width: auto;
-  max-height: 100%;
-}
-
 .photo-elements {
   display: flex;
   width: 100%;
@@ -1027,4 +1013,16 @@ footer .footer-address {
   display: inline-block; // Ensure the checkbox is displayed
   position: relative;   // Ensure the checkbox is not absolutely positioned
   z-index: 1;           // Ensure the checkbox is above other elements
+}
+
+.action-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+}
+
+.left-padding {
+  padding-left: 2em;
 }

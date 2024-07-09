@@ -1,25 +1,29 @@
 .container
   %h1 Photos und Dokumente
 
-  %button#download-selected-btn Download Selected
-  %input#select-all-checkbox{type: "checkbox", multiple: true} Select All
-  %input#default-checkbox{type:"checkbox", class:"w-4, h-4, text-blue-600,rounded"} Test
-
+  .action-items
+    %button.waves-effect.waves-light.btn#download-selected-btn Download Selected
+    %p.left-padding
+      %label.valign-wrapper
+        %input{type: "checkbox", class: 'filled-in', id: 'select-all-checkbox', multiple: true}
+          %span Select all
 
   - @subfolders_with_photo_ids.each do |subfolder|
     %h3= subfolder.dig('properties', 'title')
-    %ul.photo-elements
-      - subfolder[:photo_objects].each do |photo|
-        %li.list-element-container
+    .row
+      %ul.photo-elements
+        - subfolder[:photo_objects].each do |photo|
           - photo_id = photo['id']
           - auth_token = Admin.find_by(role: 'webling_user').auth_token
-          .thumbnail-container
-            - photo_content = webling_photo_path(id: photo_id, token: auth_token)
-            = image_tag photo_content, alt: photo.dig('properties', 'file', 'name'), class: 'responsive-img'
-            = check_box_tag('test', value: photo_content, class: 'photo-checkbox')
-            %input{type:"checkbox", id:"checkbox1", value: photo}
-            %label{for:"checkbox1"} Label name
-            %input.photo-checkbox{type: "checkbox", value: photo_content}
-            %label
-              %input.btn-check.photo-checkbox{type: "checkbox", value: webling_photo_path(id: photo_id, token: auth_token)}
-            -# = photo.dig('properties', 'file', 'name')
+          %li.col.s12.m3
+            .card.medium.hoverable
+              .card-image
+                - photo_content = webling_photo_path(id: photo_id, token: auth_token)
+                = image_tag(photo_content, alt: photo.dig('properties', 'file', 'name'), class: 'responsive-img')
+              .card-content
+                = photo.dig('properties', 'file', 'name')
+                %p.card-action
+                  %label
+                    %input{type: "checkbox", class: "filled-in photo-checkbox", value: photo_content}
+                      %span Download
+
