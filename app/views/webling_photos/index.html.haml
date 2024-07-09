@@ -1,15 +1,15 @@
 .container
-  %h1 Photos und Dokumente
-
-  .action-items
+  -# %h1 Photos und Dokumente
+  %h1
     %button.waves-effect.waves-light.btn#download-selected-btn Download Selected
-    %p.left-padding
-      %label.valign-wrapper
-        %input{type: "checkbox", class: 'filled-in', id: 'select-all-checkbox', multiple: true}
-          %span Select all
 
-  - @subfolders_with_photo_ids.each do |subfolder|
-    %h3= subfolder.dig('properties', 'title')
+  - @subfolders_with_photo_ids.each_with_index do |subfolder, idx|
+    .action-items.valign-wrapper
+      %h3= subfolder.dig('properties', 'title')
+      %p.left-padding
+        %label
+          %input{type: "checkbox", class: 'filled-in select-all-checkbox', id: "select-all-checkbox-#{idx}", data: { index: idx }}
+            %span Select all
     .row
       %ul.photo-elements
         - subfolder[:photo_objects].each do |photo|
@@ -24,6 +24,5 @@
                 = photo.dig('properties', 'file', 'name')
                 %p.card-action
                   %label
-                    %input{type: "checkbox", class: "filled-in photo-checkbox", value: photo_content}
+                    %input{type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: photo_content}
                       %span Download
-

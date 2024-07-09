@@ -1,25 +1,28 @@
-// webling photo page
-// download selected images
-
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 
 document.addEventListener('turbolinks:load', () => {
-  const selectAllCheckbox = document.getElementById('select-all-checkbox');
-  const photoCheckboxes = document.querySelectorAll('.photo-checkbox');
+  console.log('webling photos loaded');
+  const selectAllCheckboxes = document.querySelectorAll('.select-all-checkbox');
   const downloadSelectedBtn = document.getElementById('download-selected-btn');
 
-  if (selectAllCheckbox && photoCheckboxes && downloadSelectedBtn) {
-    selectAllCheckbox.addEventListener('change', (e) => {
-      const isChecked = e.target.checked;
-      photoCheckboxes.forEach(checkbox => {
-        checkbox.checked = isChecked;
+  if (selectAllCheckboxes && downloadSelectedBtn) {
+    selectAllCheckboxes.forEach(selectAllCheckbox => {
+      selectAllCheckbox.addEventListener('change', (e) => {
+        const idx = e.target.dataset.index;
+        const isChecked = e.target.checked;
+        const photoCheckboxes = document.querySelectorAll(`.photo-checkbox[data-index='${idx}']`);
+
+        photoCheckboxes.forEach(checkbox => {
+          checkbox.checked = isChecked;
+        });
       });
     });
 
     downloadSelectedBtn.addEventListener('click', async () => {
       const selectedPhotos = [];
-      photoCheckboxes.forEach(checkbox => {
+
+      document.querySelectorAll('.photo-checkbox').forEach(checkbox => {
         if (checkbox.checked) {
           selectedPhotos.push(checkbox.value);
         }
@@ -32,7 +35,7 @@ document.addEventListener('turbolinks:load', () => {
         for (const photoUrl of selectedPhotos) {
           const response = await fetch(photoUrl);
           const blob = await response.blob();
-          const fileName = photoUrl.split('/').pop().split('?')[0] + '.jpg';
+          const fileName = photoUrl.split('/').pop().split('?')[0];
           folder.file(fileName, blob);
         }
 
@@ -44,3 +47,7 @@ document.addEventListener('turbolinks:load', () => {
     });
   }
 });
+
+
+
+
