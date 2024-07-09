@@ -20,5 +20,9 @@
   "devDependencies": {
     "resolve-url-loader": "^5.0.0",
     "webpack-dev-server": "^4.6.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "yarn": "1.22.19"
   }
 }

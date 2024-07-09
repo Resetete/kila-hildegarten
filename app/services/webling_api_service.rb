@@ -13,7 +13,7 @@ class WeblingApiService
         next unless raw
 
         # for debugging get only first two photos
-        photo_ids = raw.dig('children', 'document').flatten.first(10)
+        photo_ids = raw.dig('children', 'document').flatten
         photo_objects = photo_ids.map { |photo_id| get_photo_object(photo_id) }
         raw[:photo_objects] = photo_objects
         raw
