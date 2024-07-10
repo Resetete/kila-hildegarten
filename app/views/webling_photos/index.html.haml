@@ -1,7 +1,6 @@
 .container
-  -# %h1 Photos und Dokumente
   %h1
-    %button.waves-effect.waves-light.btn#download-selected-btn Download Selected
+    %button.waves-effect.waves-light.btn#download-selected-btn Auswahl herunterladen
 
   - @subfolders_with_photo_ids.each_with_index do |subfolder, idx|
     %ul.collapsible
@@ -11,7 +10,7 @@
           %p.left-padding
             %label
               %input{type: "checkbox", class: 'filled-in select-all-checkbox', id: "select-all-checkbox-#{idx}", data: { index: idx }}
-                %span Select all
+                %span Alle auswählen
         .collapsible-body
           .row
             %ul.photo-elements
@@ -20,12 +19,13 @@
                 - auth_token = Admin.find_by(role: 'webling_user').auth_token
                 %li.col.s12.m3
                   .card.medium.hoverable
+                    - full_photo_content = webling_photo_path(id: photo_id, token: auth_token)
+                    - thumbnail_photo_content = webling_photo_thumbnail_path(id: photo_id, token: auth_token)
                     .card-image
-                      - photo_content = webling_photo_path(id: photo_id, token: auth_token)
-                      = image_tag(photo_content, alt: photo.dig('properties', 'file', 'name'), class: 'responsive-img')
+                      = image_tag(thumbnail_photo_content, alt: photo.dig('properties', 'file', 'name'), class: 'responsive-img')
                     .card-content
                       = photo.dig('properties', 'file', 'name')
                       %p.card-action
                         %label
-                          %input{type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: photo_content}
-                            %span Download
+                          %input{type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: full_photo_content}
+                            %span Herunterladen
