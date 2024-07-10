@@ -35,7 +35,7 @@ document.addEventListener('turbolinks:load', () => {
         for (const photoUrl of selectedPhotos) {
           const response = await fetch(photoUrl);
           const blob = await response.blob();
-          const fileName = photoUrl.split('/').pop().split('?')[0];
+          const fileName = photoUrl.split('/').pop().split('?')[0] + '.jpg';
           folder.file(fileName, blob);
         }
 

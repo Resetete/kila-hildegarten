@@ -12,60 +12,74 @@ class WeblingPhotosController < ApplicationController
 
   def show
     photo_id = params[:id]
+    auth_token = Admin.find_by(role: 'webling_user').auth_token
 
-    # Fetch photo details
-    photo_response = fetch_photo_details(photo_id)
-    # photo_response = Faraday.get("#{WeblingApiService::BASE_URL}/api/1/document/#{photo_id}", {}, { 'apikey' => Rails.application.credentials.dig(:webling, :api_key) })
+    # Check if the image is cached
+    cache_key = "webling_photo_#{photo_id}"
+    image_content = Rails.cache.fetch(cache_key) do
+      fetch_full_size_image(photo_id, auth_token)
+    end
 
-    if photo_response.success?
-      photo_details = JSON.parse(photo_response.body)
-      photo_url = "#{WeblingApiService::BASE_URL}#{photo_details.dig('properties', 'file', 'href')}"
-
-      # Fetch the actual image content
-      image_response = fetch_image(photo_url)
-
-      if image_response.success?
-        send_data(image_response.body, type: image_response.headers['content-type'], disposition: 'inline')
-      else
-        handle_failed_image_fetch(image_response)
-      end
+    if image_content.present?
+      send_data image_content, type: 'image/jpeg', disposition: 'inline'
     else
-      handle_failed_photo_details_fetch(photo_response)
+      head :not_found
     end
   end
 
   def thumbnail
     photo_id = params[:id]
+    auth_token = Admin.find_by(role: 'webling_user').auth_token
 
+    # Check if the thumbnail is cached
+    cache_key = "webling_thumbnail_#{photo_id}"
+    thumbnail_content = Rails.cache.fetch(cache_key) do
+      fetch_and_generate_thumbnail(photo_id, auth_token)
+    end
+
+    if thumbnail_content.present?
+      send_data thumbnail_content, type: 'image/jpeg', disposition: 'inline'
+    else
+      head :not_found
+    end
+  end
+
+  private
+
+  def fetch_and_generate_thumbnail(photo_id, auth_token)
+    # Fetch full-size image content
+    full_size_image = fetch_full_size_image(photo_id, auth_token)
+
+    if full_size_image.present?
+      # Generate thumbnail using MiniMagick
+      generate_thumbnail(full_size_image)
+    else
+      Rails.logger.error "Failed to fetch full-size image for thumbnail generation"
+      nil
+    end
+  end
+
+  def fetch_full_size_image(photo_id, auth_token)
     # Fetch photo details
-    photo_response = fetch_photo_details(photo_id)
+    photo_response = Faraday.get("#{WeblingApiService::BASE_URL}/api/1/document/#{photo_id}", {}, { 'apikey' => Rails.application.credentials.dig(:webling, :api_key) })
 
     if photo_response.success?
       photo_details = JSON.parse(photo_response.body)
       photo_url = "#{WeblingApiService::BASE_URL}#{photo_details.dig('properties', 'file', 'href')}"
 
       # Fetch the actual image content
-      image_response = fetch_image(photo_url)
+      image_response = Faraday.get(photo_url, {}, { 'apikey' => Rails.application.credentials.dig(:webling, :api_key) })
 
       if image_response.success?
-        thumbnail_image = generate_thumbnail(image_response.body)
-        send_data(thumbnail_image, type: image_response.headers['content-type'], disposition: 'inline')
+        image_response.body
       else
-        handle_failed_image_fetch(image_response)
+        Rails.logger.error "Failed to fetch image content: #{image_response.body}"
+        nil
       end
     else
-      handle_failed_photo_details_fetch(photo_response)
+      Rails.logger.error "Failed to fetch photo details: #{photo_response.body}"
+      nil
     end
-  end
-
-  private
-
-  def fetch_photo_details(photo_id)
-    Faraday.get("#{WeblingApiService::BASE_URL}/api/1/document/#{photo_id}", {}, { 'apikey' => Rails.application.credentials.dig(:webling, :api_key) })
-  end
-
-  def fetch_image(photo_url)
-    Faraday.get(photo_url, {}, { 'apikey' => Rails.application.credentials.dig(:webling, :api_key) })
   end
 
   def authorize_webling_user
@@ -78,16 +92,6 @@ class WeblingPhotosController < ApplicationController
 
   def allow_iframe_for_webling_photos
     response.headers['Content-Security-Policy'] = "frame-ancestors 'self' https://hildegarten.webling.eu"
-  end
-
-  def handle_failed_image_fetch(response)
-    Rails.logger.error "Failed to fetch image content: #{response.body}"
-    head :bad_request
-  end
-
-  def handle_failed_photo_details_fetch(response)
-    Rails.logger.error "Failed to fetch photo details: #{response.body}"
-    head :bad_request
   end
 
   def generate_thumbnail(image_content)
