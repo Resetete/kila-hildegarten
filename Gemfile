@@ -22,6 +22,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'carrierwave-dropbox', '~> 2.0'
 gem 'mini_magick', '~> 4.11'
+# support videos
+gem 'streamio-ffmpeg'
+# check file types
+gem 'marcel'
+
 gem 'pg'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

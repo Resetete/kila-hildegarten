@@ -1026,3 +1026,26 @@ footer .footer-address {
 .left-padding {
   padding-left: 2em;
 }
+
+.card-image {
+  position: relative;
+}
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  border: solid white 1px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-icon {
+  font-size: 24px;
+}
