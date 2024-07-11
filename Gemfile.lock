@@ -154,6 +154,7 @@ GEM
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.5.6)
+    multi_json (1.15.0)
     net-ftp (0.1.3)
       net-protocol
       time
@@ -289,6 +290,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.8)
+    streamio-ffmpeg (3.0.2)
+      multi_json (~> 1.8)
     strscan (3.0.4)
     temple (0.8.2)
     thor (1.2.1)
@@ -349,6 +352,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  marcel
   mini_magick (~> 4.11)
   net-ftp
   net-imap
@@ -371,6 +375,7 @@ DEPENDENCIES
   shoulda-matchers (~> 3.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  streamio-ffmpeg
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
