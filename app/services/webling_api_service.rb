@@ -8,7 +8,6 @@ class WeblingApiService
 
   def subfolders_with_photo_ids
     last_fetch_timestamp = Rails.cache.read('last_fetch_timestamp') || Date.yesterday.to_time.to_i
-    #last_fetch_timestamp = (Time.now - 2.hours).to_i # TODO: remove, just for debugging
     folder_changes = fetch_changes('documentgroup', last_fetch_timestamp)
     photo_changes = fetch_changes('document', last_fetch_timestamp)
 
