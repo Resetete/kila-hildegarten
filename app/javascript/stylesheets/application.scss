@@ -1001,18 +1001,17 @@ footer .footer-address {
 /*****************/
 
 .photo-elements {
-  display: flex;
   width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap;
 }
 
-.photo-checkbox {
-  margin-right: 10px;
-  transform: scale(1.5); // To make the checkbox more visible
-  display: inline-block; // Ensure the checkbox is displayed
-  position: relative;   // Ensure the checkbox is not absolutely positioned
-  z-index: 1;           // Ensure the checkbox is above other elements
+.custom-li {
+  display: flex;
+  justify-content: flex-start;
+}
+
+[type=checkbox] + span:not(.lever) {
+  padding-left: 30px;
+  line-height: 20px !important;
 }
 
 .action-items {
