@@ -6,7 +6,7 @@
     %ul.collapsible
       %li
         .collapsible-header.action-items
-          %h2= subfolder.dig('properties', 'title')
+          %h2= subfolder.dig(:title)
           %p.left-padding
             %label
               %input{type: "checkbox", class: 'filled-in select-all-checkbox', id: "select-all-checkbox-#{idx}", data: { index: idx }}
@@ -14,24 +14,27 @@
         .collapsible-body
           .row
             %ul.photo-elements
-              - subfolder[:photo_objects].each do |photo|
-                - photo_id = photo['id']
-                - auth_token = Admin.find_by(role: 'webling_user').auth_token
-                %li.col.s12.m3
-                  .card.medium.hoverable
-                    - full_file_content = webling_photo_path(id: photo_id, token: auth_token)
-                    - thumbnail_content = webling_photo_thumbnail_path(id: photo_id, token: auth_token)
-                    - file_name = photo.dig('properties', 'file', 'name')
-                    - file_type = file_name.split('.').last
-                    .card-image
-                      = link_to(full_file_content, target: "_blank") do
-                        = image_tag(thumbnail_content, alt: file_name, class: 'responsive-img')
-                      - if file_type == 'mp4'
-                        .video-overlay
-                          %span.play-icon ▶
-                    .card-content
-                      = file_name
-                      %p.card-action
-                        %label
-                          %input{type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: full_file_content}
-                            %span Auswählen
+              - if subfolder[:photo_objects].present?
+                - subfolder[:photo_objects].each do |photo|
+                  - photo_id = photo[:id]
+                  - auth_token = Admin.find_by(role: 'webling_user').auth_token
+                  %li.col.s12.m3
+                    .card.medium.hoverable
+                      - full_file_content = webling_photo_path(id: photo_id, token: auth_token)
+                      - thumbnail_content = webling_photo_thumbnail_path(id: photo_id, token: auth_token)
+                      - file_name = photo.dig(:data, 'properties', 'file', 'name')
+                      - file_type = file_name.split('.').last
+                      .card-image
+                        = link_to(full_file_content, target: "_blank") do
+                          = image_tag(thumbnail_content, alt: file_name, class: 'responsive-img')
+                        - if file_type == 'mp4'
+                          .video-overlay
+                            %span.play-icon ▶
+                      .card-content
+                        = file_name
+                        %p.card-action
+                          %label
+                            %input{type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: full_file_content}
+                              %span Auswählen
+              - else
+                %p Leerer Ordner
