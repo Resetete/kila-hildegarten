@@ -1,4 +1,4 @@
-.container
+.container.custom-width
   %h1
     %button.waves-effect.waves-light.btn#download-selected-btn Auswahl herunterladen
 
@@ -36,6 +36,6 @@
                             %label
                               %input{type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: full_file_content}
                                 %span Auswählen
-                          = link_to('Originalgröße', full_file_content, target: "_blank", class: 'waves-effect waves-light btn')
+                          = link_to('Original', full_file_content, target: "_blank", class: 'waves-effect waves-light btn')
               - else
                 %p Leerer Ordner
