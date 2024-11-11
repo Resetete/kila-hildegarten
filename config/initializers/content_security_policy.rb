@@ -1,5 +1,10 @@
-# Be sure to restart your server when you modify this file.
+# NOTE
+# the app is using the SecureHeaders gem
+# Instead of this file, the config/secure_headers.rb is
+# used to define the security policy for external files
 
+
+# Be sure to restart your server when you modify this file.
 # Define an application-wide content security policy
 # For further information see the following documentation
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
