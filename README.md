@@ -12,4 +12,10 @@ Using cloudflare to securely connect with the domain provider required to redire
 Turbolinks are disabled for the links in the materialized sidenav bar. If they are enabled, the links will not work after first time triggering.
 
 
-- for security policies I use the SecureHeaders gem. Policies are controled through config/secure_headers.rb
+- for security policies I use the SecureHeaders gem. Policies are controled through `config/secure_headers.rb`
+
+- the app is hosted on `heroku`
+- there is also an api use to `webling`
+
+- Redis is used on heroku to cache the webling photos for the preview
+

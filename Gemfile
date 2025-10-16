@@ -6,7 +6,7 @@ ruby '3.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.1.7"
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 5.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -14,12 +14,12 @@ gem "webpacker", "~> 5.4"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'devise'
+gem 'devise', "~> 4.9"
 gem 'carrierwave-dropbox', '~> 2.0'
 gem 'mini_magick', '~> 4.11'
 # support videos
@@ -27,11 +27,11 @@ gem 'streamio-ffmpeg'
 # check file types
 gem 'marcel'
 
-gem 'pg'
+gem "pg", ">= 1.1"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # allow fonte awesome 5 icons
-gem 'font_awesome5_rails'
+gem 'font_awesome5_rails', "~> 1.5"
 # compatibility of ruby 2 to r3 upgrade
 gem 'psych', '< 4'
 
@@ -51,6 +51,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # cpontrol page security, e.g. incorporating webpages as iframe
 gem 'secure_headers'
 
+# photo caching and storage services
+gem "cloudinary", "~> 1.24"
+gem "activestorage-cloudinary-service"
+
 group :production do
   # use postgres for all environments
 end
@@ -61,7 +65,7 @@ group :development, :test do
   #gem 'factory_bot_rails'
   # Use sqlite3 as the database for Active Record
   #gem 'sqlite3', '~> 1.4'
-  gem 'rspec-rails', '~> 3.4'
+  gem 'rspec-rails', '~> 5.1'
 
   # Basic Pry Setup
   gem 'awesome_print' # pretty print ruby objects
@@ -86,12 +90,12 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 4.9'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
-  gem 'shoulda-matchers', '~> 3.0', require: false
+  gem 'webdrivers', '~> 5.3'
+  gem 'shoulda-matchers', '~> 5.0', require: false
   gem 'database_cleaner', '~> 1.5'
-  gem 'faker', '~> 1.6.1'
+  gem 'faker', '~> 3.3'
   gem 'factory_girl_rails', '~> 4.5.0', require: false
 end
 
