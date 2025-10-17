@@ -16,8 +16,7 @@
     "turbolinks": "^5.2.0"
   },
   "scripts": {
-    "postinstall": "NODE_ENV=production bin/webpack",
-    "build": "NODE_ENV=production bin/webpack"
+    "postinstall": "NODE_OPTIONS=--openssl-legacy-provider yarn webpack"
   },
   "version": "0.1.0",
   "devDependencies": {
