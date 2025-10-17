@@ -1,6 +1,6 @@
 class WeblingPhotosController < ApplicationController
   before_action :allow_iframe_for_webling_photos, only: [:index]
-  # before_action :authorize_webling_user
+  before_action :authorize_webling_user
 
   layout 'bare'
 
