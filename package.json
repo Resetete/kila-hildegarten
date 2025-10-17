@@ -15,9 +15,9 @@
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
   },
-  "scripts": {
-    "postinstall": "NODE_OPTIONS=--openssl-legacy-provider yarn webpack"
-  },
+  // "scripts": {
+  //   "postinstall": "NODE_OPTIONS=--openssl-legacy-provider yarn webpack"
+  // },
   "version": "0.1.0",
   "devDependencies": {
     "resolve-url-loader": "^5.0.0",
