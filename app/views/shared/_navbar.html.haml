@@ -27,6 +27,7 @@
           %li= link_to 'Logout', destroy_admin_session_path, method: :delete
         - else
           %li= link_to 'Login', new_admin_session_path
+          %li= link_to('Webling Photos', webling_photos_path) if admin_signed_in? && admin.webling_user?
 
   %ul.sidenav#mobile-demo{'data-turbolinks': "false"}
     %li= link_to 'Kinderladen', root_path

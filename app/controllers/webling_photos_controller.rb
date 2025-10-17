@@ -14,16 +14,10 @@ class WeblingPhotosController < ApplicationController
 
   def show
     photo_id = params[:id]
-    auth_token = Admin.find_by(role: 'webling_user').auth_token
+    blob = WeblingPhotoCacheService.new(photo_id: photo_id).fetch_or_store!
 
-    # Check if the image is cached
-    cache_key = "webling_photo_#{photo_id}"
-    file_content = Rails.cache.fetch(cache_key) do
-      fetch_full_size_file(photo_id, auth_token)
-    end
-
-    if file_content.present?
-      send_data(file_content, type: image?(file_content) ? 'image/jpeg' : 'video/mp4', disposition: 'inline')
+    if blob
+      redirect_to url_for(blob) # liefert Cloudinary-URL zurück
     else
       head :not_found
     end
@@ -85,7 +79,7 @@ class WeblingPhotosController < ApplicationController
   end
 
   def authorize_webling_user
-    user = Admin.find_by(auth_token: params[:token])
+    user = Admin.find_by(auth_token: params[:token]) || current_user.webling_user?
 
     unless user && user.webling_user?
       redirect_to(root_path, status: :unauthorized, alert: 'Unauthorized')

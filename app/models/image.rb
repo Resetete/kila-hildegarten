@@ -1,3 +1,4 @@
+# That's used to store the dropbox images of the website
 class Image < ApplicationRecord
   mount_uploader :picture, PictureUploader
 

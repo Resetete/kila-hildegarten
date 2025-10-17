@@ -20,8 +20,8 @@
                   - auth_token = Admin.find_by(role: 'webling_user').auth_token
                   %li.col.s12.m3.custom-li
                     .card.medium.hoverable.custom-card
-                      - full_file_content = webling_photo_path(id: photo_id, token: auth_token)
-                      - thumbnail_content = webling_photo_thumbnail_path(id: photo_id, token: auth_token)
+                      - full_file_content = webling_photo_path(id: photo_id)
+                      - thumbnail_content = webling_photo_thumbnail_path(id: photo_id)
                       - file_name = photo.dig(:data, 'properties', 'file', 'name')
                       - file_type = file_name.split('.').last if file_name
                       .card-image

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_10_17_072020) do
+ActiveRecord::Schema.define(version: 2025_10_17_090810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 2025_10_17_072020) do
     t.bigint "image_id"
     t.index ["content_id"], name: "index_team_members_on_content_id"
     t.index ["image_id"], name: "index_team_members_on_image_id"
+  end
+
+  create_table "webling_files", force: :cascade do |t|
+    t.integer "webling_id"
+    t.string "title"
+    t.string "file_type"
+    t.integer "folder_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
