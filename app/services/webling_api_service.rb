@@ -1,3 +1,6 @@
+# This service retrieves the photos that were uploaded to webling public documents
+# the photos are then rendered per folder in the view
+# the photos are stored in cloudinary and cached so that the loading is quicker
 class WeblingApiService
   require 'faraday'
   BASE_URL = 'https://hildegarten.webling.ch'.freeze
