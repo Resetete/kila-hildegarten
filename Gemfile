@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.11'
 gem 'devise', "~> 4.9"
 gem 'carrierwave-dropbox', '~> 2.0'
 gem 'mini_magick', '~> 4.11'
-# support videos
+# support videos / TODO: deprecated in this project, probably I can remove it
 gem 'streamio-ffmpeg'
 # check file types
 gem 'marcel'

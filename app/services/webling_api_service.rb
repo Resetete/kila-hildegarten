@@ -34,7 +34,15 @@ class WeblingApiService
   private
 
   def fetch_subfolders_with_photo_ids
-    subfolder_ids.map { |folder_id| fetch_subfolder_metadata(folder_id) }.compact
+    subfolder_ids.map { |folder_id| fetch_subfolder_metadata(folder_id) }.compact.sort_by do |f|
+      title = f[:title].to_s
+      if title =~ /^(\d{4})-(\d{2})/
+        year, month = $1.to_i, $2.to_i
+        [year, month]
+      else
+        [0, 0]
+      end
+    end.reverse
   end
 
   # ⚡ only load metadata (not full photo files)
