@@ -1,9 +1,8 @@
 class WeblingPhotosController < ApplicationController
   before_action :allow_iframe_for_webling_photos, only: [:index]
-  layout 'bare'
-
-  # Optionally protect access
   # before_action :authorize_webling_user
+
+  layout 'bare'
 
   def index
     Rails.logger.info "🟢 Loading Webling subfolders..."
