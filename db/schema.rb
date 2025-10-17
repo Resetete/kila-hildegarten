@@ -85,12 +85,11 @@ ActiveRecord::Schema.define(version: 2025_10_17_090810) do
   end
 
   create_table "webling_files", force: :cascade do |t|
-    t.integer "webling_id"
-    t.string "title"
-    t.string "file_type"
-    t.integer "folder_id"
+    t.string "webling_id", null: false
+    t.string "content_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["webling_id"], name: "index_webling_files_on_webling_id", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

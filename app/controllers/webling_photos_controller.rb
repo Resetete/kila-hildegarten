@@ -1,40 +1,47 @@
 class WeblingPhotosController < ApplicationController
-  require 'streamio-ffmpeg'
-
-  protect_from_forgery with: :null_session
+  # before_action :authorize_webling_user
   before_action :allow_iframe_for_webling_photos, only: [:index]
 
   layout 'bare'
 
-  before_action :authorize_webling_user
-
   def index
     @subfolders_with_photo_ids = WeblingApiService.new.subfolders_with_photo_ids
+
+    @subfolders_with_photo_ids.each do |folder|
+      folder[:photo_objects].each do |photo|
+        WeblingPhotoCacheService.new(photo_id: photo[:id]).fetch_or_store! unless WeblingFile.exists?(webling_id: photo[:id])
+      end
+    end
   end
 
+  # returns the original file
   def show
-    photo_id = params[:id]
-    blob = WeblingPhotoCacheService.new(photo_id: photo_id).fetch_or_store!
+    file = find_or_cache_file(params[:id])
+    return head :not_found unless file&.file&.attached?
 
-    if blob
-      redirect_to url_for(blob) # liefert Cloudinary-URL zurück
-    else
-      head :not_found
-    end
+    redirect_to url_for(file.file)
   end
 
+  # returns a thumbnail photo (300pxx300px)
   def thumbnail
-    photo_id = params[:id]
-    auth_token = Admin.find_by(role: 'webling_user').auth_token
+    file = WeblingFile.find_by(webling_id: params[:id])
 
-    # Check if the thumbnail is cached
-    cache_key = "webling_thumbnail_#{photo_id}"
-    thumbnail_content = Rails.cache.fetch(cache_key) do
-      fetch_and_generate_thumbnail(photo_id, auth_token)
+    unless file&.file&.attached?
+      WeblingPhotoCacheService.new(photo_id: params[:id]).fetch_or_store!
+      file = WeblingFile.find_by(webling_id: params[:id])
     end
 
-    if thumbnail_content.present?
-      send_data thumbnail_content, type: 'image/jpeg', disposition: 'inline'
+    if file&.file&.attached?
+      blob = file.file.blob
+
+      # cloudinary transforms the images to thumbnails
+      variant = if blob.image?
+        file.file.variant(resize_to_limit: [300, 300])
+      else
+        file.file.preview(resize_to_limit: [300, 300])
+      end
+
+      redirect_to url_for(variant)
     else
       head :not_found
     end
@@ -42,92 +49,23 @@ class WeblingPhotosController < ApplicationController
 
   private
 
-  def fetch_and_generate_thumbnail(photo_id, auth_token)
-    # Fetch full-size image content
-    full_size_image = fetch_full_size_file(photo_id, auth_token)
-
-    if full_size_image.present?
-      # Generate thumbnail using MiniMagick
-      generate_thumbnail(full_size_image)
-    else
-      Rails.logger.error "Failed to fetch full-size image for thumbnail generation"
-      nil
-    end
-  end
-
-  def fetch_full_size_file(photo_id, auth_token)
-    # Fetch photo details
-    response = Faraday.get("#{WeblingApiService::BASE_URL}/api/1/document/#{photo_id}", {}, { 'apikey' => Rails.application.credentials.dig(:webling, :api_key) })
-
-    if response.success?
-      file_details = JSON.parse(response.body)
-      file_url = "#{WeblingApiService::BASE_URL}#{file_details.dig('properties', 'file', 'href')}"
-
-      # Fetch the actual image content
-      file_response = Faraday.get(file_url, {}, { 'apikey' => Rails.application.credentials.dig(:webling, :api_key) })
-
-      if file_response.success?
-        file_response.body
-      else
-        Rails.logger.error "Failed to fetch image content: #{file_response.body}"
-        nil
-      end
-    else
-      Rails.logger.error "Failed to fetch file details: #{response.body}"
-      nil
+  # retrieves the file from the db if exisiting
+  # or retrieves the file from webling via API and cache service
+  def find_or_cache_file(photo_id)
+    WeblingFile.find_by(webling_id: photo_id).tap do |file|
+      next if file&.file&.attached?
+      WeblingPhotoCacheService.new(photo_id: photo_id).fetch_or_store!
     end
   end
 
   def authorize_webling_user
     user = Admin.find_by(auth_token: params[:token]) || current_user.webling_user?
-
-    unless user && user.webling_user?
+    unless user&.webling_user?
       redirect_to(root_path, status: :unauthorized, alert: 'Unauthorized')
     end
   end
 
   def allow_iframe_for_webling_photos
     response.headers['Content-Security-Policy'] = "frame-ancestors 'self' https://hildegarten.webling.eu"
-  end
-
-  def generate_thumbnail(file_content)
-    if image?(file_content)
-      generate_image_thumbnail(file_content)
-    else
-      generate_video_thumbnail(file_content)
-    end
-  end
-
-  def generate_video_thumbnail(file_content)
-    # Save the video content to a temporary file
-    temp_video_path = Tempfile.new(['video', '.mp4'])
-    temp_video_path.binmode
-    temp_video_path.write(file_content)
-    temp_video_path.rewind
-
-    # Generate thumbnail
-    movie = FFMPEG::Movie.new(temp_video_path.path)
-    temp_image_path = Tempfile.new(['thumbnail', '.jpg'])
-    movie.screenshot(temp_image_path.path, seek_time: 5)
-
-    # Read and return the thumbnail content
-    thumbnail_content = File.binread(temp_image_path.path)
-
-    # Clean up temp files
-    temp_video_path.close!
-    temp_image_path.close!
-
-    thumbnail_content
-  end
-
-  def generate_image_thumbnail(file_content)
-    MiniMagick::Image.read(file_content)
-                      .thumbnail("300x300")
-                      .to_blob
-  end
-
-  def image?(file_content)
-    file_type = Marcel::MimeType.for(StringIO.new(file_content))
-    file_type.start_with?('image')
   end
 end

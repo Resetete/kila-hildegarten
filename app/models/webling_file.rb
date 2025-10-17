@@ -5,14 +5,11 @@ class WeblingFile < ApplicationRecord
 
   validates :webling_id, presence: true, uniqueness: true
 
-  scope :photos, -> { where(file_type: 'image') }
-  scope :videos, -> { where(file_type: 'video') }
-
   def image?
-    file_type == 'image'
+    content_type&.start_with?('image')
   end
 
   def video?
-    file_type == 'video'
+    content_type&.start_with?('video')
   end
 end

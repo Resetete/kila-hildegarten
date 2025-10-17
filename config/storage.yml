@@ -36,4 +36,3 @@ local:
 cloudinary:
   service: Cloudinary
   url: <%= Rails.application.credentials.dig(:cloudinary, :url) || ENV["CLOUDINARY_URL"] %>
-
