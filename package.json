@@ -15,16 +15,13 @@
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
   },
-  "scripts": {
-    "postinstall": "NODE_OPTIONS=--openssl-legacy-provider yarn webpack"
-  },
   "version": "0.1.0",
   "devDependencies": {
     "resolve-url-loader": "^5.0.0",
     "webpack-dev-server": "^4.6.0"
   },
   "engines": {
-    "node": "20.x",
-    "yarn": "1.22.19"
+    "node": ">=20 <23",
+    "yarn": ">=1.22.19 <1.23"
   }
 }

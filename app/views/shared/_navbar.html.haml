@@ -25,6 +25,8 @@
           %span.horizontal-space
         - if admin_signed_in?
           %li= link_to 'Logout', destroy_admin_session_path, method: :delete
+          - if current_admin&.webling_user?
+            %li= link_to 'Webling Photos', webling_photos_path(token: current_admin.auth_token)
         - else
           %li= link_to 'Login', new_admin_session_path
 

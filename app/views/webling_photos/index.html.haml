@@ -1,6 +1,7 @@
 .container.custom-width
   %h1
-    %button.waves-effect.waves-light.btn#download-selected-btn Auswahl herunterladen
+    %button.waves-effect.waves-light.btn#download-selected-btn
+      Auswahl herunterladen
 
   - @subfolders_with_photo_ids.each_with_index do |subfolder, idx|
     %ul.collapsible
@@ -9,33 +10,48 @@
           %h2= subfolder.dig(:title)
           %p.left-padding
             %label
-              %input{type: "checkbox", class: 'filled-in select-all-checkbox', id: "select-all-checkbox-#{idx}", data: { index: idx }}
-                %span Alle auswählen
+              %input{
+                type: "checkbox",
+                class: "filled-in select-all-checkbox",
+                id: "select-all-checkbox-#{idx}",
+                data: { index: idx }
+              }
+              %span Alle auswählen
+
         .collapsible-body
           .row
             %ul.photo-elements
               - if subfolder[:photo_objects].present?
                 - subfolder[:photo_objects].each do |photo|
-                  - photo_id = photo[:id]
-                  - auth_token = Admin.find_by(role: 'webling_user').auth_token
+                  - photo_id = photo[:id].to_s
+                  - file = WeblingFile.find_by(webling_id: photo_id)
+                  - file_name = file&.file&.filename&.to_s || "Foto #{photo_id}"
+                  - full_file_content = webling_photo_path(id: photo_id)
+
                   %li.col.s12.m3.custom-li
                     .card.medium.hoverable.custom-card
-                      - full_file_content = webling_photo_path(id: photo_id, token: auth_token)
-                      - thumbnail_content = webling_photo_thumbnail_path(id: photo_id, token: auth_token)
-                      - file_name = photo.dig(:data, 'properties', 'file', 'name')
-                      - file_type = file_name.split('.').last if file_name
                       .card-image
-                        = image_tag(thumbnail_content, alt: file_name, class: 'responsive-img materialboxed')
-                        - if file_type == 'mp4'
+                        - if file&.file&.attached?
+                          - blob = file.file.blob
+                          - if blob.image?
+                            = image_tag('placeholder.png', data: { src: url_for(file.file.variant(resize_to_limit: [300, 300])) }, loading: 'lazy', alt: file_name, class: 'responsive-img materialboxed', onerror: "this.onerror=null; this.src='#{image_path('placeholder.png')}'; this.style.opacity='0.6';")
+                          - else
+                            = image_tag('placeholder.png', alt: 'Video - kein Vorschaubild verfügbar', class: 'responsive-img materialboxed', style: 'opacity: 0.6; object-fit: cover; background: #fafaf8; border-radius: 8px;')
+                        - else
+                          = image_tag('placeholder.png',  alt: 'Wird geladen...', class: 'responsive-img materialboxed', style: 'opacity: 0.6; object-fit: cover; background: #fafaf8; border-radius: 8px;')
+
+                        - if file_name&.end_with?('.mp4')
                           .video-overlay
                             %span.play-icon ▶
+
                       .card-content
-                        = file_name.truncate(20) if file_name
-                        .card-action
-                          %p
-                            %label
-                              %input{type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: full_file_content}
-                                %span Auswählen
-                          = link_to('Original', full_file_content, target: "_blank", class: 'waves-effect waves-light btn')
+                        = file_name.truncate(20)
+
+                      .card-action
+                        %p
+                          %label
+                            %input{ type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: full_file_content }
+                            %span Auswählen
+                        = link_to('Original', webling_photo_path(id: photo_id, token: params[:token]), target: "_blank", class: "waves-effect waves-light btn")
               - else
                 %p Leerer Ordner

@@ -7,6 +7,28 @@
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+    :javascript
+      document.addEventListener("turbolinks:load", function() {
+        const lazyImages = document.querySelectorAll("img[loading='lazy']");
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) img.src = img.dataset.src;
+                observer.unobserve(img);
+              }
+            });
+          });
+          lazyImages.forEach(img => observer.observe(img));
+        } else {
+          lazyImages.forEach(img => {
+            if (img.dataset.src) img.src = img.dataset.src;
+          });
+        }
+      });
+
     = favicon_link_tag 'favicon_master.png', media: 'all'
     %link{rel: 'preconnect', href: 'https://fonts.googleapis.com'}
     %link{rel: 'preconnect', href: 'https://fonts.gstatic.com', 'crossorigin': true}
@@ -20,3 +42,5 @@
         - elsif alert
           %p.alert.card-panel.teal.lighten-2= alert
       = yield
+
+

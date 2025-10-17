@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   get 'webling_photos', to: 'webling_photos#index'
   get 'webling_photos/:id', to: 'webling_photos#show', as: 'webling_photo'
-  get 'webling_photos/:id/thumbnail', to: 'webling_photos#thumbnail', as: 'webling_photo_thumbnail'
 
   resources :team_members
   resources :contents
