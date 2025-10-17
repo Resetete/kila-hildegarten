@@ -29,7 +29,7 @@ gem 'marcel'
 
 gem "pg", ">= 1.1"
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 # allow fonte awesome 5 icons
 gem 'font_awesome5_rails', "~> 1.5"
 # compatibility of ruby 2 to r3 upgrade
