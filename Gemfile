@@ -27,6 +27,8 @@ gem 'streamio-ffmpeg'
 # check file types
 gem 'marcel'
 
+gem 'concurrent-ruby', '1.3.4'
+
 gem "pg", ">= 1.1"
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
