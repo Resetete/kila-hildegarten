@@ -52,6 +52,6 @@
                           %label
                             %input{ type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: full_file_content }
                             %span Auswählen
-                        = link_to('Original', full_file_content, target: "_blank", class: "waves-effect waves-light btn")
+                        = link_to('Original', webling_photo_path(id: photo_id, token: params[:token]), target: "_blank", class: "waves-effect waves-light btn")
               - else
                 %p Leerer Ordner
