@@ -1,6 +1,9 @@
 class WeblingPhotosController < ApplicationController
   require 'zip'
 
+  # the CSRF token verification needs to be skipped since it's rendered in an iframe on another domain
+  skip_before_action :verify_authenticity_token, only: [:zip_download]
+
   before_action :allow_iframe_for_webling_photos, only: [:index]
   before_action :authorize_webling_user
 
