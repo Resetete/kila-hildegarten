@@ -1,11 +1,13 @@
 class WeblingPhotosController < ApplicationController
+  require 'zip'
+
   before_action :allow_iframe_for_webling_photos, only: [:index]
   before_action :authorize_webling_user
 
   layout 'bare'
 
   def index
-    Rails.logger.info "🟢 Loading Webling subfolders..."
+    Rails.logger.info "Loading Webling subfolders..."
     @subfolders_with_photo_ids = WeblingApiService.new.subfolders_with_photo_ids
     existing_ids = WeblingFile.pluck(:webling_id)
 
@@ -13,7 +15,7 @@ class WeblingPhotosController < ApplicationController
     @subfolders_with_photo_ids.each do |folder|
       folder[:photo_objects]&.each do |photo|
         next if existing_ids.include?(photo[:id].to_s)
-        Rails.logger.info "📸 Enqueuing caching job for photo #{photo[:id]}"
+        Rails.logger.info "Enqueuing caching job for photo #{photo[:id]}"
         WeblingPhotoCacheJob.perform_later(photo[:id])
       end
     end
@@ -29,6 +31,19 @@ class WeblingPhotosController < ApplicationController
     return head :not_found unless file&.file&.attached?
 
     redirect_to url_for(file.file)
+  end
+
+  # ensures that images can be downloaded
+  def zip_download
+    ids = Array(params[:ids]).map(&:to_s)
+    timestamp = Time.current.strftime("%Y%m%d_%H%M%S")
+    zipname = "photos_#{timestamp}.zip"
+
+    response.headers['Content-Type'] = 'application/zip'
+    response.headers['Content-Disposition'] = "attachment; filename=\"#{zipname}\""
+    response.headers['Last-Modified'] = Time.zone.now.ctime.to_s
+
+    self.response_body = ZipStreamerService.new(ids)
   end
 
   private
