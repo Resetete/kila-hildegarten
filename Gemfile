@@ -29,6 +29,9 @@ gem 'marcel'
 
 gem 'concurrent-ruby', '1.3.4'
 
+# needed to zip the photos for download
+gem 'rubyzip', '~> 2.3'
+
 gem "pg", ">= 1.1"
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
