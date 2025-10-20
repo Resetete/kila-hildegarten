@@ -1,4 +1,4 @@
-# Lädt ein Webling-Foto und cached es dauerhaft über ActiveStorage (Cloudinary)
+# this class loads the photos from Webling via API and caches it permanently through ActiveStorage (Cloudinary)
 class WeblingPhotoCacheService
   def initialize(photo_id:, api_key: Rails.application.credentials.dig(:webling, :api_key))
     @photo_id = photo_id
@@ -6,18 +6,16 @@ class WeblingPhotoCacheService
   end
 
   def fetch_or_store!
-    # Wenn Datei schon existiert → fertig
+    # when the file already exists
     file = WeblingFile.find_by(webling_id: @photo_id)
     return file if file&.file&.attached?
 
-    # Datei von Webling holen
     data = download_photo_from_webling
     return nil unless data
 
     mime_type = Marcel::MimeType.for(StringIO.new(data))
     filename  = "webling_photo_#{@photo_id}#{extension_for(mime_type)}"
 
-    # Neues WeblingFile erstellen + Datei anhängen
     file ||= WeblingFile.create!(webling_id: @photo_id, content_type: mime_type)
     file.file.attach(
       io: StringIO.new(data),

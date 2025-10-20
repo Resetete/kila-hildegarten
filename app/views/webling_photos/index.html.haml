@@ -50,7 +50,7 @@
                       .card-action
                         %p
                           %label
-                            %input{ type: "checkbox", class: "filled-in photo-checkbox", data: { index: idx }, value: full_file_content }
+                            %input{ type: "checkbox", class: "filled-in photo-checkbox", data: { photo_id: photo_id, index: idx }, value: full_file_content }
                             %span Auswählen
                         = link_to('Original', webling_photo_path(id: photo_id, token: params[:token]), target: "_blank", class: "waves-effect waves-light btn")
               - else
