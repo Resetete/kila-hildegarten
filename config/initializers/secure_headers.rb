@@ -12,7 +12,7 @@ if Rails.env.production?
       frame_ancestors: %w('self' https://hildegarten.webling.eu),
       form_action: %w('self'),
       base_uri: %w('self'),
-      frame_src: %w('self' https://hildegarten.webling.eu)
+      frame_src: %w('self' https://hildegarten.webling.eu https://www.openstreetmap.org)
     }
   end
 else
@@ -27,7 +27,7 @@ else
       frame_ancestors: %w('self' https://hildegarten.webling.eu),
       form_action: %w('self'),
       base_uri: %w('self'),
-      frame_src: %w('self' https://hildegarten.webling.eu)
+      frame_src: %w('self' https://hildegarten.webling.eu https://www.openstreetmap.org)
     }
   end
 end
