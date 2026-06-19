@@ -1,33 +1,9 @@
-# configure requests from other domains/websites
-# this is needed to allow incorporating a subpage as an iframe into webling
-if Rails.env.production?
-  SecureHeaders::Configuration.default do |config|
-    config.csp = {
-      default_src: %w('self'),
-      script_src: %w('self' 'unsafe-inline'),
-      connect_src: %w('self'),
-      img_src: %w('self' data: blob: https://*.dropboxusercontent.com https://res.cloudinary.com),
-      style_src: %w('self' 'unsafe-inline' https://fonts.googleapis.com),
-      font_src: %w('self' data: https://fonts.gstatic.com),
-      frame_ancestors: %w('self' https://hildegarten.webling.eu),
-      form_action: %w('self'),
-      base_uri: %w('self'),
-      frame_src: %w('self' https://hildegarten.webling.eu https://www.openstreetmap.org)
-    }
-  end
-else
-  SecureHeaders::Configuration.default do |config|
-    config.csp = {
-      default_src: %w('self'),
-      script_src: %w('self' 'unsafe-inline' 'unsafe-eval'),
-      connect_src: %w('self'),
-      img_src: %w('self' data: blob: https://*.dropboxusercontent.com https://res.cloudinary.com),
-      style_src: %w('self' 'unsafe-inline' https://fonts.googleapis.com),
-      font_src: %w('self' data: https://fonts.gstatic.com),
-      frame_ancestors: %w('self' https://hildegarten.webling.eu),
-      form_action: %w('self'),
-      base_uri: %w('self'),
-      frame_src: %w('self' https://hildegarten.webling.eu https://www.openstreetmap.org)
-    }
-  end
+# config/initializers/secure_headers.rb
+
+# CSP and X-Frame-Options are managed in config/application.rb
+# to avoid the secure_headers gem mangling https:// URLs.
+# This block only lets secure_headers manage the other minor security headers.
+SecureHeaders::Configuration.default do |config|
+  config.x_frame_options = SecureHeaders::OPT_OUT
+  config.csp = SecureHeaders::OPT_OUT
 end

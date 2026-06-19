@@ -1,27 +1,37 @@
+# config/application.rb
 require_relative 'boot'
 require "logger"
 require "active_support/core_ext/numeric/time"
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module KilaHildegarten
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
     config.assets.initialize_on_precompile = false
     config.assets.check_precompiled_asset = false
 
-    # configure cloudflare to adjust the request header when redirecting from http to https
     require_relative '../lib/middleware/cloudflare'
     config.middleware.use Cloudflare
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    # Setting the secure headers manually to avoid issues with the secure_headers gem
+    # mangling URLs (stripping https://). This is the stable, low-maintenance approach.
+    config.action_dispatch.default_headers.merge!(
+      'X-Frame-Options'         => 'ALLOWFROM https://hildegarten.webling.eu',
+      'Content-Security-Policy' => [
+        "default-src 'self'",
+        "script-src 'self' 'unsafe-inline'",
+        "connect-src 'self'",
+        "img-src 'self' data: blob: https://*.dropboxusercontent.com https://res.cloudinary.com",
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+        "font-src 'self' data: https://fonts.gstatic.com",
+        "frame-ancestors 'self' https://hildegarten.webling.eu",
+        "form-action 'self'",
+        "base-uri 'self'",
+        "frame-src 'self' https://hildegarten.webling.eu https://hildegarten.webling.ch https://www.openstreetmap.org"
+      ].join('; ')
+    )
   end
 end
