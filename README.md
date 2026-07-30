@@ -2,8 +2,6 @@
 
 Here I am building the website for our Kinderladen Kila Hildegarten.
 
-The website is currently reachable through [https://kila-hildegarten.herokuapp.com/](https://kila-hildegarten.herokuapp.com/)
-
 The main website is: [https://kila-hildegarten.de](https://kila-hildegarten.de)
 
 ## Note
@@ -20,9 +18,9 @@ If they are enabled, the links will not work after first-time triggering.
 ## Technical Specifications
 
 - Security policies are managed via the **SecureHeaders** gem. Policies are controlled through `config/initializers/secure_headers.rb`.
-- The app is hosted on **Heroku**.
+- The app is hosted on [**Scalingo**](https://scalingo.com/). 
 - There is also an API connection to **Webling**.
-- **Redis** (Heroku Redis) is used to cache Webling photos for previews.
+- **Redis** (Scalingo Redis) is used to cache Webling photos for previews.
 - Photos are stored on **Dropbox**, using a custom Dropbox connection gem updated for current compatibility.
 
 ---
@@ -33,7 +31,7 @@ This repository contains the Ruby on Rails application for the **Kinderladen Kil
 It serves both the public website and an internal admin integration with [Webling](https://www.webling.eu/).
 
 🌐 **Production:** [https://kila-hildegarten.de](https://kila-hildegarten.de)
-🧪 **Staging (Heroku):** [https://kila-hildegarten.herokuapp.com](https://kila-hildegarten.herokuapp.com)
+🧪 **Staging (Scalingo):** [https://kila-hildegarten.osc-fr1.scalingo.io/](https://kila-hildegarten.osc-fr1.scalingo.io/)
 
 ---
 
@@ -43,9 +41,9 @@ The app provides a CMS-like interface. It allows admins to log in and update web
 
 For our Webling Kila management software, we use a secured page `/webling_photos` for managing photo previews, content pages, and member information synced from Webling.
 Only admins with the correct access token can access this page.
-It uses **Cloudinary** for asset storage and **Redis** caching for photo previews. Cloudinary is configured as a Heroku add-on.
+It uses **Cloudinary** for asset storage and **Redis** caching for photo previews.
 
-The stack is intentionally lightweight and optimized for hosting on **Heroku** with **Cloudflare** as CDN and SSL proxy.
+The stack is intentionally lightweight and optimized for hosting on **Scalingo** with **Cloudflare** as CDN and SSL proxy.
 
 ---
 
@@ -55,9 +53,9 @@ The stack is intentionally lightweight and optimized for hosting on **Heroku** w
 
 - **Ruby on Rails** (7.x)
 - **Ruby version:** specify your current version (e.g. `3.2.3`)
-- **Database:** PostgreSQL (Heroku managed)
-- **Cache:** Redis (Heroku Redis)
-- **Website Hosting:** Heroku
+- **Database:** PostgreSQL (Scalingo managed)
+- **Cache:** Redis (Scalingo Redis)
+- **Website Hosting:** Scalingo.com
 - **SSL:** via Cloudflare
 - **Domain:** managed via `one.com`
 
@@ -76,8 +74,8 @@ The stack is intentionally lightweight and optimized for hosting on **Heroku** w
 
 If assets 404 in production:
 ```bash
-heroku run rails assets:clobber
-heroku run rails assets:precompile
+scalingo --app kila-hildegarten run rails assets:clobber
+scalingo --app kila-hildegarten run rails assets:precompile
 ```
 
 ---
@@ -92,19 +90,22 @@ heroku run rails assets:precompile
 
 ### Security Headers (CSP)
 
-The app uses the **SecureHeaders** gem.
-Configuration is defined in `config/initializers/secure_headers.rb`.
+CSP and `X-Frame-Options` are managed manually in `config/application.rb` via
+`config.action_dispatch.default_headers` to avoid the SecureHeaders gem mangling `https://` URLs.
 
-**Key setting:**
+The SecureHeaders gem is still used for other minor security headers, but opts out of CSP
+and X-Frame-Options (`config/initializers/secure_headers.rb`).
+
+**Key iframe setting** — allows `/webling_photos` to be embedded in Webling:
 ```ruby
-img_src: %w('self' data: blob: https://*.dropboxusercontent.com https://res.cloudinary.com)
+"frame-ancestors 'self' https://hildegarten.webling.eu"
 ```
 
-This allows images to be loaded from:
-- Local assets (`'self'`)
-- Inline data URIs (`data:`)
-- ActiveStorage blob URLs (`blob:`)
-- Dropbox and Cloudinary
+If the iframe ever breaks again, check the actual headers first:
+```bash
+curl -I https://kila-hildegarten.de/
+```
+Look for `content-security-policy` and `x-frame-options` in the output.
 
 ---
 
@@ -158,17 +159,17 @@ The Kila Hildegarten app integrates several external services to deliver optimiz
                                     ▼
                       ┌───────────────────────────┐
                       │  Rails Application        │
-                      │  (Heroku)                 │
+                      │  (Scalingo)                 │
                       │                           │
                       │  • Fetches data from Webling
                       │  • Stores metadata in PostgreSQL
                       │  • Caches previews in Redis
-                      │  • Uses SecureHeaders for CSP
+                      │  • CSP managed via application.rb
                       │  • Serves assets via Asset Pipeline
                       └───────────┬────────────────┘
                                   │
        ActiveStorage              │          Cache Layer
-  (with Cloudinary adapter)       │          (Redis on Heroku)
+  (with Cloudinary adapter)       │          (Redis on Scalingo)
   ┌────────────────────────┐      │      ┌────────────────────┐
   │  Cloudinary CDN        │◄─────┼──────│  Redis              │
   │  Stores image variants │             │  Cached previews    │
@@ -211,7 +212,7 @@ The Kila Hildegarten app integrates several external services to deliver optimiz
 
 ## Key Features
 
-- **SecureHeaders** with custom CSP allows Dropbox and Cloudinary image sources.
+- CSP is managed manually in application.rb, allowing Dropbox and Cloudinary image sources.
 - **Resilient image loading** using lazy `data-src` and fallback placeholders.
 - **HTTPS enforcement** via Cloudflare and trusted proxy config.
 - **Lightweight integration** — Webling acts as backend data source.
@@ -237,18 +238,18 @@ bin/rails s -e production
 
 ## Deployment
 
-Deploy to Heroku:
+Deploy to Scalingo:
 
 ```bash
-git push heroku main
-heroku run rails db:migrate
+git push scalingo main
+scalingo --app kila-hildegarten run rails db:migrate
 ```
 
 Rebuild all assets:
 
 ```bash
-heroku run rails assets:clobber
-heroku run rails assets:precompile
+scalingo --app kila-hildegarten run rails assets:clobber
+scalingo --app kila-hildegarten run rails assets:precompile
 ```
 
 ---
@@ -257,12 +258,14 @@ heroku run rails assets:precompile
 
 | **Task** | **Command** |
 |-----------|-------------|
-| Clear cache | `heroku redis:cli --flushall` |
-| Rebuild assets | `heroku run rails assets:clobber && heroku run rails assets:precompile` |
-| Restart dynos | `heroku restart` |
-| Run database migrations | `heroku run rails db:migrate` |
-| Open Rails console | `heroku run rails c` |
-| Check logs | `heroku logs --tail` |
+| Clear Redis cache | `scalingo --app kila-hildegarten redis-console` → then type `FLUSHALL` |
+| Rebuild assets | `scalingo --app kila-hildegarten run rails assets:clobber && scalingo --app kila-hildegarten run rails assets:precompile` |
+| Restart app | `scalingo --app kila-hildegarten restart` |
+| Run database migrations | `scalingo --app kila-hildegarten run rails db:migrate` |
+| Open Rails console | `scalingo --app kila-hildegarten run rails console` |
+| Check logs | `scalingo --app kila-hildegarten logs -f` |
+| Check env variables | `scalingo --app kila-hildegarten env` |
+
 
 ---
 
@@ -271,8 +274,9 @@ heroku run rails assets:precompile
 | **Issue** | **Description** | **Solution** |
 |------------|-----------------|---------------|
 | Devise login redirects incorrectly (HTTP/HTTPS) | Cloudflare proxy affects request scheme | Use `config.force_ssl = true` and trust proxy headers |
-| Placeholder 404 | Asset pipeline not refreshed | Run `rails assets:clobber && rails assets:precompile` |
+| Placeholder 404 | Asset pipeline not refreshed | Run `scalingo --app kila-hildegarten run rails assets:clobber` and `scalingo --app kila-hildegarten run rails assets:precompile` |
 | Cloudinary images blocked | CSP restriction | Add `https://res.cloudinary.com` to `img_src` in `secure_headers.rb` |
+| iframe blocked in Webling | SecureHeaders gem strips `https://` from `frame-ancestors`, and `x-frame-options: sameorigin` also blocks embedding | CSP and X-Frame-Options are set manually in `application.rb`; do not move them back to `secure_headers.rb` |
 
 ---
 

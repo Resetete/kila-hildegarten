@@ -1,6 +1,6 @@
 # this class loads the photos from Webling via API and caches it permanently through ActiveStorage (Cloudinary)
 class WeblingPhotoCacheService
-  def initialize(photo_id:, api_key: Rails.application.credentials.dig(:webling, :api_key))
+  def initialize(photo_id:, api_key: ENV["WEBLING_API_KEY"] || Rails.application.credentials.dig(:webling, :api_key))
     @photo_id = photo_id
     @api_key  = api_key
   end
